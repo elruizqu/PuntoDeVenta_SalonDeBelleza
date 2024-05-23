@@ -1,0 +1,54 @@
+/* _content/POS_Salon_Belleza/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-xqz7x3l9dt] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-xqz7x3l9dt] {
+  color: #0077cc;
+}
+
+.btn-primary[b-xqz7x3l9dt] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-xqz7x3l9dt], .nav-pills .show > .nav-link[b-xqz7x3l9dt] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-xqz7x3l9dt] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-xqz7x3l9dt] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-xqz7x3l9dt] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-xqz7x3l9dt] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-xqz7x3l9dt] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+body[b-xqz7x3l9dt] {
+    background-image: url('~/Imagenes/fondo.jpg');
+    background-size: cover;
+}

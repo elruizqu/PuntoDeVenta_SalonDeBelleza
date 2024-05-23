@@ -1,0 +1,153 @@
+﻿
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<br />
+<a asp-action="Agregar" class="btn btn-dark" style="-ms-flex-align:end">Agregar Producto Nuevo</a>
+<br />
+<br />
+<h1>Productos en stock</h1>
+<table class="table table-striped">
+  <thead class="table-dark">
+	<tr>
+	  <th scope="col">Nombre</th>
+	  <th scope="col">Descripcion</th>
+	  <th scope="col">Cantidad en stock</th>
+	  <th scope="col">Precio</th>
+	  <th scope="col">Estado</th>
+	  <th scope="col">Acciones</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <td>Shampoo</td>
+	  <td>Shampoo para cabello cenizo</td>
+	  <td>10</td>
+	  <td>15.000</td>
+	  <td style="color: green; font-weight: bold;">Disponible</td>
+	  <td>
+				<a href="" style="text-decoration: none;">Modificar Producto</a> |
+				<a href="" style="text-decoration: none;">Eliminar Producto</a> |
+				<a href="" style="text-decoration: none;">Marcar como agotado</a>
+			</td>
+	</tr>
+	<tr>
+	  <td>Tratamiento</td>
+	  <td>Tratamiento morado para cabello cenizo</td>
+	  <td>5</td>
+	  <td>20.000</td>
+	  <td style="color: green; font-weight: bold;">Disponible</td>
+	  <td>
+				<a href="" style="text-decoration: none;">Modificar Producto</a> |
+				<a href="" style="text-decoration: none;">Eliminar Producto</a> |
+				<a href="" style="text-decoration: none;">Marcar como agotado</a>
+			</td>
+	</tr>
+	<tr>
+	  <td>Gotas</td>
+	  <td>Gotas de Argan para despues de planchar</td>
+	  <td>0</td>
+	  <td>12.000</td>
+	  <td style="color: red; font-weight: bold;">Agotado</td>
+	  <td>
+				<a href="" style="text-decoration: none;">Modificar Producto</a> |
+				<a href="" style="text-decoration: none;">Eliminar Producto</a> |
+				<a href="" style="text-decoration: none;">Marcar como agotado</a>
+			</td>
+	</tr>
+  </tbody>
+</table>
+
+<br />
+
+<h1>Proveedores</h1>
+
+	  <div class="card-group">
+  <div class="card">
+
+	<div class="card-body">
+	  <h3 class="card-title">Salerm</h3>
+	  <h5>Direccion:</h5>
+	  <p>Banco Nacional de San Pedro 100 sur y 205 Oeste
+Contiguo al templo Mormón·11501·San Pedro</p>
+<h5>Contacto:</h5>
+<p>Mariana Alvarado <br /> mariana.alv@salerm.com <br /> +506 2257 57 58</p>
+<h5>Terminos de pago:</h5>
+<p>SINPE MOVIL: +506 8965 3247 <br /> Cuenta BCR: CR4598 1574 9854 5442 <br /> Cuenta BAC: CR4598 1574 9854 5442</p>
+	<BR />
+	  <h5 style="align-text:center;">Calificacion</h5>
+ <div class="rating">
+
+<input type="radio" id="star5" name="rating" value="5" />
+<label for="star5" title="Excelente"></label>
+<input type="radio" id="star4" name="rating" value="4" />
+<label for="star4" title="Muy bueno"></label>
+<input type="radio" id="star3" name="rating" value="3" />
+<label for="star3" title="Bueno"></label>
+<input type="radio" id="star2" name="rating" value="2" />
+<label for="star2" title="Regular"></label>
+<input type="radio" id="star1" name="rating" value="1" />
+<label for="star1" title="Malo"></label>
+</div>  
+<br />
+<a asp-action="Details" class="btn btn-primary">Ver más</a>
+</div>
+  </div>
+  <div class="card">
+	<div class="card-body">
+	  <h3 class="card-title">Super Salon</h3>
+	  <h5>Direccion:</h5>
+	  <p>CENTRO COMERCIAL PLAZA HEREDIA LOCAL E-7 SEGUNDO PISO</p>
+<h5>Contacto:</h5>
+<p>Camila Torres <br /> camila.to@susalon.com <br /> +506 8443 5408</p>
+<h5>Terminos de pago:</h5>
+<p>SINPE MOVIL: +506 7458 6598 <br /> Cuenta BCR: CR4598 1574 9854 5442 <br /> Cuenta BAC: CR4598 1574 9854 5442</p>
+	<BR />
+	<h5>Calificacion</h5>
+ <div class="rating">
+
+<input type="radio" id="star5" name="rating" value="5" />
+<label for="star5" title="Excelente"></label>
+<input type="radio" id="star4" name="rating" value="4" />
+<label for="star4" title="Muy bueno"></label>
+<input type="radio" id="star3" name="rating" value="3" />
+<label for="star3" title="Bueno"></label>
+<input type="radio" id="star2" name="rating" value="2" />
+<label for="star2" title="Regular"></label>
+<input type="radio" id="star1" name="rating" value="1" />
+<label for="star1" title="Malo"></label>
+</div>  
+<br />
+<a asp-action="Details" class="btn btn-primary">Ver más</a>
+</div>
+  </div>
+  <div class="card">
+	<div class="card-body">
+	  <h3 class="card-title">Matz Beauty</h3>
+	  <h5>Direccion:</h5>
+	  <p>rente a las oficinas centrales de Coopealianza. Local esquinero, San José, San Isidro de El General, 11901</p>
+<h5>Contacto:</h5>
+<p>Paola Solano<br />paola.sol@matzbeu.com <br /> +506 8475 9747</p>
+<h5>Terminos de pago:</h5>
+<p>SINPE MOVIL: +506 8695 4578 <br /> Cuenta BCR: CR4598 1574 9854 5442 <br /> Cuenta BAC: CR4598 1574 9854 5442</p>
+	<BR />
+
+	<h5>Calificacion</h5>
+ <div class="rating">
+
+<input type="radio" id="star5" name="rating" value="5" />
+<label for="star5" title="Excelente"></label>
+<input type="radio" id="star4" name="rating" value="4" />
+<label for="star4" title="Muy bueno"></label>
+<input type="radio" id="star3" name="rating" value="3" />
+<label for="star3" title="Bueno"></label>
+<input type="radio" id="star2" name="rating" value="2" />
+<label for="star2" title="Regular"></label>
+<input type="radio" id="star1" name="rating" value="1" />
+<label for="star1" title="Malo"></label>
+</div>  
+<br />
+<a asp-action="Details" class="btn btn-primary">Ver más</a>
+  </div>
+  </div>
+
+</div>

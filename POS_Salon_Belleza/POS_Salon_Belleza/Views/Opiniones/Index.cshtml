@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="opinions-section">
+    <h2>Opiniones de Clientes</h2>
+
+    <!-- Formulario para dejar una opinión -->
+    <div class="opinion-form">
+        <h3>Dejar una Opinión</h3>
+        <form id="opinionForm">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comentario:</label>
+<textarea id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar Opinión</button>
+        </form>
+    </div>
+
+    <br />
+    <!-- Lista de opiniones -->
+    <div class="opinions-list">
+        <h3>Opiniones Recientes</h3>
+        <ul id="opinions">
+            <!-- Las opiniones se mostrarán aquí -->
+            <h6>Anonimo</h6>
+            <p>Muy buen servicio, 5 estrellas.</p>
+            <h6>Carla Quesada</h6>
+            <p>Me encanta el servicio que siempre me brindan, mas que satisfecha.</p>
+            <h6>Anonimo</h6>
+            <p>Me gustaria que me dieran la opcion de ver mi novela.</p>
+        </ul>
+    </div>
+</div>

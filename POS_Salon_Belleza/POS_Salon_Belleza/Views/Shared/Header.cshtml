@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="navbar container-fluid navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-1">
+            <img class="logoimg" src="~/Imagenes/logo3.png" alt="Logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <!------
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Catalogo" asp-action="index">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Carrito" asp-action="index">Carrito</a>
+                    </li>
+                     ----->
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Citas" asp-action="index">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Promociones" asp-action="index">Promociones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="ProgramaLealtad" asp-action="index">Programa Lealtad</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Opiniones" asp-action="index">Opiniones</a>
+                    </li
+
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Inventario" asp-action="index">Inventario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contabilidad" asp-action="index">Contabilidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Reportes" asp-action="index">Reportes</a>
+                    </li>
+                                            
+                </ul>
+                <li class="nav-item" style="list-style-type:none;">
+                    <a style="text-decoration: none;" asp-area=" " asp-controller="Admin" asp-action="index">Login</a>
+                </li>
+                <li class="nav-item" style="list-style-type:none;">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">|</a>
+                </li>
+                <br />
+                <li class="nav-item" style="list-style-type:none;">
+                    <a style="text-decoration: none;" asp-controller="Admin" asp-action="Registro">Registrarse</a>
+                </li>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    
+
+                    <div class="card-body">
+                        <form  method="post" enctype="multipart/form-data">
+
+                            <!--jalar nombre de usuario despues-->
+                            <div class="mb-3">
+                                <label for="NombreCliente_Cita" class="form-label">Nombre</label>
+                                <input required id="NombreCliente_Cita" class="form-control" type="text"  name="NombreCliente_Cita">
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Fecha_Cita" class="form-label">Fecha Cita</label>
+                                <input name="Fecha_Cita" type="date" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Hora_Cita" class="form-label">Hora Cita</label>
+                                <input required id="Hora_Cita" name="Hora_Cita" class="form-control" type="time" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Id_Servicio">Servicio</label>
+                                <select id="Id_Servicio" name="Id_Servicio" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option value="1">Tinte</option>
+                                    <option value="2">Corte de cabello</option>
+                                    <option value="3">Keratina</option>
+                                    <option value="4">Secado y planchado</option>
+                                    <option value="5">Maquillaje</option>
+                                    <option value="6">Servicio de uñas</option>
+                                </select>
+                            </div>
+                            <br />
+                            <div class="mb-3">
+                                <button class="btn btn-success">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

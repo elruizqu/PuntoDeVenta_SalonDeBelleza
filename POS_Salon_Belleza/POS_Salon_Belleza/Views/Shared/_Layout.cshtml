@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - POS_Salon_Belleza</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/POS_Salon_Belleza.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+
+    
+
+    <partial name="Header"/>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+<footer id="footer" class="text-center text-lg-start text-muted">
+  <!-- Section: Links  -->
+  <div class="footercolor">
+  <section class="">
+    <div class="container text-center text-md-start mt-5 mb-2">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>beauty Salon
+          </h6>
+          <p>
+            No dejes que tu vida pase ante tí, sin emoción alguna. Convierteté en una estrella del
+            glamour, de la mano de nuestros especialistas. Tu cabello y cutis merecen ser tratados como
+            una obra de arte. Ven y realiza el cambio que tanto anhelas. Ofrecemos diferentes servicios de
+            belleza tanto para mujeres como para hombres. Tu cuerpo es tu templo y tu lugar de vida
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Horarios
+          </h6>
+          <p>Lunes a Viernes</p>
+          <p>
+            9 am a 7 pm
+          </p>
+          <p>
+           Sabado y Domingo
+          </p>
+          <p>
+            10 am a 8 pm
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Nuestras redes
+          </h6>
+          <p>
+            <a href="https://www.facebook.com" class="text-reset">Facebook</a>
+          </p>
+          <p>
+            <a href="https://www.instagram.com" class="text-reset">Instagram</a>
+          </p>
+          <p>
+            <a href="https://www.whatsapp.com" class="text-reset">Whatsapp</a>
+          </p>
+          <p>
+            <a href="https://www.tiktok.com" class="text-reset">TikTok</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i>Frente a Escuela San Pablo de Barva, Heredia.</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            beautySalon@email.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 506 8525 6219</p>
+          <p><i class="fas fa-print me-3"></i> + 506 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2023 Copyright:
+    <a class="text-reset fw-bold" href="">beauty Salon</a>
+  </div>
+  <!-- Copyright -->
+  </div>
+</footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

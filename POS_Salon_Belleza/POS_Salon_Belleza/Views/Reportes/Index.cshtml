@@ -1,0 +1,152 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes a Hacienda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <br />
+        <br />
+        <section class="modulo">
+            <h2 class="titulos_rep">Reporte Hacienda</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Monto neto</th>
+                        <th>Tariva del IVA</th>
+                        <th>Monto del IVA</th>
+                        <th>Total Facturado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Venta de servicio de maquillaje</td>
+                        <td>₡1 200,000</td>
+                        <td>13%</td>
+                        <td>₡156,000</td>
+                        <td>₡1 356,000</td>
+                    </tr>
+                    <tr>
+                        <td>Venta de productos para cabello</td>
+                        <td>₡1 164,220</td>
+                        <td>13%</td>
+                        <td>₡151,349</td>
+                        <td>₡1 315,569</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 20px; font-weight: bold;">Total: ₡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <br />
+        <br />
+
+        <section class="modulo">
+            <h2 class="titulos_rep">Balance General</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activo</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Efectivo</td>
+                        <td>₡500 000</td>
+                    </tr>
+                    <tr>
+                        <td>Productos maquillaje</td>
+                        <td>₡45 550</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 20px; font-weight: bold;">Total Activos: ₡</td>
+                    </tr>
+                <thead>
+                    <tr>
+                        <th>Pasivo</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Servicios publicos</td>
+                        <td>₡150 000</td>
+                    </tr>
+                    <tr>
+                        <td>Alquiler</td>
+                        <td>₡280 000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 20px; font-weight: bold;">Total Pasivos: ₡</td>
+                    </tr>
+                <thead>
+                    <tr>
+                        <th>Capital</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Capital social</td>
+                        <td>₡1 550 000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 20px; font-weight: bold;">Total Capital: ₡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <br />
+        <br />
+        <section class="modulo">
+            <h2 class="titulos_rep">Rendimiento de Proveedores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Productos Suministrados</th>
+                        <th>Total Gastado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proveedor A</td>
+                        <td>100</td>
+                        <td>₡20,000</td>
+                    </tr>
+                    <tr>
+                        <td>Proveedor B</td>
+                        <td>75</td>
+                        <td>₡15,000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 20px; font-weight: bold;">Total: ₡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <br />
+
+        <button class="boton-izquierda btn btn-dark">Descargar PDF</button>
+    </main>
+</body>
+</html>
