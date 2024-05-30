@@ -1,0 +1,29 @@
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.deps.json
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.pdb
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.sourcelink.json
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\refint\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.pdb
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\ref\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.deps.json
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.pdb
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\refint\DAL.dll
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.pdb
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
+C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\POS_BeautySalon\DAL\obj\Debug\net8.0\ref\DAL.dll
