@@ -4286,11 +4286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Proyecto Diseño y desarrollo\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Proyecto Diseño y desarrollo\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DAL.csproj",
+      "projectPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\elena\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Proyecto Diseño y desarrollo\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\obj\\",
+      "outputPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\elena\\AppData\\Roaming\\NuGet\\NuGet.Config",

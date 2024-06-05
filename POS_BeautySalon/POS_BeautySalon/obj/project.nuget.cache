@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "evb6MWczS9E=",
+  "dgSpecHash": "icjwoKi2f3Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Proyecto Diseño y desarrollo\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\POS_BeautySalon.csproj",
+  "projectFilePath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Diseño y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\POS_BeautySalon.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elena\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\elena\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

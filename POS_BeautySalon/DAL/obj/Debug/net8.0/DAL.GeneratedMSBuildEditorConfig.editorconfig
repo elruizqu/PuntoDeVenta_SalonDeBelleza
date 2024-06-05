@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DAL
-build_property.ProjectDir = C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Proyecto Diseño y desarrollo\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\
+build_property.ProjectDir = C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
