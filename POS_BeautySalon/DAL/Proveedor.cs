@@ -31,5 +31,8 @@ namespace DAL
 
         [DisplayName("Calificación")] //calificacion general promedio entre puntualidad y calidad para reportes
         public int Calificacion { get; set; }
+
+
+        public ICollection<Producto> Productos { get; set; } = new List<Producto>();
     }
 }

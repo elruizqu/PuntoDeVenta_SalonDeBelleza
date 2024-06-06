@@ -13,6 +13,14 @@ namespace DAL
             optionsBuilder.UseSqlServer();
         }
 
-        //DbSet<clase>
+
+        public DbSet<Marca> Marcas { get; set; }
+
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+
+        public DbSet<Factura> Facturas { get; set; }
+
     }
 }

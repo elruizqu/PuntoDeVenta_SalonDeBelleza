@@ -17,5 +17,9 @@ namespace DAL
 
         [DisplayName("Descripción")]
         public String Descripcion { get; set; }
+
+        public ICollection<Producto> Productos { get; set; } = new List<Producto>();
     }
+
+
 }

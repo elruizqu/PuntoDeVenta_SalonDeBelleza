@@ -3,40 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\saloncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\saloncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\authcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\authcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\20240606011655_Estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DAL\\Migrations\\20240606011655_Estado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\owenm\\onedrive\\desktop\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -59,116 +51,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthContext.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\AuthContext.cs",
-              "RelativeDocumentMoniker": "DAL\\AuthContext.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\AuthContext.cs",
-              "RelativeToolTip": "DAL\\AuthContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "20240606013158_TablasIniciales.cs",
+              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs",
+              "RelativeDocumentMoniker": "DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs",
+              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs",
+              "RelativeToolTip": "DAL\\Migrations\\Salon\\20240606013158_TablasIniciales.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwCAAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:37:59.593Z",
+              "WhenOpened": "2024-06-06T01:31:58.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Proveedor.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
-              "RelativeDocumentMoniker": "DAL\\Proveedor.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
-              "RelativeToolTip": "DAL\\Proveedor.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:29:22.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Servicio.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Servicio.cs",
-              "RelativeDocumentMoniker": "DAL\\Servicio.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Servicio.cs",
-              "RelativeToolTip": "DAL\\Servicio.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:24:54.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Categoria.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Categoria.cs",
-              "RelativeDocumentMoniker": "DAL\\Categoria.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Categoria.cs",
-              "RelativeToolTip": "DAL\\Categoria.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:19:40.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Marca.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Marca.cs",
-              "RelativeDocumentMoniker": "DAL\\Marca.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Marca.cs",
-              "RelativeToolTip": "DAL\\Marca.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T01:16:55.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "DAL\\ApplicationUser.cs",
               "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\ApplicationUser.cs",
               "RelativeToolTip": "DAL\\ApplicationUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T04:01:23.556Z"
+              "WhenOpened": "2024-06-06T01:29:38.584Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "20240606011655_Estado.cs",
+              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\20240606011655_Estado.cs",
+              "RelativeDocumentMoniker": "DAL\\Migrations\\20240606011655_Estado.cs",
+              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Migrations\\20240606011655_Estado.cs",
+              "RelativeToolTip": "DAL\\Migrations\\20240606011655_Estado.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T01:16:56.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\appsettings.json",
               "RelativeDocumentMoniker": "POS_BeautySalon\\appsettings.json",
               "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\appsettings.json",
               "RelativeToolTip": "POS_BeautySalon\\appsettings.json",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAMAAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-30T02:11:49.206Z",
+              "WhenOpened": "2024-06-06T01:13:50.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Program.cs",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Program.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Program.cs",
-              "RelativeToolTip": "POS_BeautySalon\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "DocumentIndex": 5,
+              "Title": "Factura.cs",
+              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Factura.cs",
+              "RelativeDocumentMoniker": "DAL\\Factura.cs",
+              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Factura.cs",
+              "RelativeToolTip": "DAL\\Factura.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAADwvyIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T02:10:08.955Z"
+              "WhenOpened": "2024-06-06T01:10:40.103Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SalonContext.cs",
-              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\SalonContext.cs",
-              "RelativeDocumentMoniker": "DAL\\SalonContext.cs",
-              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\SalonContext.cs",
-              "RelativeToolTip": "DAL\\SalonContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
+              "RelativeDocumentMoniker": "DAL\\Proveedor.cs",
+              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
+              "RelativeToolTip": "DAL\\Proveedor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T02:03:17.719Z",
+              "WhenOpened": "2024-06-06T01:09:34.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
+              "RelativeDocumentMoniker": "DAL\\Producto.cs",
+              "ToolTip": "C:\\Users\\owenm\\OneDrive\\Desktop\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
+              "RelativeToolTip": "DAL\\Producto.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAwwDAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T01:06:54.863Z",
               "EditorCaption": ""
             }
           ]

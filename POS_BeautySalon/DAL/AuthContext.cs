@@ -25,5 +25,8 @@ namespace DAL
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer();
         }
+
+        
+
     }
 }
