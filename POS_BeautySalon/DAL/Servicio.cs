@@ -27,5 +27,11 @@ namespace DAL
         [Required]
         public int Precio { get; set; }
 
+        public ICollection<Cita> Cita { get; set; } = new List<Cita>();
+        public Proveedor? Proveedor { get; set; }
+
+        public ICollection<Factura> Facturas { get; set; } = new List<Factura>();
+
+        public ICollection<Promocion> Promociones { get; set; } = new List<Promocion>();
     }
 }

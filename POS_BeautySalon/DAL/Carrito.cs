@@ -9,33 +9,21 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    [Table("Facturas")]
-    public class Factura
+    [Table("Carritos")]
+    public class Carrito
     {
 
         [Key]
-        public int FacturaId { get; set; }
+        public int CarritoId { get; set; }
 
-
-        public int PrecioTotal { get; set; }
-
-        
         [DisplayName("Cliente")]
         public string ClienteId { get; set; }
 
-        [ForeignKey("Servicio")]
-        [DisplayName("Servicio")]
-        public int? ServicioId { get; set; }
-
-        [ForeignKey("Producto")]
-        [DisplayName("Producto")]
-        public int? ProductoId { get; set; }
 
         public ApplicationUser? Cliente { get; set; }
 
-       
+
+        //Relacion Muchos a muchos con tabla intermediaria CarritoProducto
+        public ICollection<CarritoProducto> CarritoProductos { get; set; } = new List<CarritoProducto>();
     }
-
-  
-
 }

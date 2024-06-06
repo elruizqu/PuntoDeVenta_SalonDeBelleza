@@ -44,8 +44,18 @@ namespace DAL
         [DisplayName("Proveedor")]
         public int ProveedorId { get; set; }
 
+
         public Categoria? Categoria { get; set; }
         public Marca? Marca { get; set; }
         public Proveedor? Proveedor { get; set; }
+        
+
+        //Relacion Muchos a muchos con tabla intermediaria CarritoProducto
+        public ICollection<CarritoProducto> CarritoProductos { get; set; } = new List<CarritoProducto>();
+
+        public ICollection<Factura> Facturas { get; set; } = new List<Factura>();
+
+        public ICollection<Promocion> Promociones { get; set; } = new List<Promocion>();
+
     }
 }

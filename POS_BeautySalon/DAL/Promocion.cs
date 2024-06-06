@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    [Table("Facturas")]
-    public class Factura
+    [Table("Promociones")]
+    public class Promocion
     {
 
         [Key]
-        public int FacturaId { get; set; }
+        public int PromocionId { get; set; }
 
+        [DisplayName("Descripción")]
+        public String Descripcion { get; set; }
 
-        public int PrecioTotal { get; set; }
+        [DisplayName("Imagen")]
+        public byte[]? ImagenPromocion { get; set; }
 
-        
-        [DisplayName("Cliente")]
-        public string ClienteId { get; set; }
 
         [ForeignKey("Servicio")]
         [DisplayName("Servicio")]
@@ -31,11 +31,10 @@ namespace DAL
         [DisplayName("Producto")]
         public int? ProductoId { get; set; }
 
-        public ApplicationUser? Cliente { get; set; }
 
        
+        
+
+
     }
-
-  
-
 }
