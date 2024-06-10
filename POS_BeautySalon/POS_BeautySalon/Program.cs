@@ -8,11 +8,15 @@ var connectionString = builder.Configuration.GetConnectionString("Conexion") ?? 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SalonContext>(options => options.UseSqlServer("name=Conexion"));
-builder.Services.AddDbContext<AuthContext>(options => options.UseSqlServer("name=Conexion"));
 
+// Identity
+builder.Services.AddDbContext<AuthContext>(options => options.UseSqlServer("name=Conexion"));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<AuthContext>()
     .AddDefaultUI();
+
+builder.Services.AddRazorPages();
+// Identity
 
 var app = builder.Build();
 
@@ -25,10 +29,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Identity
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Identity
+app.MapRazorPages();
 
 app.Run();
