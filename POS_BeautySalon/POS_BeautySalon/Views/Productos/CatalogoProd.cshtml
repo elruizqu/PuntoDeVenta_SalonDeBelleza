@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DAL.Producto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <br />
+    <div class="contenedor-busq">
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+            <button><img src="~/Imagenes/filtro.jpg" alt="Filtro"></button>
+        </div>
+    </div>
+    <br />
+
+    <h1 class="titulos_cat">PRODUCTOS</h1>
+
+    @foreach (var item in Model)
+    {
+
+        <div class='cards'>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img @if (item.ImagenProducto !=null && item.ImagenProducto.Length>
+                            0)
+                        {
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProducto))" width="100" />
+                        }
+                        else
+                        {
+                            <span>No se cargo una imagen</span>
+                        } />
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                            <h6>@Html.DisplayFor(modelItem => item.Precio)</h6>
+                            <h6 style="color: darkcyan; font-weight: bold;">50 pls</h6>
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </p>
+                            <a class="btn btn-primary">Agregar a la lista de deseos</a>
+                            <br />
+                            <br />
+                            <a class="btn btn-success">Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>

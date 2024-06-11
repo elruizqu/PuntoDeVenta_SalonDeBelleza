@@ -9,111 +9,111 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = POS_Salon_Belleza
 build_property.RootNamespace = POS_Salon_Belleza
-build_property.ProjectDir = C:\Users\elena\source\repos\2024_IIQ\POS_Salon_Belleza\POS_Salon_Belleza\
+build_property.ProjectDir = C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_Salon_Belleza\POS_Salon_Belleza\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\elena\source\repos\2024_IIQ\POS_Salon_Belleza\POS_Salon_Belleza
+build_property.MSBuildProjectDirectory = C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_Salon_Belleza\POS_Salon_Belleza
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Admin/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Admin/Registro.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Admin/Registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVnaXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Carrito/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Carrito/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Catalogo/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Catalogo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Citas/Create.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Citas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Citas/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Citas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Contabilidad/Details.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Contabilidad/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFiaWxpZGFkXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Contabilidad/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Contabilidad/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFiaWxpZGFkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Home/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Home/Privacy.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Agregar.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Agregar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xBZ3JlZ2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Details.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Inventario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Opiniones/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Opiniones/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BpbmlvbmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/ProgramaLealtad/Details.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/ProgramaLealtad/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFMZWFsdGFkXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/ProgramaLealtad/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/ProgramaLealtad/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFMZWFsdGFkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Promociones/Details.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Promociones/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvbW9jaW9uZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Promociones/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Promociones/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvbW9jaW9uZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Reportes/Index.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Reportes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/Error.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/Header.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/_ViewImports.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/_ViewStart.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elena/source/repos/2024_IIQ/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/_Layout.cshtml]
+[C:/Users/elena/Desktop/Universidad/2024/Segundo cuatrimestre/2. Diseño y desarrollo/Github/PuntoDeVenta_SalonDeBelleza/POS_Salon_Belleza/POS_Salon_Belleza/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xqz7x3l9dt

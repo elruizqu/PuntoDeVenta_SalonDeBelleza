@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DAL.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                    @if (item.ImagenProducto != null && item.ImagenProducto.Length > 0)
+                    {
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProducto))" width="100" />
+                    }
+                    else
+                    {
+                        <span>No se cargo una imagen</span>
+                    }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedor.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
