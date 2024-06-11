@@ -110,9 +110,9 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
+                // This counts login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -129,7 +129,16 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    //Checks if the user already exists and gets the AccessFaileCount property
+                    var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
+                    if(user != null && await _signInManager.UserManager.GetAccessFailedCountAsync(user) == 4)
+                    {
+                        ModelState.AddModelError(string.Empty, "Has intentado iniciar sesión múltiples veces. Por favor, inténtalo más tarde :)");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    }                   
                     return Page();
                 }
             }

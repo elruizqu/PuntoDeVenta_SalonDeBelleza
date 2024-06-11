@@ -11,7 +11,16 @@ builder.Services.AddDbContext<SalonContext>(options => options.UseSqlServer("nam
 
 // Identity
 builder.Services.AddDbContext<AuthContext>(options => options.UseSqlServer("name=Conexion"));
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+
+    //Lockout settings
+
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+    options.Lockout.MaxFailedAccessAttempts = 4;
+    options.Lockout.AllowedForNewUsers = true;
+})
     .AddEntityFrameworkStores<AuthContext>()
     .AddDefaultUI();
 
