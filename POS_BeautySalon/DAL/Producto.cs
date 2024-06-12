@@ -57,5 +57,7 @@ namespace DAL
 
         public ICollection<Promocion> Promociones { get; set; } = new List<Promocion>();
 
+        public ICollection<ListaDeseoProducto> ListaDeseoProductos { get; set; } = new List<ListaDeseoProducto>();
+
     }
 }

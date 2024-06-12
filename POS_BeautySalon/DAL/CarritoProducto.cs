@@ -12,16 +12,12 @@ namespace DAL
     [Table("CarritoProductos")]
     public class CarritoProducto
     {
-
         [Key]
         public int CarritoProductoId { get; set; }
-
-        
 
         [ForeignKey("Carrito")]
         [DisplayName("Carrito")]
         public int CarritoId { get; set; }
-
 
         [ForeignKey("Producto")]
         [DisplayName("Producto")]

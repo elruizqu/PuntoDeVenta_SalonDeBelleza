@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\productos\\catalogoprod.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\productos\\catalogoprod.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\servicios\\catalogoserv.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\servicios\\catalogoserv.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\saloncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\saloncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,27 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CatalogoProd.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-11T04:45:09.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CatalogoServ.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Servicios\\CatalogoServ.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Servicios\\CatalogoServ.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Servicios\\CatalogoServ.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\Servicios\\CatalogoServ.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-11T04:44:18.585Z",
+              "Title": "SalonContext.cs",
+              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\SalonContext.cs",
+              "RelativeDocumentMoniker": "DAL\\SalonContext.cs",
+              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\SalonContext.cs",
+              "RelativeToolTip": "DAL\\SalonContext.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAuwCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T22:01:24.152Z",
               "EditorCaption": ""
             }
           ]

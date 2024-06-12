@@ -8,21 +8,21 @@
 <body>
     
     <h1 class="titulos_cat">SERVICIOS</h1>
-
-    @foreach (var item in Model)
-    {
     <div class='cards'>
         <div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+    
             <div class="col">
                 <div class="card h-100">
-                      <img @if (item.ImagenServicio != null && item.ImagenServicio.Length > 0)
+                      @if (item.ImagenServicio != null && item.ImagenServicio.Length > 0)
                         {
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenServicio))" width="100" />
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenServicio))" class="card-img-top" width="100" />
                         }
                         else
                         {
                             <span>No se cargo una imagen</span>
-                        } />
+                        }
                     <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
                         <h6>₡ 8.000</h6>
@@ -36,7 +36,8 @@
                 </div>
             </div>
             
+    }
+
         </div>
     </div>
-    }
 </body>

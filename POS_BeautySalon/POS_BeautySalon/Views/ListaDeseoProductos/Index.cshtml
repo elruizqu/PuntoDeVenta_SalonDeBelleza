@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DAL.ListaDeseoProducto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h2 class="titulos_rep">Lista de Deseos</h2>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <br />
+    <br />
+<section class="modulo">
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
+            </td>
+            <td>
+                
+                <a asp-action="Delete" asp-route-id="@item.ListaDeseoProductoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</section>
+</body>
+</html>

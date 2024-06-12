@@ -96,7 +96,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarritoId"));
 
                     b.Property<string>("ClienteId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CarritoId");
@@ -138,7 +137,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoriaId"));
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoriaId");
@@ -155,7 +153,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CitaId"));
 
                     b.Property<string>("ClienteId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Estado")
@@ -188,7 +185,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FacturaId"));
 
                     b.Property<string>("ClienteId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PrecioTotal")
@@ -211,6 +207,47 @@ namespace DAL.Migrations.Salon
                     b.ToTable("Facturas");
                 });
 
+            modelBuilder.Entity("DAL.ListaDeseo", b =>
+                {
+                    b.Property<int>("ListaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ListaID"));
+
+                    b.Property<string>("ClienteId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ListaID");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("ListaDeseos");
+                });
+
+            modelBuilder.Entity("DAL.ListaDeseoProducto", b =>
+                {
+                    b.Property<int>("ListaDeseoProductoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ListaDeseoProductoId"));
+
+                    b.Property<int>("ListaID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ListaDeseoProductoId");
+
+                    b.HasIndex("ListaID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("ListaDeseoProductos");
+                });
+
             modelBuilder.Entity("DAL.Marca", b =>
                 {
                     b.Property<int>("MarcaId")
@@ -220,7 +257,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MarcaId"));
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MarcaId");
@@ -243,7 +279,6 @@ namespace DAL.Migrations.Salon
                         .HasColumnType("int");
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Estado")
@@ -285,7 +320,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PromocionId"));
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("ImagenPromocion")
@@ -332,7 +366,6 @@ namespace DAL.Migrations.Salon
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProveedorId");
@@ -349,7 +382,6 @@ namespace DAL.Migrations.Salon
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServicioId"));
 
                     b.Property<string>("Descripcion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("ImagenServicio")
@@ -376,9 +408,7 @@ namespace DAL.Migrations.Salon
                 {
                     b.HasOne("DAL.ApplicationUser", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClienteId");
 
                     b.Navigation("Cliente");
                 });
@@ -406,9 +436,7 @@ namespace DAL.Migrations.Salon
                 {
                     b.HasOne("DAL.ApplicationUser", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClienteId");
 
                     b.HasOne("DAL.Servicio", "Servicio")
                         .WithMany("Cita")
@@ -425,9 +453,7 @@ namespace DAL.Migrations.Salon
                 {
                     b.HasOne("DAL.ApplicationUser", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClienteId");
 
                     b.HasOne("DAL.Producto", null)
                         .WithMany("Facturas")
@@ -438,6 +464,34 @@ namespace DAL.Migrations.Salon
                         .HasForeignKey("ServicioId");
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("DAL.ListaDeseo", b =>
+                {
+                    b.HasOne("DAL.ApplicationUser", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId");
+
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("DAL.ListaDeseoProducto", b =>
+                {
+                    b.HasOne("DAL.ListaDeseo", "ListaDeseo")
+                        .WithMany("ListaDeseoProductos")
+                        .HasForeignKey("ListaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Producto", "Producto")
+                        .WithMany("ListaDeseoProductos")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ListaDeseo");
+
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("DAL.Producto", b =>
@@ -497,6 +551,11 @@ namespace DAL.Migrations.Salon
                     b.Navigation("Productos");
                 });
 
+            modelBuilder.Entity("DAL.ListaDeseo", b =>
+                {
+                    b.Navigation("ListaDeseoProductos");
+                });
+
             modelBuilder.Entity("DAL.Marca", b =>
                 {
                     b.Navigation("Productos");
@@ -507,6 +566,8 @@ namespace DAL.Migrations.Salon
                     b.Navigation("CarritoProductos");
 
                     b.Navigation("Facturas");
+
+                    b.Navigation("ListaDeseoProductos");
 
                     b.Navigation("Promociones");
                 });

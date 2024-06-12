@@ -31,5 +31,8 @@ namespace DAL
 
         public DbSet<Cita> Citas { get; set; }
 
+        public DbSet<ListaDeseo> ListaDeseos { get; set; }
+
+        public DbSet<ListaDeseoProducto> ListaDeseoProductos { get; set; }
     }
 }
