@@ -56,6 +56,14 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            /// 
+
+            [Display(Name = "Nombre")]
+            public string Nombre { get; set; }
+
+            [Display(Name = "Apellido")]
+            public string Apellido { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -70,6 +78,8 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
+                Nombre = user.Nombre,
+                Apellido = user.Apellido,
                 PhoneNumber = phoneNumber
             };
         }
@@ -109,6 +119,15 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+
+            user.Nombre = Input.Nombre;
+            user.Apellido = Input.Apellido;
+            var updateResult = await _userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                StatusMessage = "Unexpected error when trying to update profile";
+                return RedirectToPage();
             }
 
             await _signInManager.RefreshSignInAsync(user);
