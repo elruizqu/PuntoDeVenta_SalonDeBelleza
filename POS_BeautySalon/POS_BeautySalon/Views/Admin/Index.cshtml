@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DAL.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+    <br>
+    </br>
+<h2>Usuarios Registrados</h2>
+
+<br>
+
+<p>
+    <a asp-action="Create">Crear nueva cuenta</a>
+</p>
+
+<section class="modulo">
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.Nombre</td>
+                <td>@user.Apellido</td>
+                <td>@user.Estado</td>
+                <td>
+                    <a asp-controller="Admin" asp-action="Edit" asp-route-id="@user.Id">Editar</a> |
+                        <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Eliminar</a> |
+
+                        <a asp-controller="Admin" asp-action="Block" asp-route-id="@user.Id">Bloquear</a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </section>
+
