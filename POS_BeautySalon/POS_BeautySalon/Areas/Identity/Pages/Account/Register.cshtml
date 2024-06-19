@@ -164,8 +164,9 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
 
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-            <button type="button" class="green" onclick="location.href='#'">Login</button> @*Revisar Navegacion*@
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg  btn-dark">Register</button>
+            
+            <a href="./Login?returnUrl=@Model.ReturnUrl" class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;">Login</a>
 
         </form>
     </div>

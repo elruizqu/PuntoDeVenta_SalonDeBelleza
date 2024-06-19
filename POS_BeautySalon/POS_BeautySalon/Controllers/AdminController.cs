@@ -6,7 +6,7 @@ using DAL;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
-//using YourNamespace.Models;
+
 
 namespace POS_BeautySalon.Controllers
 {
@@ -47,7 +47,7 @@ namespace POS_BeautySalon.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _userManager.CreateAsync(user, "Password123!"); 
+                var result = await _userManager.CreateAsync(user, "Password123!");
                 if (result.Succeeded)
                 {
                     return RedirectToAction(nameof(Index));
@@ -72,7 +72,7 @@ namespace POS_BeautySalon.Controllers
             }
 
             var user = await _userManager.FindByIdAsync(id);
-            
+
             if (user == null)
             {
                 return NotFound();
@@ -80,7 +80,7 @@ namespace POS_BeautySalon.Controllers
             return View(user);
         }
 
-        // edit (POST)
+        // Edit (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ApplicationUser user)
@@ -94,7 +94,7 @@ namespace POS_BeautySalon.Controllers
                 }
 
                 existingUser.Email = user.Email;
-                existingUser.UserName = user.UserName;
+                //existingUser.UserName = user.UserName;
                 existingUser.Nombre = user.Nombre;
                 existingUser.Apellido = user.Apellido;
                 existingUser.Estado = user.Estado;
@@ -121,8 +121,14 @@ namespace POS_BeautySalon.Controllers
 
 
         // DELETE 
+
         public async Task<IActionResult> Delete(string id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
@@ -132,8 +138,10 @@ namespace POS_BeautySalon.Controllers
             return View(user);
         }
 
-        //DELETE POST
+
+        // DELETE (POST)
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -148,12 +156,39 @@ namespace POS_BeautySalon.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            // Handle errors here
+            // Manejar errores aquí
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
             return View(user);
         }
 
-        // BLOCK
-        public async Task<IActionResult> Block(string id)
+
+
+        // Locked Account GET
+        public async Task<IActionResult> Locked(string? id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+
+        // Locked Account POST
+
+
+        public async Task<IActionResult> LockedConfirmed(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
@@ -161,22 +196,50 @@ namespace POS_BeautySalon.Controllers
                 return NotFound();
             }
 
-            // Implementa el bloqueo del usuario según tu lógica
-            // Por ejemplo, puedes establecer una bandera en una propiedad personalizada
-            // o deshabilitar la cuenta del usuario.
+            // Fecha específica para bloquear
+            user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100);
 
-            // user.LockoutEnd = DateTime.Now.AddYears(100); // Ejemplo para bloquear al usuario hasta una fecha específica.
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
                 return RedirectToAction(nameof(Index));
             }
 
-            // Handle errors here
+           
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
             return View(user);
         }
+
+
+        public async Task<IActionResult> Unlock(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+           
+            user.LockoutEnd =null;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return View(user);
+        }
+
     }
-
-
-   
 }

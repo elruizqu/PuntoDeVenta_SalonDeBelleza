@@ -186,10 +186,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Admin/Block.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQmxvY2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Admin/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -204,6 +200,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Admin/Locked.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9ja2VkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Admin/Unlock.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVW5sb2NrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/owenm/OneDrive/Desktop/PuntoDeVenta_SalonDeBelleza/POS_BeautySalon/POS_BeautySalon/Views/Home/Index.cshtml]

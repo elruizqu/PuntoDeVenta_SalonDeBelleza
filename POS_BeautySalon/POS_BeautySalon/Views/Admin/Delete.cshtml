@@ -2,9 +2,10 @@
 
 <h2>Eliminar Cuentas de Usuario</h2>
 
+
 <div>
     <h3>¿Estás seguro que quieres eliminar a @Model.Email?</h3>
-    <form asp-action="DeleteConfirmed">
+    <form asp-action="Delete" method="post">
         <input type="hidden" asp-for="Id" />
         <button type="submit" class="btn btn-danger">Eliminar</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>

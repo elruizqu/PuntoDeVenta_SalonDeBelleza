@@ -1,0 +1,11 @@
+﻿
+@model DAL.ApplicationUser
+
+<div>
+    <h3>¿Estás seguro que quieres desbloquear a @Model.Email?</h3>
+    <form asp-action="Unlock" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-success">Desbloquear</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

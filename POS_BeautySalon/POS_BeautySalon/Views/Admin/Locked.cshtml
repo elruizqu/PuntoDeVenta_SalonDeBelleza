@@ -4,9 +4,13 @@
 
 <div>
     <h3>¿Estás seguro que quieres bloquear a @Model.Email?</h3>
-    <form asp-action="Block">
+    <form asp-action="Locked" method="post">
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-warning">Bloquear</button>
+        <button type="submit" class="btn btn-dark">Bloquear</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
