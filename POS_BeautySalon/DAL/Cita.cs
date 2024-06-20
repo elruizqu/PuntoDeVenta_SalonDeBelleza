@@ -30,6 +30,8 @@ namespace DAL
         public DateTime Fecha { get; set; }
         public DateTime Hora { get; set; }
 
+        public string? Notas { get; set; }
+
         //Navegacion
         public ApplicationUser? Cliente { get; set; }
         public Servicio? Servicio { get; set; }

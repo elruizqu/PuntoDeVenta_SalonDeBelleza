@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DAL.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h2 class="titulos_rep">Citas</h2>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<p>
+    <a asp-action="Create">Agendar cita</a>
+</p>
+<body>
+    <br />
+    <br />
+<section class="modulo">
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Fecha.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @item.Hora.ToString("HH:mm")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Servicio.Nombre) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CitaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CitaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CitaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</section>
+</body>
+</html>
