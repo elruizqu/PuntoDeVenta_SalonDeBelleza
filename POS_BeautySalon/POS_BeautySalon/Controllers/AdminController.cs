@@ -187,7 +187,8 @@ namespace POS_BeautySalon.Controllers
 
         // Locked Account POST
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> LockedConfirmed(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -198,6 +199,7 @@ namespace POS_BeautySalon.Controllers
 
             // Fecha específica para bloquear
             user.LockoutEnd = DateTimeOffset.UtcNow.AddYears(100);
+            user.Estado = 0;
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
@@ -215,7 +217,30 @@ namespace POS_BeautySalon.Controllers
         }
 
 
-        public async Task<IActionResult> Unlock(string id)
+
+        // Unlock GET
+        public async Task<IActionResult> Unlock(string? id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+
+        // Unlock POST
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UnlockConfirmed(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
@@ -223,8 +248,9 @@ namespace POS_BeautySalon.Controllers
                 return NotFound();
             }
 
-           
-            user.LockoutEnd =null;
+            // Para quitar la fecha de bloqueo y cambiar el estado a activo 1
+            user.LockoutEnd = null;
+            user.Estado = 1;
 
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
@@ -232,7 +258,6 @@ namespace POS_BeautySalon.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);

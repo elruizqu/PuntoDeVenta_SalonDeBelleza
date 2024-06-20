@@ -1,16 +1,19 @@
 ﻿@model DAL.ApplicationUser
 
+
+
 <h2>Bloquear Usuario</h2>
 
 <div>
     <h3>¿Estás seguro que quieres bloquear a @Model.Email?</h3>
-    <form asp-action="Locked" method="post">
+    <form asp-action="LockedConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <button type="submit" class="btn btn-dark">Bloquear</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
-
+<br>
+<br>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver</a>
 </div>
