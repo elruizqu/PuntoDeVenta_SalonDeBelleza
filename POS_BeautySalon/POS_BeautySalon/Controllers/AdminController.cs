@@ -6,6 +6,7 @@ using DAL;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace POS_BeautySalon.Controllers
@@ -25,7 +26,7 @@ namespace POS_BeautySalon.Controllers
             _AuthContext = AuthContext;
         }
 
-
+        [Authorize(Roles = "Administrador")]
         public IActionResult Index()
         {
             var users = _userManager.Users.ToList();
@@ -35,12 +36,14 @@ namespace POS_BeautySalon.Controllers
 
 
         // CREATE
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
         }
 
         // CREATE (POST)
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ApplicationUser user)
@@ -64,6 +67,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // EDIT (GET)
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(string? id)
         {
             if (string.IsNullOrEmpty(id))
@@ -81,6 +85,7 @@ namespace POS_BeautySalon.Controllers
         }
 
         // Edit (POST)
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ApplicationUser user)
@@ -121,7 +126,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // DELETE 
-
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -140,6 +145,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // DELETE (POST)
+        [Authorize(Roles = "Administrador")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -168,6 +174,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // Locked Account GET
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Locked(string? id)
         {
             if (string.IsNullOrEmpty(id))
@@ -186,7 +193,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // Locked Account POST
-
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LockedConfirmed(string id)
@@ -219,6 +226,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // Unlock GET
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Unlock(string? id)
         {
             if (string.IsNullOrEmpty(id))
@@ -237,7 +245,7 @@ namespace POS_BeautySalon.Controllers
 
 
         // Unlock POST
-
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UnlockConfirmed(string id)
