@@ -25,5 +25,18 @@ namespace DAL
 
         //Relacion Muchos a muchos con tabla intermediaria CarritoProducto
         public ICollection<CarritoProducto> CarritoProductos { get; set; } = new List<CarritoProducto>();
+
+        //Método para calcular el monto total del carrito
+        public int CalcularTotal()
+        {
+            int total = 0;
+
+            foreach (var carritoProducto in CarritoProductos)
+            {
+                total += carritoProducto.Producto.Precio * carritoProducto.Cantidad;
+            }
+
+            return total;
+        }
     }
 }

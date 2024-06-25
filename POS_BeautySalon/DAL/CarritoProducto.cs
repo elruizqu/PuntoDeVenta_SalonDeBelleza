@@ -23,6 +23,8 @@ namespace DAL
         [DisplayName("Producto")]
         public int ProductoId { get; set; }
 
+        public int Cantidad { get; set; }
+
         // Propiedades de navegación
         public Carrito? Carrito { get; set; }
         public Producto? Producto { get; set; }
