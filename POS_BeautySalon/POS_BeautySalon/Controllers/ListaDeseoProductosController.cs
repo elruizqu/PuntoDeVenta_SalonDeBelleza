@@ -75,6 +75,7 @@ namespace POS_BeautySalon.Controllers
             if (listaDeseo == null)
             {
                 // Si el usuario no tiene una lista de deseos, redirigir o manejar de alguna manera
+                // Enviar parametros de usuairo y nombre cuando se esta creando la cuenta en register para la creacion de lista de deseos desde el register
                 return RedirectToAction(nameof(Index));
             }
 

@@ -38,13 +38,11 @@
                             <p class="card-text">
                                 @Html.DisplayFor(modelItem => item.Descripcion)
                             </p>
-                            <div class="btn btn-primary">
-                                <a class="btn btn-primary" asp-controller="ListaDeseoProductos" asp-action="Create" asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>
-                            </div>
+                                <a class="w-100 btn btn-lg  btn-dark" asp-controller="ListaDeseoProductos" asp-action="Create" asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>
                             
                             <br />
                             <br />
-                            <a class="btn btn-success">Agregar al carrito</a>
+                            <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;">Agregar al carrito</a>
                         </div>
                     </div>
                 </div>

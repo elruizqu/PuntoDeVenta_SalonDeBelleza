@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DAL;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using DAL.Migrations.Salon;
 
 namespace POS_BeautySalon.Controllers
 {
@@ -64,21 +65,9 @@ namespace POS_BeautySalon.Controllers
         }
 
         // GET: Citas/Create
-        public async Task<IActionResult> CreateAsync()
+        public async Task<IActionResult> CreateAsync(int servicioId)
         {
-            /*
-            var usuariosCliente = await _userManager.GetUsersInRoleAsync("Cliente");
-
-            var clientesSelectList = usuariosCliente.Select(u => new SelectListItem
-            {
-                Text = u.Nombre,
-                Value = u.Id
-            }).ToList();
             
-            //ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre");
-            ViewData["ClienteId"] = clientesSelectList;
-            ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
-            return View();*/
             if (User.IsInRole("Administrador"))
             {
                 var usuariosCliente = await _userManager.GetUsersInRoleAsync("Cliente");
@@ -97,17 +86,24 @@ namespace POS_BeautySalon.Controllers
                 string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
                 ViewData["ClienteId"] = new List<SelectListItem>
-        {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-        };
+                {
+                    new SelectListItem
+                    {
+                    Text = User.Identity.Name,
+                    Value = idUsuarioLogeado
+                    }
+                };
             }
 
+            var cita = new Cita
+            {
+                ServicioId = servicioId
+               
+            };
+
+           
             ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
-            return View();
+            return View(cita);
         }
 
         // POST: Citas/Create
@@ -120,7 +116,16 @@ namespace POS_BeautySalon.Controllers
             
             var identidad = User.Identity as ClaimsIdentity;
             string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            
+
+            ViewData["ClienteId"] = new List<SelectListItem>
+            {
+            new SelectListItem
+            {
+                Text = User.Identity.Name,
+                Value = idUsuarioLogeado
+            }
+            };
+
             if (!User.IsInRole("Administrador"))
             {
                 cita.ClienteId = idUsuarioLogeado;
@@ -130,13 +135,18 @@ namespace POS_BeautySalon.Controllers
 
             if (ModelState.IsValid)
             {
-                
-
                 //validacion de cita antes del dia actual
                 if (cita.Fecha < DateTime.Today)
                 {
                     ModelState.AddModelError("", "No se pueden programar citas en fechas anteriores a la fecha actual.");
-                    ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre");
+                    ViewData["ClienteId"] = new List<SelectListItem>
+            {
+            new SelectListItem
+            {
+                Text = User.Identity.Name,
+                Value = idUsuarioLogeado
+            }
+            };
                     ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
                     return View(cita);
                 }
@@ -146,7 +156,14 @@ namespace POS_BeautySalon.Controllers
                     cita.Hora.TimeOfDay >= new TimeSpan(19, 0, 0))
                 {
                     ModelState.AddModelError("", "Las citas solo se pueden programar de lunes a sábado, entre las 7 am y las 7 pm.");
-                    ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre");
+                    ViewData["ClienteId"] = new List<SelectListItem>
+            {
+            new SelectListItem
+            {
+                Text = User.Identity.Name,
+                Value = idUsuarioLogeado
+            }
+            };
                     ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
                     return View(cita);
                 }
@@ -170,7 +187,14 @@ namespace POS_BeautySalon.Controllers
                 if (conflictingCitas.Any())
                 {
                     ModelState.AddModelError("", "Ya existe una cita programada en el mismo horario o dentro del intervalo de 2 horas.");
-                    ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre");
+                    ViewData["ClienteId"] = new List<SelectListItem>
+            {
+            new SelectListItem
+            {
+                Text = User.Identity.Name,
+                Value = idUsuarioLogeado
+            }
+            };
                     ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
                     return View(cita);
                 }
@@ -181,7 +205,14 @@ namespace POS_BeautySalon.Controllers
 
 
             }
-            ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre", cita.ClienteId);
+            ViewData["ClienteId"] = new List<SelectListItem>
+            {
+            new SelectListItem
+            {
+                Text = User.Identity.Name,
+                Value = idUsuarioLogeado
+            }
+            };
             ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre", cita.ServicioId);
             return View(cita);
         }
