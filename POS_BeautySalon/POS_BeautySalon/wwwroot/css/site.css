@@ -386,10 +386,8 @@ body {
 .busqueda {
     display: flex;
     align-items: center;
-    width: 700px;
-    height: 50px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -397,7 +395,6 @@ body {
         flex: 1;
         border: none;
         padding: 8px;
-        font-size: 30px;
     }
 
     .busqueda button {

@@ -25,10 +25,48 @@ namespace POS_BeautySalon.Controllers
             return View(await salonContext.ToListAsync());
         }
 
-        public async Task<IActionResult> CatalogoProd()
+        public async Task<IActionResult> CatalogoProd(string searchTerm, int? categoriaId)
         {
-            var salonContext = _context.Productos.Include(p => p.Categoria).Include(p => p.Marca).Include(p => p.Proveedor);
+            /*var salonContext = _context.Productos
+                .Include(p => p.Categoria)
+                .Include(p => p.Marca)
+                .Include(p => p.Proveedor);
             return View(await salonContext.ToListAsync());
+            var productos = _context.Productos
+        .Include(p => p.Categoria)
+        .Include(p => p.Marca)
+        .Include(p => p.Proveedor)
+        .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                productos = productos.Where(p => p.Nombre.Contains(searchTerm) || p.Categoria.Descripcion.Contains(searchTerm));
+            }
+
+            ViewData["searchTerm"] = searchTerm;
+
+            return View(await productos.ToListAsync());*/
+            var productos = _context.Productos
+        .Include(p => p.Categoria)
+        .Include(p => p.Marca)
+        .Include(p => p.Proveedor)
+        .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                productos = productos.Where(p => p.Nombre.Contains(searchTerm));
+            }
+
+            if (categoriaId.HasValue)
+            {
+                productos = productos.Where(p => p.CategoriaId == categoriaId.Value);
+            }
+
+            var categorias = await _context.Categorias.ToListAsync();
+            ViewBag.Categorias = new SelectList(categorias, "CategoriaId", "Descripcion", categoriaId);
+            ViewData["searchTerm"] = searchTerm;
+
+            return View(await productos.ToListAsync());
         }
 
         // GET: Productos/Details/5

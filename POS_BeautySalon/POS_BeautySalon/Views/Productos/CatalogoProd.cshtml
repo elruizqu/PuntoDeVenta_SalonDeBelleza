@@ -8,9 +8,17 @@
     <br />
     <div class="contenedor-busq">
         <div class="busqueda">
-            <input type="text" placeholder="Buscar...">
-            <button><img src="~/Imagenes/filtro.jpg" alt="Filtro"></button>
+            <form asp-controller="Productos" asp-action="CatalogoProd" method="get">
+                <input type="text" name="searchTerm" placeholder="Buscar..." value="@ViewData["searchTerm"]">
+                <select name="categoriaId" asp-items="ViewBag.Categorias">
+                    <option value="">Todas las categorías</option>
+                </select>
+                <br />
+                <br />
+                <button class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black; ">Buscar</button>
+            </form>
         </div>
+        
     </div>
     <br />
 
