@@ -45,6 +45,7 @@ namespace POS_BeautySalon.Controllers
            return View(await salonContext.ToListAsync());*/
         }
 
+
         // GET: ListaDeseos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,6 +67,11 @@ namespace POS_BeautySalon.Controllers
             return View(listaDeseo);
         }
 
+
+
+
+
+
         // GET: ListaDeseos/Create
         [Authorize]
         public IActionResult Create()
@@ -74,9 +80,10 @@ namespace POS_BeautySalon.Controllers
             return View();
         }
 
+
         // POST: ListaDeseos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -98,6 +105,9 @@ namespace POS_BeautySalon.Controllers
            // ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre", listaDeseo.ClienteId);
             return View(listaDeseo);
         }
+
+
+
 
         // GET: ListaDeseos/Edit/5
         public async Task<IActionResult> Edit(int? id)

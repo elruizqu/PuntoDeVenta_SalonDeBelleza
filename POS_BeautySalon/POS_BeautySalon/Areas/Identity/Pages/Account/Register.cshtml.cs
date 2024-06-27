@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace POS_BeautySalon.Areas.Identity.Pages.Account
@@ -30,13 +31,15 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly SalonContext _context; //Para poder crear lista de deseo al momento que un usuario se registre
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            SalonContext context)  //Para poder crear lista de deseo al momento que un usuario se registre
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +47,7 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context; //Para poder crear lista de deseo al momento que un usuario se registre
         }
 
         /// <summary>
@@ -116,47 +120,64 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
-        {
-            returnUrl ??= Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
-            {
-                var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                user.Nombre = Input.Nombre;
-                user.Apellido = Input.Apellido;
-                user.Estado = 1;
-                var result = await _userManager.CreateAsync(user, Input.Password);
-
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User created a new account with password.");
-                    //Para agregar el tipo de rol
-                    var resultRole = await _userManager.AddToRoleAsync(user, "Cliente"); 
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+       
 
 
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
+         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+         {
+             returnUrl ??= Url.Content("~/");
+             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-            // If we got this far, something failed, redisplay form
-            return Page();
-        }
+             if (ModelState.IsValid)
+             {
+                 var user = CreateUser();
+
+                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                 user.Nombre = Input.Nombre;
+                 user.Apellido = Input.Apellido;
+                 user.Estado = 1;
+                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                 if (result.Succeeded)
+                 {
+                     _logger.LogInformation("User created a new account with password.");
+                     //Para agregar el tipo de rol
+                     var resultRole = await _userManager.AddToRoleAsync(user, "Cliente");
+
+                     //Para poder crear lista de deseo al momento que un usuario se registre
+                     var listaDeseos = new ListaDeseo
+                     {
+                         ClienteId = user.Id
+                         
+                     };
+                     _context.ListaDeseos.Add(listaDeseos);
+                     await _context.SaveChangesAsync();
+
+                     await _signInManager.SignInAsync(user, isPersistent: false);
+                     return LocalRedirect(returnUrl);
+
+
+                 }
+                 foreach (var error in result.Errors)
+                 {
+                     ModelState.AddModelError(string.Empty, error.Description);
+                 }
+             }
+
+             // If we got this far, something failed, redisplay form
+             return Page();
+         }
+
+
 
         private ApplicationUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<ApplicationUser>();
+                return Activator.CreateInstance<ApplicationUser>(); 
+
             }
             catch
             {

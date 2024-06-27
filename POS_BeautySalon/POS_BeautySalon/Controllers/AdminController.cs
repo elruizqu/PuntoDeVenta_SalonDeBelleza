@@ -17,13 +17,15 @@ namespace POS_BeautySalon.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly AuthContext _AuthContext;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly SalonContext _salonContext;
 
-
-        public AdminController(UserManager<ApplicationUser> userManager, AuthContext AuthContext, SignInManager<ApplicationUser> signInManager)
+        public AdminController(UserManager<ApplicationUser> userManager, AuthContext AuthContext, SignInManager<ApplicationUser> signInManager, SalonContext salonContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _AuthContext = AuthContext;
+            _salonContext = salonContext;
+              
         }
 
         [Authorize(Roles = "Administrador")]
@@ -156,6 +158,23 @@ namespace POS_BeautySalon.Controllers
                 return NotFound();
             }
 
+            // Eliminar la lista de deseos del usuario
+            var listaDeseo = await _salonContext.ListaDeseos
+                .Include(ld => ld.ListaDeseoProductos)
+                .FirstOrDefaultAsync(ld => ld.ClienteId == id);
+
+            if (listaDeseo != null)
+            {
+                // Eliminar los productos asociados a la lista de deseos
+                _salonContext.ListaDeseoProductos.RemoveRange(listaDeseo.ListaDeseoProductos);
+
+                // Eliminar la lista de deseos del usuario
+                _salonContext.ListaDeseos.Remove(listaDeseo);
+            }
+
+            await _salonContext.SaveChangesAsync();
+
+            //Eliminar el usuario
             var result = await _userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
