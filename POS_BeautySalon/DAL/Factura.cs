@@ -16,10 +16,8 @@ namespace DAL
         [Key]
         public int FacturaId { get; set; }
 
-
         public int PrecioTotal { get; set; }
-
-        
+ 
         [DisplayName("Cliente")]
         public string ClienteId { get; set; }
 
@@ -31,11 +29,6 @@ namespace DAL
         [DisplayName("Producto")]
         public int? ProductoId { get; set; }
 
-        public ApplicationUser? Cliente { get; set; }
-
-       
+        public ApplicationUser? Cliente { get; set; }      
     }
-
-  
-
 }

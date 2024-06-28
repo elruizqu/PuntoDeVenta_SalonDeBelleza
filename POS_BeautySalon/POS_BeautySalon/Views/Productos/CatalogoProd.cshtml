@@ -41,16 +41,21 @@
                         }
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
-                            <h6>@Html.DisplayFor(modelItem => item.Precio)</h6>
+                            <h6>₡@Html.DisplayFor(modelItem => item.Precio)</h6>
                             <h6 style="color: darkcyan; font-weight: bold;">50 pls</h6>
                             <p class="card-text">
                                 @Html.DisplayFor(modelItem => item.Descripcion)
                             </p>
-                                <a class="w-100 btn btn-lg  btn-dark" asp-controller="ListaDeseoProductos" asp-action="Create" asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>
-                            
+                                <a class="w-100 btn btn-lg  btn-dark" asp-controller="ListaDeseoProductos" asp-action="Create" 
+                                asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>  
                             <br />
                             <br />
-                            <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;">Agregar al carrito</a>
+                            <form asp-controller="Carrito" asp-action="AgregarAlCarrito" method="Post">
+                                <input type="hidden" name="productoId" value="@item.ProductoId"/>
+                                <button type="submit" class="w-100 btn btn-lg  btn-dark" 
+                                    style="background-color:pink; 
+                                    color: black;">Agregar al carrito</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -60,3 +65,6 @@
         </div>
     </div>
 </body>
+
+@* <a class="w-100 btn btn-lg  btn-dark" asp-controller="Carrito" asp-action="AgregarAlCarrito" 
+asp-route-productoId="@item.ProductoId" style="background-color:pink; color: black;">Agregar al carrito</a> *@

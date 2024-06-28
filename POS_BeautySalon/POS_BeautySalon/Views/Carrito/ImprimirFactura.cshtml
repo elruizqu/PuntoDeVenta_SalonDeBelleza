@@ -1,0 +1,25 @@
+﻿@using DAL
+
+<h1>Factura</h1>
+
+<p>Consecutivo: @ViewBag.Consecutivo</p>
+
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+    </tr>
+    @foreach (var item in ViewBag.ProductosEnCarrito)
+    {
+        <tr>
+            <td>@item.Producto.Nombre</td>
+            <td>@item.Cantidad</td>
+            <td>₡@item.Producto.Precio</td>
+        </tr>
+    }
+</table>
+
+<p>Total: ₡@ViewBag.Total</p>
+
+<a onclick="window.print()" class="btn btn-dark" asp-controller="Carrito" asp-action="ImprimirFactura">Imprimir factura</a>
