@@ -56,6 +56,15 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> EditarCantidad(int carritoProductoId, int nuevaCantidad)
         {
             var carritoProducto = await _salonContext.CarritoProductos.FindAsync(carritoProductoId);
+            var producto = await _salonContext.Productos.SingleAsync(p => p.ProductoId == 
+            carritoProducto.ProductoId);
+
+            if(producto.Cantidad < nuevaCantidad)
+            {
+                TempData["Error"] = "La cantidad digitada excede la cantidad disponible de este producto.";
+                return RedirectToAction(nameof(Index));
+            }
+
             carritoProducto.Cantidad = nuevaCantidad;
 
             _salonContext.Update(carritoProducto);
