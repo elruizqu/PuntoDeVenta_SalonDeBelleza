@@ -132,5 +132,27 @@ namespace POS_BeautySalon.Controllers
 
             return builder.ToString();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
+        {
+            if ((metodoPago == "Transferencia" || metodoPago == "Sinpe") && string.IsNullOrEmpty(consecutivo))
+            {
+                return Json(new { success = false, message = "El número de consecutivo es requerido para el método de pago seleccionado." });
+            }
+
+            var carrito = ObtenerCarritoDelUsuarioActual();
+
+            // Limpiar el carrito
+            var productosEnCarrito = _salonContext.CarritoProductos
+                .Where(cp => cp.CarritoId == carrito.CarritoId);
+
+            _salonContext.CarritoProductos.RemoveRange(productosEnCarrito);
+            await _salonContext.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Compra confirmada con éxito." });
+        }
+
+
     }
 }

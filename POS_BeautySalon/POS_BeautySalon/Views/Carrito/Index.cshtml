@@ -2,10 +2,7 @@
 @model List<CarritoProducto>
 
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+
 <br />
 
 <!--Mensaje de error en caso de que se exceda la cantidad en inventario-->
@@ -16,17 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </div>
 }
 
-<div class="form-group">
-    <h3>Numero de consecutivo:</h3>
-    <input type="text" class="form-control" style="width: 18rem;">
-</div>
+<h1 class="titulos_cat">CARRITO VIRTUAL</h1>
 
 <br />
 <br />
 <table class="table">
     <thead class="table-dark">
         <tr>
-
             <th scope="col">Producto</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Imagen</th>
@@ -41,20 +34,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <tr>
                 <td>@item.Producto.Nombre</td>
                 <td>@item.Producto.Descripcion</td>
-                <td>@item.Producto.ImagenProducto</td>
+                <td>
+                    @if (item.Producto.ImagenProducto != null && item.Producto.ImagenProducto.Length > 0)
+                    {
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Producto.ImagenProducto))" width="100" />
+                    }
+                    else
+                    {
+                        <span>No se cargo una imagen</span>
+                    }
+                </td>
                 <td>@item.Cantidad</td>
                 <td>₡@item.Producto.Precio</td>
                 <td>
                     <form asp-controller="Carrito" asp-action="EditarCantidad" method="post">
                         <input type="hidden" name="carritoProductoId" value="@item.CarritoProductoId" />
-                        <input type="number" name="nuevaCantidad" min="1" max="100" value="@item.Cantidad" 
-                        style="width: 60px;" />
+                        <input type="number" name="nuevaCantidad" min="1" max="100" value="@item.Cantidad" style="width: 60px;" />
+                        <br />
+                        <br />
                         <button type="submit" style="background-color:pink; color: black;">Actualizar</button>
                     </form>
-                </td>
-                <td>
-                    <a asp-controller="Carrito" asp-action="EliminarDelCarrito" 
-                    asp-route-carritoProductoId="@item.CarritoProductoId">Eliminar</a>
+                    <br />
+                    <a class="btn btn-dark" asp-controller="Carrito" asp-action="EliminarDelCarrito" asp-route-carritoProductoId="@item.CarritoProductoId">Eliminar</a>
                 </td>
             </tr>
         }
@@ -66,53 +67,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </tfoot>
 </table>
 
-    <a class="btn btn-dark" asp-controller="Carrito" asp-action="ImprimirFactura">Generar factura</a>
-    <br />
-    <br />
-    <br />
+<a class="btn btn-dark" asp-controller="Carrito" asp-action="ImprimirFactura">Generar factura</a>
+<br />
+<br />
+<br />
 
-    <h3>Metodos de pago</h3>
+<h3 style="background-color: rgb(245, 203, 215); width: 220px;">Metodos de pago</h3>
 
-    <a class="btn btn-dark" id="pagoSinpe">Sinpe</a>
-    <a class="btn btn-dark" id="pagoTransferencia">Transferencia</a>
-    <a class="btn btn-dark" id="pagoEfectivo">Efectivo</a>
+<a class="btn btn-dark" id="pagoSinpe">Sinpe</a>
+<a class="btn btn-dark" id="pagoTransferencia">Transferencia</a>
+<a class="btn btn-dark" id="pagoEfectivo">Efectivo</a>
 
-    <div id="mensajePago"></div>
+<div id="mensajePago"></div>
 
-    <br />
+<br />
 
-
-    <div class="card" style="left: -20px;" id="infoPago">
-        <div class="card-body">
-            <!-- Aquí irá la información de pago -->
-        </div>
+<div class="card" style="left: -20px;" id="infoPago">
+    <div class="card-body">
+        <!-- Aquí irá la información de pago -->
     </div>
+</div>
 
-    <!--Metodos de pago-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function () {
-        $("#pagoEfectivo").click(function () {
-            var total = '@ViewBag.Total';
-            //$("#mensajePago").html("Has seleccionado pago en efectivo. Deberás pagar en el salón un total de ₡" + total + ".");
-            $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><p>Has seleccionado pago en efectivo. Deberás pagar en el salón un total de ₡" + total + ".</p>");
-        });
+<!-- Campo para el consecutivo de la transacción -->
+<div id="consecutivoContainer" style="display: none;">
+    <label for="consecutivo" style="background-color: rgb(245, 203, 215);width: 200px;">Número de consecutivo:</label>
+    <input type="text" id="consecutivo" name="consecutivo" class="form-control" style="width: 18rem;" required />
+</div>
 
-        $("#pagoTransferencia").click(function () {
-            var numeroCuenta = '2365 9865 3214 1254'; 
-            var nombreDueno = 'Viviana Ruiz'; 
-            //$("#mensajePago").html("Has seleccionado pago por transferencia bancaria. El número de cuenta es " + numeroCuenta + " a nombre de " + nombreDueno + ".");
-            $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>Transferencia Bancaria</h6><p>Número de cuenta BCR: " + numeroCuenta + "</p><p>A nombre de: " + nombreDueno + "</p>");
-        });
+<!--Metodos de pago-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Div para mostrar mensajes de notificación -->
+<div id="notification" class="alert" role="alert" style="display:none;"></div>
 
-        $("#pagoSinpe").click(function () {
-            var numeroTelefono = '8525 3219';
-            var nombre = 'Viviana Ruiz';
-            var consecutivo = '@ViewBag.Consecutivo';
-            // $("#mensajePago").html("Has seleccionado pago por Sinpe Móvil. El número de teléfono es " + numeroTelefono + ", el nombre es " + nombre + " y el número de consecutivo es " + consecutivo + ".");
-            $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>SINPE Móvil</h6><p>Número de teléfono: " + numeroTelefono + "</p><p>Nombre: " + nombre + "</p><p>Número de consecutivo: " + consecutivo + "</p>");
-        });
+<script>
+$(document).ready(function () {
+    var metodoPago;
+
+    function mostrarConsecutivo() {
+        $("#consecutivoContainer").show();
+    }
+
+    function ocultarConsecutivo() {
+        $("#consecutivoContainer").hide();
+    }
+
+    $("#pagoEfectivo").click(function () {
+        var total = '@ViewBag.Total';
+        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><p>Has seleccionado pago en efectivo. Deberás pagar en el salón un total de ₡" + total + ".</p>");
+        ocultarConsecutivo();
+        metodoPago = "Efectivo";
     });
-    </script>
-</html>
 
+    $("#pagoTransferencia").click(function () {
+        var numeroCuenta = '2365 9865 3214 1254'; 
+        var nombreDueno = 'Viviana Ruiz'; 
+        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>Transferencia Bancaria</h6><p>Número de cuenta BCR: " + numeroCuenta + "</p><p>A nombre de: " + nombreDueno + "</p>");
+        mostrarConsecutivo();
+        metodoPago = "Transferencia";
+    });
+
+    $("#pagoSinpe").click(function () {
+        var numeroTelefono = '8525 3219';
+        var nombre = 'Viviana Ruiz';
+        var consecutivo = '@ViewBag.Consecutivo';
+        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>SINPE Móvil</h6><p>Número de teléfono: " + numeroTelefono + "</p><p>Nombre: " + nombre + "</p><p>Número de consecutivo: " + consecutivo + "</p>");
+        mostrarConsecutivo();
+        metodoPago = "Sinpe";
+    });
+
+    $("#confirmarCompra").click(function () {
+        if ((metodoPago === 'Transferencia' || metodoPago === 'Sinpe') && $("#consecutivo").val() === '') {
+            $("#notification").removeClass("alert-success").addClass("alert-danger").text("Por favor ingrese el número de consecutivo.").show();
+        } else {
+            var consecutivo = $("#consecutivo").val();
+            $.post('@Url.Action("ConfirmarCompra", "Carrito")', { metodoPago: metodoPago, consecutivo: consecutivo }, function (response) {
+                if (response.success) {
+                    $("#notification").removeClass("alert-danger").addClass("alert-success").text(response.message).show();
+                    setTimeout(function () {
+                        location.reload(); // Limpiar el carrito recargando la página después de un corto retraso
+                    }, 2000);
+                } else {
+                    $("#notification").removeClass("alert-success").addClass("alert-danger").text(response.message).show();
+                }
+            });
+        }
+    });
+});
+</script>
+
+
+<a class="btn btn-dark" id="confirmarCompra">Confirmar Compra</a>
+
+</html>
