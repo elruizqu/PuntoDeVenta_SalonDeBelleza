@@ -20,7 +20,7 @@
 <br>
 
 <p>
-    <a asp-action="Create">Crear nueva cuenta</a>
+    <a class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Create">Crear nueva cuenta</a>
 </p>
 
 <section class="modulo">
@@ -41,7 +41,7 @@
                 <td>@user.Email</td>
                 <td>@user.Nombre</td>
                 <td>@user.Apellido</td>
-                <td>@user.Estado</td>
+                    <td>@(user.Estado == 1 ? "Activa" : "Inactiva")</td>
                 <td>
                     <a asp-controller="Admin" asp-action="Edit" asp-route-id="@user.Id">Editar</a> |
                         <a asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id">Eliminar</a> |

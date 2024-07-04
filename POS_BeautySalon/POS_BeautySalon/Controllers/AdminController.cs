@@ -171,8 +171,36 @@ namespace POS_BeautySalon.Controllers
                 // Eliminar la lista de deseos del usuario
                 _salonContext.ListaDeseos.Remove(listaDeseo);
             }
+            
+
+
+            // Eliminar las citas del usuario
+            var citas = await _salonContext.Citas.Where(c => c.ClienteId == id).ToListAsync();
+            if (citas != null && citas.Any())
+            {
+                _salonContext.Citas.RemoveRange(citas);
+            }
+
+            // Eliminar el carrito de compras del usuario
+            var carrito = await _salonContext.Carritos
+                .Include(c => c.CarritoProductos)
+                .FirstOrDefaultAsync(c => c.ClienteId == id);
+
+            if (carrito != null)
+            {
+                // Eliminar los productos asociados al carrito de compras
+                _salonContext.CarritoProductos.RemoveRange(carrito.CarritoProductos);
+
+                // Eliminar el carrito de compras del usuario
+                _salonContext.Carritos.Remove(carrito);
+            }
+
+
+
+            // Guardar cambios
 
             await _salonContext.SaveChangesAsync();
+
 
             //Eliminar el usuario
             var result = await _userManager.DeleteAsync(user);

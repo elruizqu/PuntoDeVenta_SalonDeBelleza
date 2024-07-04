@@ -2,10 +2,12 @@
 
 
 
-<h2>Bloquear Usuario</h2>
+<br>
+<br>
 
 <div>
     <h3>¿Estás seguro que quieres bloquear a @Model.Email?</h3>
+    <br>
     <form asp-action="LockedConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <button type="submit" class="btn btn-dark">Bloquear</button>
@@ -14,6 +16,8 @@
 </div>
 <br>
 <br>
-<div>
-    <a asp-action="Index">Volver</a>
-</div>
+<br>
+
+@*<div>
+    <a class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver</a>
+</div>*@
