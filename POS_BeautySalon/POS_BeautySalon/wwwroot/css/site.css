@@ -429,6 +429,8 @@ body {
     width: 1200px;
     height: 60px;
     border-radius: 10px;
+    text-decoration: none;
+    color: black;
 }
 
 
