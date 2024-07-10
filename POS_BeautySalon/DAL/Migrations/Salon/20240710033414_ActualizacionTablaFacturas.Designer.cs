@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations.Salon
 {
     [DbContext(typeof(SalonContext))]
-    partial class SalonContextModelSnapshot : ModelSnapshot
+    [Migration("20240710033414_ActualizacionTablaFacturas")]
+    partial class ActualizacionTablaFacturas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,31 +148,6 @@ namespace DAL.Migrations.Salon
                     b.HasKey("CategoriaId");
 
                     b.ToTable("Categorias");
-                });
-
-            modelBuilder.Entity("DAL.Cierre", b =>
-                {
-                    b.Property<int>("CierreId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CierreId"));
-
-                    b.Property<DateTime>("FechaCierre")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TotalCierre")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TotalProductos")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TotalServicios")
-                        .HasColumnType("int");
-
-                    b.HasKey("CierreId");
-
-                    b.ToTable("Cierres");
                 });
 
             modelBuilder.Entity("DAL.Cita", b =>

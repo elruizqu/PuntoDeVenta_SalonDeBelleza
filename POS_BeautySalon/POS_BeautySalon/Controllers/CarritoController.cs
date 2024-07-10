@@ -133,6 +133,8 @@ namespace POS_BeautySalon.Controllers
             return builder.ToString();
         }
 
+
+        //Confirmacion de Compra
         [HttpPost]
         public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
         {
@@ -143,10 +145,27 @@ namespace POS_BeautySalon.Controllers
 
             var carrito = ObtenerCarritoDelUsuarioActual();
 
-            // Limpiar el carrito
             var productosEnCarrito = _salonContext.CarritoProductos
-                .Where(cp => cp.CarritoId == carrito.CarritoId);
+                .Include(cp => cp.Producto)
+                .Where(cp => cp.CarritoId == carrito.CarritoId)
+                .ToList();
 
+            var total = carrito.CalcularTotal();
+
+            // Crear y guardar la factura
+            var factura = new Factura
+            {
+                ClienteId = carrito.ClienteId,
+                PrecioTotal = total,
+                Fecha = DateTime.Now
+            };
+
+            _salonContext.Facturas.Add(factura);
+            await _salonContext.SaveChangesAsync();
+
+
+
+            // Limpiar el carrito
             _salonContext.CarritoProductos.RemoveRange(productosEnCarrito);
             await _salonContext.SaveChangesAsync();
 

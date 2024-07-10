@@ -34,5 +34,7 @@ namespace DAL
         public DbSet<ListaDeseo> ListaDeseos { get; set; }
 
         public DbSet<ListaDeseoProducto> ListaDeseoProductos { get; set; }
+
+        public DbSet<Cierre> Cierres { get; set; }
     }
 }
