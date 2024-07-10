@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DAL.Cierre>
+
+@{
+    ViewData["Title"] = "Cierres Registrados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<br>
+
+<br>
+<h2>Cierres Registrados</h2>
+<br>
+<section class="modulo">
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Fecha de Cierre</th>
+            <th>Total Productos</th>
+            <th>Total Servicios</th>
+            <th>Total Cierre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cierre in Model)
+        {
+            <tr>
+                <td>@cierre.FechaCierre.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@cierre.TotalProductos</td>
+                <td>@cierre.TotalServicios</td>
+                <td>@cierre.TotalCierre</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</section>
+<br>
+
+<br>
+
+<a href="/Cierre/Index" class="btn btn-dark">Volver al Index</a>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DAL.Factura>
+
+@{
+    ViewData["Cierre"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+
+<br>
+<br>
+
+<h2>Facturas del Día</h2>
+<br>
+<section class="modulo">
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Factura ID</th>
+            <th>Cliente</th>
+            <th>Precio Total</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var factura in Model)
+        {
+            <tr>
+                <td>@factura.FacturaId</td>
+                    <td>@($"{factura.Cliente.Nombre} {factura.Cliente.Apellido}")</td>
+                <td>@factura.PrecioTotal</td>
+                <td>@factura.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</section>
+
+<br>
+<br>
+<button id="registrarCierreButton" class="btn-dark"> Registrar Cierre </button>
+<br>
+<br>
+<a href="/Cierre/VerCierre" class="btn btn-dark">Ver Cierre</a>
+
+
+@section Scripts {
+    <script>
+        document.getElementById("registrarCierreButton").addEventListener("click", function () {
+            fetch('/Cierre/RegistrarCierre', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                    } else {
+                        alert("Error al registrar el cierre.");
+                    }
+                });
+        });
+    </script>
+}

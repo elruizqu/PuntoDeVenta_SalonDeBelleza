@@ -29,6 +29,12 @@ namespace DAL
         [DisplayName("Producto")]
         public int? ProductoId { get; set; }
 
-        public ApplicationUser? Cliente { get; set; }      
+        public DateTime Fecha { get; set; }
+        
+
+        //Navegacion
+        public ApplicationUser? Cliente { get; set; }
+        public Servicio? Servicio { get; set; }
+        public Producto? Producto { get; set; }
     }
 }
