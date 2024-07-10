@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background-image: url(https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto/ghbc3wgnvok7ukjvlvow.jpg);
+    background-image: url(https://static.vecteezy.com/system/resources/previews/027/803/748/non_2x/light-cream-beige-wood-grain-background-texture-free-photo.jpg);
     background-size: cover;
     background-position-y: top;
 }
@@ -90,23 +90,69 @@ body {
 
 
 .desc {
-    position: absolute;
-    right: 200px;
-    left: 200px;
-    top: 300px;
     font-weight: lighter;
-    text-align: justify;
+    text-align: center;
+
 }
 
+.fondoTransparente {
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
+    margin: 15px;
+    padding: 70px;
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Alinear elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    text-align: center; /* Alinear texto al centro */
+}
+
+    .fondoTransparente form {
+        width: 100%; /* Asegurar que el formulario tome el 100% del contenedor */
+        max-width: 600px; /* Limitar el ancho máximo del formulario */
+    }
+
+    .fondoTransparente .form-group {
+        text-align: left; /* Alinear los textos de los labels a la izquierda */
+        width: 100%;
+        margin-bottom: 20px; /* Añadir espacio entre los grupos de formulario */
+    }
+
+    .fondoTransparente .form-control {
+        padding: 15px; /* Incrementar el padding para agrandar los campos de texto */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        width: 100%; /* Asegurar que los campos de texto tomen el 100% del contenedor */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+
+    .fondoTransparente .btn {
+        width: 100%; /* Hacer que los botones ocupen el ancho completo */
+        padding: 15px; /* Incrementar el padding para agrandar los botones */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        margin-top: 10px;
+    }
+
+    .fondoTransparente h2, .fondoTransparente hr {
+        width: 100%; /* Asegurar que el título y la línea horizontal ocupen el ancho completo */
+        text-align: center;
+    }
+
+    .fondoTransparente a.btn {
+        display: block; /* Hacer que el enlace sea un bloque para centrarlo */
+        width: 100%; /* Hacer que el enlace ocupe el ancho completo */
+        padding: 15px; /* Incrementar el padding para agrandar el enlace */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        margin-top: 10px;
+    }
+
 #footer {
-    position: relative;
-    top: 300px;
+    
     width: 100%;
 }
 
 .footercolor {
     padding: 10px;
-    background-color: rgb(225, 213, 216, 0.91);
+    background-color: rgb(225, 255, 255, 0.7);
 }
 
 
@@ -381,39 +427,57 @@ body {
         margin-bottom: 10px;
     }
 
-
-/*Barra busqueda*/
 .busqueda {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    padding: 5px; /* Espacio interno */
+    flex-wrap:wrap;
 }
 
     .busqueda input {
-        flex: 1;
+        flex: 1 1 100%;
         border: none;
-        padding: 8px;
+        padding: 10px;
+        margin-right: 5px; /* Espacio entre el input y el botón */
+        border-radius: 20px;
+        outline: none; /* Quitar borde al enfocar */
+        background-color: #fff; /* Fondo del input */
+    }
+
+    .busqueda select {
+        flex: 1 1 100%;
+        border: none;
+        padding: 10px;
+        margin-right: 5px; /* Espacio entre el select y el botón */
+        border-radius: 10px;
+        outline: none; /* Quitar borde al enfocar */
+        background-color: #fff; /* Fondo del select */
     }
 
     .busqueda button {
-        background-color: white;
+        background-color: #ff69b4; /* Fondo del botón */
         border: none;
-        color: #fff;
-        padding: 8px 12px;
+        color: black; /* Color del texto del botón */
+        padding: 10px 15px;
         cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease; /* Transición suave al hover */
+        align-self: center;
+        margin-top: 10px;
     }
 
-        .busqueda button img {
-            width: 50px;
-            height: 50px;
-            border-radius: 5px;
+        .busqueda button:hover {
+            background-color: #ff1493; /* Fondo del botón al hacer hover */
         }
 
 .contenedor-busq {
     display: flex;
     justify-content: center;
+    margin: 20px 0; /* Margen arriba y abajo */
 }
 
 
@@ -423,11 +487,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(245, 203, 215);
-    font-size: 25px;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 35px;
     font-weight: bold;
     width: 1200px;
-    height: 60px;
+    height: 90px;
     border-radius: 10px;
     text-decoration: none;
     color: black;

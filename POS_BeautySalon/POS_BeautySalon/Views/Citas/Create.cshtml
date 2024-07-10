@@ -8,11 +8,12 @@
 }
 
 
-<br>
-<br>
-<h4>Cita</h4>
-<hr />
-<div class="row">
+
+<div class="row fondoTransparente">
+    <h1>Agendar Cita</h1>
+    
+    <hr />
+    <br />
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -53,15 +54,16 @@
                 <span asp-validation-for="Notas" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" style="background-color:pink; color: black;" value="Crear" class="btn btn-primary" />
+                <input type="submit" style="background-color:pink; color: black;" value="Crear" class="btn btn-dark" />
+            </div>
+            <div>
+                <a class="btn btn-dark" asp-action="Index">Volver a la lista</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a class="btn btn-dark" asp-action="Index">Volver a la lista</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

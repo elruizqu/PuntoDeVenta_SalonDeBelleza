@@ -6,6 +6,10 @@
 
 <body>
     <br />
+    
+
+    <h1 class="titulos_cat">PRODUCTOS</h1>
+
     <div class="contenedor-busq">
         <div class="busqueda">
             <form asp-controller="Productos" asp-action="CatalogoProd" method="get">
@@ -13,16 +17,11 @@
                 <select name="categoriaId" asp-items="ViewBag.Categorias">
                     <option value="">Todas las categorías</option>
                 </select>
-                <br />
-                <br />
-                <button class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black; ">Buscar</button>
+                <button>Buscar</button>
             </form>
         </div>
-        
     </div>
     <br />
-
-    <h1 class="titulos_cat">PRODUCTOS</h1>
     <div class='cards'>
         <div class="row row-cols-1 row-cols-md-3 g-4">
     @foreach (var item in Model)
@@ -33,7 +32,7 @@
                         @if (item.ImagenProducto !=null && item.ImagenProducto.Length>
                             0)
                         {
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProducto))" class="card-img-top" width="100" />
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProducto))" class="card-img-top" width="100" height="370"/>
                         }
                         else
                         {
@@ -46,17 +45,23 @@
                             <p class="card-text">
                                 @Html.DisplayFor(modelItem => item.Descripcion)
                             </p>
-                                <a class="w-100 btn btn-lg  btn-dark" asp-controller="ListaDeseoProductos" asp-action="Create" 
-                                asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>  
+                        </div>
+                        <div class="text-center">
+                            <a class="w-70 btn btn-lg  btn-dark" asp-controller="ListaDeseoProductos" asp-action="Create"
+                               asp-route-productoId="@item.ProductoId">Agregar a lista de deseos</a>
                             <br />
                             <br />
                             <form asp-controller="Carrito" asp-action="AgregarAlCarrito" method="Post">
-                                <input type="hidden" name="productoId" value="@item.ProductoId"/>
-                                <button type="submit" class="w-100 btn btn-lg  btn-dark" 
-                                    style="background-color:pink; 
-                                    color: black;">Agregar al carrito</button>
+                                <input type="hidden" name="productoId" value="@item.ProductoId" />
+                                <button type="submit" class="w-70 btn btn-lg  btn-dark"
+                                        style="background-color:pink;
+                                    color: black;">
+                                    Agregar al carrito
+                                </button>
                             </form>
                         </div>
+                        <br />
+                        <br />
                     </div>
                 </div>
             

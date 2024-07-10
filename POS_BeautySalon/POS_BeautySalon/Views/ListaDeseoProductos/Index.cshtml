@@ -26,7 +26,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Producto)
             </th>
-            <th></th>
+            <th>
+                Acción
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -36,8 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Producto.Nombre)
             </td>
             <td>
-                
-                <a asp-action="Delete" asp-route-id="@item.ListaDeseoProductoId">Delete</a>
+                <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.ListaDeseoProductoId">Eliminar</a>
             </td>
         </tr>
 }
