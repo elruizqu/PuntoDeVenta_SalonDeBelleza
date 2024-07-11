@@ -1,0 +1,40 @@
+﻿@model DAL.Factura
+
+@{
+    ViewData["Title"] = "Detalles de Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="background-color: white; padding: 20px; margin: 20px; max-width: 300px;">
+    <h2>Detalles de Factura</h2>
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-4">Factura ID:</dt>
+            <dd class="col-sm-8">@Model.FacturaId</dd>
+
+            <dt class="col-sm-4">Cliente:</dt>
+            <dd class="col-sm-8">@Model.Cliente.UserName</dd>
+
+            <dt class="col-sm-4">Fecha:</dt>
+            <dd class="col-sm-8">@Model.Fecha.ToShortDateString()</dd>
+
+            @if (Model.Producto != null)
+            {
+                <dt class="col-sm-4">Producto Comprado:</dt>
+                <dd class="col-sm-8">@Model.Producto.Nombre</dd>
+
+                <dt class="col-sm-4">Descripción del Producto:</dt>
+                <dd class="col-sm-8">@Model.Producto.Descripcion</dd>
+
+                <dt class="col-sm-4">Precio del Producto:</dt>
+                <dd class="col-sm-8">@Model.Producto.Precio</dd>
+            }
+
+            <dt class="col-sm-4">Pago Realizado:</dt>
+            <dd class="col-sm-8">@Model.PrecioTotal</dd>
+        </dl>
+    </div>
+
+    <a asp-action="Index" class="btn btn-dark">Volver a la lista de Facturas</a>
+</div>

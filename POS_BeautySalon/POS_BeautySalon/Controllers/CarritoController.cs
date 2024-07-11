@@ -134,7 +134,8 @@ namespace POS_BeautySalon.Controllers
         }
 
 
-        //Confirmacion de Compra
+        //Confirmar Compra, hace una sola factura pero no carga los datos del cierre
+
         [HttpPost]
         public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
         {
@@ -150,20 +151,20 @@ namespace POS_BeautySalon.Controllers
                 .Where(cp => cp.CarritoId == carrito.CarritoId)
                 .ToList();
 
-            var total = carrito.CalcularTotal();
+            var totalCompra = productosEnCarrito.Sum(cp => cp.Producto.Precio * cp.Cantidad);
 
-            // Crear y guardar la factura
+            // Crear y guardar la factura única
             var factura = new Factura
             {
                 ClienteId = carrito.ClienteId,
-                PrecioTotal = total,
+                PrecioTotal = totalCompra,
                 Fecha = DateTime.Now
+               //ProductoId = item.ProductoId   //si agrego productoID me genera una factura por cada producto comprado pero si me genera los valores en el cierre
+               //Si se lo quito, me genera solo una factura pero no me da valores en el cierre
             };
 
             _salonContext.Facturas.Add(factura);
             await _salonContext.SaveChangesAsync();
-
-
 
             // Limpiar el carrito
             _salonContext.CarritoProductos.RemoveRange(productosEnCarrito);
@@ -171,6 +172,9 @@ namespace POS_BeautySalon.Controllers
 
             return Json(new { success = true, message = "Compra confirmada con éxito." });
         }
+
+        
+
 
 
     }

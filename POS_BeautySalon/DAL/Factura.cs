@@ -30,7 +30,8 @@ namespace DAL
         public int? ProductoId { get; set; }
 
         public DateTime Fecha { get; set; }
-        
+
+       
 
         //Navegacion
         public ApplicationUser? Cliente { get; set; }

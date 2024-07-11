@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <br>
@@ -18,26 +18,30 @@
 <br>
 <section class="modulo">
     <table class="styled-table">
-    <thead>
-        <tr>
-            <th>Factura ID</th>
-            <th>Cliente</th>
-            <th>Precio Total</th>
-            <th>Fecha</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var factura in Model)
-        {
+        <thead>
             <tr>
-                <td>@factura.FacturaId</td>
-                    <td>@($"{factura.Cliente.Nombre} {factura.Cliente.Apellido}")</td>
-                <td>@factura.PrecioTotal</td>
-                <td>@factura.Fecha</td>
+                <th>Factura ID</th>
+                <th>Cliente</th>
+                <th>Pago Realizado</th>
+                <th>Fecha</th>
+                <th>Acciones</th> <!-- Nueva columna para acciones -->
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var factura in Model)
+            {
+                <tr>
+                    <td>@factura.FacturaId</td>
+                    <td>@factura.Cliente.UserName</td>
+                    <td>@factura.PrecioTotal</td>
+                    <td>@factura.Fecha.ToShortDateString()</td>
+                    <td>
+                        <a href="@Url.Action("VerDetalle", "Cierre", new { facturaId = factura.FacturaId })" class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;y">Ver Detalles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </section>
 
 <br>

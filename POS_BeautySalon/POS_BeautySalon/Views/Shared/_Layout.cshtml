@@ -52,6 +52,15 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administación</a>
                             </li>
                         }
+
+                        @if (User.IsInRole("Estilista"))
+                        {
+                            <li class="nav-item">               
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cierre" asp-action="Index">Cierre de Caja</a>
+                            </li>
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

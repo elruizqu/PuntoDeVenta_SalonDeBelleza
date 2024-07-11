@@ -29,12 +29,19 @@ namespace POS_BeautySalon.Controllers
             // Mostrar las facturas del día actual
             var hoy = DateTime.Today;
             var facturasDeHoy = _salonContext.Facturas
+
                 .Include(f => f.Cliente)
+                .Include(f => f.Producto)   
+                .Include(f => f.Servicio)   
                 .Where(f => f.Fecha >= hoy)
                 .ToList();
 
             return View(facturasDeHoy);
         }
+
+        
+
+
 
         [HttpPost]
         public async Task<IActionResult> RegistrarCierre()
@@ -44,22 +51,23 @@ namespace POS_BeautySalon.Controllers
             // Obtener todas las facturas generadas hoy
             var facturasDeHoy = await _salonContext.Facturas
                 .Include(f => f.Cliente)
+                .Include(f => f.Servicio) // Incluye la relación Servicio
+                .Include(f => f.Producto) // Incluye la relación Producto
                 .Where(f => f.Fecha >= hoy)
                 .ToListAsync();
 
             var totalProductos = facturasDeHoy
-                .Where(f => f.ProductoId != null)
+                .Where(f => f.ProductoId != null) // Asegura que solo se sumen las facturas de productos
                 .Sum(f => f.PrecioTotal);
 
             var totalServicios = facturasDeHoy
-                .Where(f => f.ServicioId != null)
+                .Where(f => f.ServicioId != null) // Asegura que solo se sumen las facturas de servicios
                 .Sum(f => f.PrecioTotal);
 
             var totalCierre = totalProductos + totalServicios;
 
             var cierre = new Cierre
             {
-
                 FechaCierre = DateTime.Now,
                 TotalProductos = totalProductos,
                 TotalServicios = totalServicios,
@@ -73,7 +81,9 @@ namespace POS_BeautySalon.Controllers
         }
 
 
-        
+
+
+
 
         public IActionResult VerCierre()
         {
@@ -81,6 +91,25 @@ namespace POS_BeautySalon.Controllers
             return View(cierres);
         }
 
+
+
+
+        //Ver mas Detalles
+        public IActionResult VerDetalle(int facturaId)
+        {
+            var factura = _salonContext.Facturas
+                .Include(f => f.Cliente)
+                .Include(f => f.Producto)
+                .Include(f => f.Servicio)
+                .FirstOrDefault(f => f.FacturaId == facturaId);
+
+            if (factura == null)
+            {
+                return NotFound();
+            }
+
+            return View(factura);
+        }
     }
 }
     
