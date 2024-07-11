@@ -30,7 +30,7 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
+        //private readonly EmailSender _emailSender;
         private readonly SalonContext _context; //Para poder crear lista de deseo al momento que un usuario se registre
 
         public RegisterModel(
@@ -38,7 +38,7 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
+            //EmailSender emailSender,
             SalonContext context)  //Para poder crear lista de deseo al momento que un usuario se registre
         {
             _userManager = userManager;
@@ -46,7 +46,7 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            //_emailSender = emailSender;
             _context = context; //Para poder crear lista de deseo al momento que un usuario se registre
         }
 

@@ -12,6 +12,11 @@ html {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -95,16 +100,34 @@ body {
 
 }
 
-.fondoTransparente {
+.home {
     background-color: rgba(245, 203, 215, 0.6);
     border-radius: 25px;
     margin: 15px;
     padding: 70px;
-    display: flex; /* Usar flexbox */
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.home hr {
+    width: 100%; /* Asegurar que el título y la línea horizontal ocupen el ancho completo */
+    text-align: center;
+}
+
+.fondoTransparente {
     flex-direction: column; /* Alinear elementos en columna */
     align-items: center; /* Centrar horizontalmente */
     justify-content: center; /* Centrar verticalmente */
     text-align: center; /* Alinear texto al centro */
+    width: 800px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
     .fondoTransparente form {
@@ -501,11 +524,11 @@ body {
 /*login*/
 
 .contenedor-log {
-    width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
+    width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -561,17 +584,55 @@ button:hover {
 
 /*Registro / login*/
 
-.registro {
-    display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    text-decoration: none;
+.registration-section {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 25px;
+    background-color: rgba(245, 203, 215, 0.6);
+}
+
+.registration-section h2 {
+    color: #333;
+    text-align: center;
+}
+
+.registration-section form-group {
+    margin-bottom: 15px;
+}
+
+.registration-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 
 
-/*agregar producto*/
+    button.green {
+        background-color: #28a745; /* Color verde */
+    }
 
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+
+/*agregar producto*/
 .body-ap {
     font-family: Arial, sans-serif;
     margin: 0;

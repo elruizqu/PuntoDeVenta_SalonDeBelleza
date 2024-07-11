@@ -27,6 +27,9 @@
     <thead>
         <tr>
             <th>
+                Número de reserva
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Fecha)
             </th>
             <th>
@@ -41,12 +44,17 @@
             <th>
                 @Html.DisplayNameFor(model => model.Notas)
             </th>
-            <th></th>
+            <th>
+                Acciones
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CitaId) 
+            </td>
             <td>
                 @item.Fecha.ToString("dd/MM/yyyy")
             </td>

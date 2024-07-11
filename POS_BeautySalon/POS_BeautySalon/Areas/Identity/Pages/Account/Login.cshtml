@@ -61,18 +61,19 @@
 <body>
     <div class="contenedor-log">
         <h2 class="h2-log">Iniciar Sesión</h2>
+        <hr />
         <section>
         <form id="account" method="post" class="form-log">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div>
-            <label asp-for="Input.Email" class="form-label">Email</label>
-            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email" />
+            <label asp-for="Input.Email" class="form-label">Correo</label>
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Correo" />
             <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div>
-            <label asp-for="Input.Password" class="form-label">Password</label>
-            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Password" />
+            <label asp-for="Input.Password" class="form-label">Contraseña</label>
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Contraseña" />
             <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
 
@@ -84,17 +85,17 @@
             </div>
                 <br>
             <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn btn-dark">Log in</button>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn btn-dark">Ingresar</button>
                 </div>
 <br>
 <br>
 
             <div>
                 <p>
-                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    <a style="color: black;"id="forgot-password" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
                 </p>
                 <p>
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    <a style="color: black;"id="forgot-password" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrarme como nuevo usuario</a>
                 </p>
                
             </div>

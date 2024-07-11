@@ -9,6 +9,7 @@ using DAL;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using DAL.Migrations.Salon;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace POS_BeautySalon.Controllers
 {
@@ -16,11 +17,15 @@ namespace POS_BeautySalon.Controllers
     {
         private readonly SalonContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IEmailSender _emailSender;
+        private readonly IConfiguration _configuration;
 
-        public CitasController(SalonContext context, UserManager<ApplicationUser> userManager)
+        public CitasController(SalonContext context, UserManager<ApplicationUser> userManager, IEmailSender emailSender, IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;
+            _emailSender = emailSender;
+            _configuration = configuration;
         }
 
         // GET: Citas
@@ -113,7 +118,7 @@ namespace POS_BeautySalon.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CitaId,Estado,ClienteId,ServicioId,Fecha,Hora,Notas")] Cita cita)
         {
-            
+            /*
             var identidad = User.Identity as ClaimsIdentity;
             string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
@@ -214,7 +219,73 @@ namespace POS_BeautySalon.Controllers
             }
             };
             ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre", cita.ServicioId);
+            return View(cita);*/
+            var identidad = User.Identity as ClaimsIdentity;
+            string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (!User.IsInRole("Administrador"))
+            {
+                cita.ClienteId = idUsuarioLogeado;
+            }
+
+            cita.Estado = 1;
+
+            if (ModelState.IsValid)
+            {
+                if (cita.Fecha < DateTime.Today)
+                {
+                    ModelState.AddModelError("", "No se pueden programar citas en fechas anteriores a la fecha actual.");
+                    return View(cita);
+                }
+
+                if (cita.Fecha.DayOfWeek == DayOfWeek.Sunday ||
+                    cita.Hora.TimeOfDay < new TimeSpan(7, 0, 0) ||
+                    cita.Hora.TimeOfDay >= new TimeSpan(19, 0, 0))
+                {
+                    ModelState.AddModelError("", "Las citas solo se pueden programar de lunes a sábado, entre las 7 am y las 7 pm.");
+                    return View(cita);
+                }
+
+                TimeSpan citaDuracion = new TimeSpan(2, 0, 0);
+                DateTime citaFin = cita.Hora.Add(citaDuracion);
+                var citasDelDia = _context.Citas.Where(c => c.Fecha == cita.Fecha).ToList();
+                var conflictingCitas = citasDelDia
+                    .Where(c => (c.Hora < citaFin && c.Hora.Add(citaDuracion) > cita.Hora) || (c.Hora < cita.Hora && c.Hora.Add(citaDuracion) > cita.Hora))
+                    .ToList();
+
+                if (conflictingCitas.Any())
+                {
+                    ModelState.AddModelError("", "Ya existe una cita programada en el mismo horario o dentro del intervalo de 2 horas.");
+                    return View(cita);
+                }
+
+                _context.Add(cita);
+                await _context.SaveChangesAsync();
+
+                // Enviar correo de confirmación al cliente y al estilista
+                var cliente = await _userManager.FindByIdAsync(cita.ClienteId);
+                var servicio = await _context.Servicios.FindAsync(cita.ServicioId);
+                var estilistaEmail = _configuration["Estilista:Email"];
+
+                var emailContent = $@"
+                <p>Hola {cliente.Nombre},</p>
+                <p>Tu cita para el servicio {servicio.Nombre} ha sido agendada para el {cita.Fecha:dd/MM/yyyy} a las {cita.Hora:hh\\:mm}.</p>
+                <p>Notas: {cita.Notas}</p>
+                <p>Gracias por elegirnos!</p>";
+
+                var estilistaEmailContent = $@"
+                <p>Hola,</p>
+                <p>Se ha agendado una nueva cita para el servicio {servicio.Nombre} con {cliente.Nombre} el {cita.Fecha:dd/MM/yyyy} a las {cita.Hora:hh\\:mm}.</p>
+                <p>Notas: {cita.Notas}</p>";
+
+                await _emailSender.SendEmailAsync(cliente.Email, "Confirmación de Cita", emailContent);
+                await _emailSender.SendEmailAsync(estilistaEmail, "Nueva Cita Agendada", estilistaEmailContent);
+
+                return RedirectToAction(nameof(Index));
+            }
+
             return View(cita);
+
         }
 
         // GET: Citas/Edit/5
