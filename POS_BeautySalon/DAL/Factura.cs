@@ -19,15 +19,7 @@ namespace DAL
         public int PrecioTotal { get; set; }
  
         [DisplayName("Cliente")]
-        public string ClienteId { get; set; }
-
-        [ForeignKey("Servicio")]
-        [DisplayName("Servicio")]
-        public int? ServicioId { get; set; }
-
-        [ForeignKey("Producto")]
-        [DisplayName("Producto")]
-        public int? ProductoId { get; set; }
+        public string ClienteId { get; set; } 
 
         public DateTime Fecha { get; set; }
 
@@ -35,7 +27,6 @@ namespace DAL
 
         //Navegacion
         public ApplicationUser? Cliente { get; set; }
-        public Servicio? Servicio { get; set; }
-        public Producto? Producto { get; set; }
+        public ICollection<DetalleFactura> DetalleFacturas { get; set; } = new List<DetalleFactura>();
     }
 }

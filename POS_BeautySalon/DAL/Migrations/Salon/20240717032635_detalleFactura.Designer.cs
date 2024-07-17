@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations.Salon
 {
     [DbContext(typeof(SalonContext))]
-    partial class SalonContextModelSnapshot : ModelSnapshot
+    [Migration("20240717032635_detalleFactura")]
+    partial class detalleFactura
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,7 +87,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasKey("Id");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("DAL.Carrito", b =>
@@ -102,7 +105,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Carritos", (string)null);
+                    b.ToTable("Carritos");
                 });
 
             modelBuilder.Entity("DAL.CarritoProducto", b =>
@@ -128,7 +131,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ProductoId");
 
-                    b.ToTable("CarritoProductos", (string)null);
+                    b.ToTable("CarritoProductos");
                 });
 
             modelBuilder.Entity("DAL.Categoria", b =>
@@ -144,7 +147,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasKey("CategoriaId");
 
-                    b.ToTable("Categorias", (string)null);
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("DAL.Cierre", b =>
@@ -169,7 +172,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasKey("CierreId");
 
-                    b.ToTable("Cierres", (string)null);
+                    b.ToTable("Cierres");
                 });
 
             modelBuilder.Entity("DAL.Cita", b =>
@@ -204,7 +207,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ServicioId");
 
-                    b.ToTable("Citas", (string)null);
+                    b.ToTable("Citas");
                 });
 
             modelBuilder.Entity("DAL.DetalleFactura", b =>
@@ -238,7 +241,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ServicioId");
 
-                    b.ToTable("DetalleFacturas", (string)null);
+                    b.ToTable("DetalleFacturas");
                 });
 
             modelBuilder.Entity("DAL.Factura", b =>
@@ -272,7 +275,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ServicioId");
 
-                    b.ToTable("Facturas", (string)null);
+                    b.ToTable("Facturas");
                 });
 
             modelBuilder.Entity("DAL.ListaDeseo", b =>
@@ -290,7 +293,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("ListaDeseos", (string)null);
+                    b.ToTable("ListaDeseos");
                 });
 
             modelBuilder.Entity("DAL.ListaDeseoProducto", b =>
@@ -313,7 +316,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ProductoId");
 
-                    b.ToTable("ListaDeseoProductos", (string)null);
+                    b.ToTable("ListaDeseoProductos");
                 });
 
             modelBuilder.Entity("DAL.Marca", b =>
@@ -329,7 +332,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasKey("MarcaId");
 
-                    b.ToTable("Marcas", (string)null);
+                    b.ToTable("Marcas");
                 });
 
             modelBuilder.Entity("DAL.Producto", b =>
@@ -376,7 +379,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("Productos", (string)null);
+                    b.ToTable("Productos");
                 });
 
             modelBuilder.Entity("DAL.Promocion", b =>
@@ -405,7 +408,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ServicioId");
 
-                    b.ToTable("Promociones", (string)null);
+                    b.ToTable("Promociones");
                 });
 
             modelBuilder.Entity("DAL.Proveedor", b =>
@@ -438,7 +441,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasKey("ProveedorId");
 
-                    b.ToTable("Proveedores", (string)null);
+                    b.ToTable("Proveedores");
                 });
 
             modelBuilder.Entity("DAL.Servicio", b =>
@@ -469,7 +472,7 @@ namespace DAL.Migrations.Salon
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("Servicios", (string)null);
+                    b.ToTable("Servicios");
                 });
 
             modelBuilder.Entity("DAL.Carrito", b =>

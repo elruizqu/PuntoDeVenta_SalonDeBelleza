@@ -31,38 +31,41 @@ namespace POS_BeautySalon.Controllers
             var facturasDeHoy = _salonContext.Facturas
 
                 .Include(f => f.Cliente)
-                .Include(f => f.Producto)   
-                .Include(f => f.Servicio)   
+                //.Include(f => f.Producto)   
+                //.Include(f => f.Servicio)   
                 .Where(f => f.Fecha >= hoy)
                 .ToList();
 
             return View(facturasDeHoy);
         }
 
-        
 
 
+        //REGISTRAR CIERRE
 
         [HttpPost]
         public async Task<IActionResult> RegistrarCierre()
         {
             var hoy = DateTime.Today;
 
-            // Obtener todas las facturas generadas hoy
+            // Obtener todas las facturas generadas hoy junto con sus detalles
             var facturasDeHoy = await _salonContext.Facturas
-                .Include(f => f.Cliente)
-                .Include(f => f.Servicio) // Incluye la relación Servicio
-                .Include(f => f.Producto) // Incluye la relación Producto
-                .Where(f => f.Fecha >= hoy)
-                .ToListAsync();
+               .Include(f => f.DetalleFacturas)
+               .ThenInclude(df => df.Producto)
+               .Include(f => f.DetalleFacturas)
+               .ThenInclude(df => df.Servicio)
+               .Where(f => f.Fecha >= hoy)
+               .ToListAsync();
 
             var totalProductos = facturasDeHoy
-                .Where(f => f.ProductoId != null) // Asegura que solo se sumen las facturas de productos
-                .Sum(f => f.PrecioTotal);
+                .SelectMany(f => f.DetalleFacturas)
+                .Where(df => df.ProductoId != null)
+                .Sum(df => df.PrecioUnitario * df.Cantidad);
 
             var totalServicios = facturasDeHoy
-                .Where(f => f.ServicioId != null) // Asegura que solo se sumen las facturas de servicios
-                .Sum(f => f.PrecioTotal);
+                .SelectMany(f => f.DetalleFacturas)
+                .Where(df => df.ServicioId != null)
+                .Sum(df => df.PrecioUnitario * df.Cantidad);
 
             var totalCierre = totalProductos + totalServicios;
 
@@ -85,6 +88,8 @@ namespace POS_BeautySalon.Controllers
 
 
 
+
+
         public IActionResult VerCierre()
         {
             var cierres = _salonContext.Cierres.ToList();
@@ -99,8 +104,10 @@ namespace POS_BeautySalon.Controllers
         {
             var factura = _salonContext.Facturas
                 .Include(f => f.Cliente)
-                .Include(f => f.Producto)
-                .Include(f => f.Servicio)
+               .Include(f => f.DetalleFacturas)
+               .ThenInclude(df => df.Producto)
+               .Include(f => f.DetalleFacturas)
+               .ThenInclude(df => df.Servicio)
                 .FirstOrDefault(f => f.FacturaId == facturaId);
 
             if (factura == null)
