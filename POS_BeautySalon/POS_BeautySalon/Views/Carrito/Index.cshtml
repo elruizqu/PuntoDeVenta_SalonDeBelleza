@@ -49,10 +49,11 @@
                 <td>
                     <form asp-controller="Carrito" asp-action="EditarCantidad" method="post">
                         <input type="hidden" name="carritoProductoId" value="@item.CarritoProductoId" />
-                        <input type="number" name="nuevaCantidad" min="1" max="100" value="@item.Cantidad" style="width: 60px;" />
+                        <input type="number" name="nuevaCantidad" min="1" max="100" value="@item.Cantidad" style="width: 60px;"
+                        class="cantidad" data-id="@item.CarritoProductoId" />
                         <br />
                         <br />
-                        <button type="submit" style="background-color:pink; color: black;">Actualizar</button>
+                        @* <button type="submit" style="background-color:pink; color: black;">Actualizar</button> *@
                     </form>
                     <br />
                     <a class="btn btn-dark" asp-controller="Carrito" asp-action="EliminarDelCarrito" asp-route-carritoProductoId="@item.CarritoProductoId">Eliminar</a>
@@ -157,5 +158,28 @@ $(document).ready(function () {
 
 
 <a class="btn btn-dark" id="confirmarCompra">Confirmar Compra</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.cantidad').change(function () {
+            var nuevaCantidad = $(this).val();
+            var carritoProductoId = $(this).data('id');
+
+            $.ajax({
+                url: '/Carrito/EditarCantidad',
+                type: 'POST',
+                data: { carritoProductoId: carritoProductoId, nuevaCantidad: nuevaCantidad },
+                success: function (response) {
+                    // Actualizar la página
+                    location.reload();
+                },
+                error: function (response) {
+                    alert('Error al actualizar la cantidad.');
+                }
+            });
+        });
+    });
+</script>
 
 </html>
