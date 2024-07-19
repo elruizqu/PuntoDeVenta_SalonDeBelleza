@@ -1,65 +1,104 @@
 ﻿@model DAL.Producto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<style>
+    .table {
+        color: #000000;
+        background-color: #FFFFFF;
+    }
 
-<h4>Producto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="ImagenProducto" class="control-label">Imagen del producto</label>
-                <input type="file" accept="image/png" class="form-control" name="ImagenProducto" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
-                <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoriaId" class="control-label"></label>
-                <select asp-for="CategoriaId" class ="form-control" asp-items="ViewBag.CategoriaId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="MarcaId" class="control-label"></label>
-                <select asp-for="MarcaId" class ="form-control" asp-items="ViewBag.MarcaId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProveedorId" class="control-label"></label>
-                <select asp-for="ProveedorId" class ="form-control" asp-items="ViewBag.ProveedorId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    .thead-dark {
+        background-color: #C8BCA1;
+    }
+
+    .btn-primary {
+        background-color: lightpink;
+    }
+
+    .btn-warning {
+        background-color: #FF69B4;
+    }
+
+    .btn-info {
+        background-color: #008b8b;
+    }
+
+    .btn-danger {
+        background-color: #ff0000;
+    }
+
+    .text-muted {
+        color: #800080;
+    }
+
+    .container {
+        background-color: rgba(245, 203, 215, 1);
+    }
+
+    body {
+        background-color: rgba(225, 213, 216, 0.91);
+    }
+</style>
+
+<div class="container">
+    <h1 class="my-4">Crear Producto</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="form-label">Nombre del Producto</label>
+                    <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del producto" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="form-label">Descripción del Producto</label>
+                    <textarea asp-for="Descripcion" class="form-control" rows="3" placeholder="Ingrese la descripción del producto"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="ImagenProducto" class="form-label">Imagen del Producto</label>
+                    <input type="file" accept="image/png" class="form-control" name="ImagenProducto" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Precio" class="form-label">Precio del Producto</label>
+                    <input asp-for="Precio" class="form-control" placeholder="Ingrese el precio del producto" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cantidad" class="form-label">Cantidad del Producto</label>
+                    <input asp-for="Cantidad" class="form-control" placeholder="Ingrese la cantidad del producto" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoriaId" class="form-label">Categoría del Producto</label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MarcaId" class="form-label">Marca del Producto</label>
+                    <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProveedorId" class="form-label">Proveedor del Producto</label>
+                    <select asp-for="ProveedorId" class="form-control" asp-items="ViewBag.ProveedorId"></select>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Agregar Producto" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

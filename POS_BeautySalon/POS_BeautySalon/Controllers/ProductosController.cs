@@ -226,11 +226,7 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var producto = await _context.Productos.FindAsync(id);
-            if (producto != null)
-            {
-                _context.Productos.Remove(producto);
-            }
-
+            _context.Productos.Remove(producto);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -238,6 +234,21 @@ namespace POS_BeautySalon.Controllers
         private bool ProductoExists(int id)
         {
             return _context.Productos.Any(e => e.ProductoId == id);
+        }
+
+        public async Task<IActionResult> MarkAsOutOfStock(int id)
+        {
+            var producto = await _context.Productos.FindAsync(id);
+            if(producto == null)
+            {
+                return NotFound();
+            }
+
+            producto.Estado = 0; // El producto se marca como agotado
+            _context.Update(producto);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

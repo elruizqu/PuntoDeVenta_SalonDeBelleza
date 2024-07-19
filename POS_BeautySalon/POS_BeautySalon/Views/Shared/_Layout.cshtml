@@ -55,6 +55,9 @@
 
                         @if (User.IsInRole("Estilista"))
                         {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
+                            </li>
                             <li class="nav-item">               
 
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Cierre" asp-action="Index">Cierre de Caja</a>
