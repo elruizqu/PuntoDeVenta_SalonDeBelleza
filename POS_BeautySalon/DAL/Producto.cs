@@ -43,7 +43,7 @@ namespace DAL
         [ForeignKey("Proveedor")]
         [DisplayName("Proveedor")]
         public int ProveedorId { get; set; }
-
+        public string Alerta { get; set; }
 
         public Categoria? Categoria { get; set; }
         public Marca? Marca { get; set; }

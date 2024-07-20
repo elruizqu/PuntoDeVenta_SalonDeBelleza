@@ -38,6 +38,19 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> AgregarAlCarrito(int productoId)
         {
             var carrito = ObtenerCarritoDelUsuarioActual();
+            var producto = await _salonContext.Productos.FindAsync(productoId);
+
+            if(producto.Cantidad < 1)
+            {
+                TempData["Error"] = "Este producto está agotado";
+                return RedirectToAction(nameof(Index));
+            }
+
+            if(producto.Estado == 0)
+            {
+                TempData["Error"] = "Este producto no está disponible hasta dentro de 2 semanas";
+                return RedirectToAction(nameof(Index));
+            }
 
             var carritoProducto = new CarritoProducto
             {
@@ -46,7 +59,20 @@ namespace POS_BeautySalon.Controllers
                 Cantidad = 1
             };
 
+            producto.Cantidad -= 1;
+
+            // Verificar si la cantidad del producto es igual o menor a 5
+            if (producto.Cantidad <= 5)
+            {
+                producto.Alerta = $"Alerta! Quedan pocas unidades de {producto.Nombre}";
+            }
+            else if(producto.Cantidad > 5)
+            {
+                producto.Alerta = null;
+            }
+
             _salonContext.Add(carritoProducto);
+            _salonContext.Update(producto);
             await _salonContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -59,15 +85,28 @@ namespace POS_BeautySalon.Controllers
             var producto = await _salonContext.Productos.SingleAsync(p => p.ProductoId ==
             carritoProducto.ProductoId);
 
-            if (producto.Cantidad < nuevaCantidad)
+            if (producto.Cantidad < nuevaCantidad - carritoProducto.Cantidad)
             {
                 TempData["Error"] = "La cantidad digitada excede la cantidad disponible de este producto.";
                 return RedirectToAction(nameof(Index));
             }
 
+            producto.Cantidad -= nuevaCantidad - carritoProducto.Cantidad;
+
+            // Verificar si la cantidad del producto es igual o menor a 5
+            if (producto.Cantidad <= 5)
+            {
+                producto.Alerta = $"Alerta! Quedan pocas unidades de {producto.Nombre}";
+            }
+            else if(producto.Cantidad > 5)
+            {
+                producto.Alerta = null;
+            }
+
             carritoProducto.Cantidad = nuevaCantidad;
 
             _salonContext.Update(carritoProducto);
+            _salonContext.Update(producto);
             await _salonContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -77,8 +116,19 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> EliminarDelCarrito(int carritoProductoId)
         {
             var carritoProducto = await _salonContext.CarritoProductos.FindAsync(carritoProductoId);
+            var producto = await _salonContext.Productos.FindAsync(carritoProducto.ProductoId);
+
+            // Incrementar la cantidad del producto en el inventario tras eliminar
+            producto.Cantidad += carritoProducto.Cantidad;
+
+            // Verificar si la cantidad del producto es igual o menor a 5
+            if (producto.Cantidad <= 5)
+            {
+                TempData["Alerta"] = $"Alerta! Quedan pocas unidades de {producto.Nombre}";
+            }
 
             _salonContext.CarritoProductos.Remove(carritoProducto);
+            _salonContext.Update(producto);
             await _salonContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

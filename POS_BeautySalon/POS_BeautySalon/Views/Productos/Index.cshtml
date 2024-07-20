@@ -44,8 +44,21 @@
     }
 </style>
 
+@* Mensaje de alerta que se mostrará cuando la cantidad sea menor o igual a 5 *@
+
 <div class="container">
     <h1 class="my-4">Inventario</h1>
+
+    @foreach (var item in Model)
+    {
+        if (!string.IsNullOrEmpty(item.Alerta))
+        {
+            <div class="alert alert-danger">
+                @item.Alerta
+            </div>
+        }
+    }
+
     <div class="mb-3">
         <a asp-action="Create" class="btn btn-warning">Agregar nuevo producto</a>
     </div>
@@ -94,7 +107,9 @@
                             <a asp-action="Delete" asp-route-id="@item.ProductoId" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                         <td>
-                            <input type="checkbox" name="@("Estado" + item.ProductoId)" disabled @(item.Estado == 0 ? "checked" : "") />
+                            <form asp-action="ToggleAgotado" asp-route-id="@item.ProductoId">
+                                <input type="checkbox" onchange="this.form.submit()" name="Agotado" @(item.Estado == 0 ? "checked" : "") />
+                            </form>
                         </td>
                     </tr>
                 }

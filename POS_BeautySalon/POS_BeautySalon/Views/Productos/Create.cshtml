@@ -54,6 +54,7 @@
                     <label asp-for="Nombre" class="form-label">Nombre del Producto</label>
                     <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre del producto" />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger"})
                 </div>
                 <div class="form-group">
                     <label asp-for="Descripcion" class="form-label">Descripción del Producto</label>

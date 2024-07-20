@@ -108,6 +108,15 @@ namespace POS_BeautySalon.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Verificar si ya existe un producto con el mismo nombre
+                var productoExistente = await _context.Productos.FirstOrDefaultAsync(p => p.Nombre == producto.Nombre);
+
+                if(productoExistente != null)
+                {
+                    ModelState.AddModelError("Nombre", "Ya existe un producto con este nombre.");
+                    return View(producto);
+                }
+
                 byte[]? imagen = null;
 
                 if (ImagenProducto != null && ImagenProducto.Length > 0)
@@ -175,6 +184,16 @@ namespace POS_BeautySalon.Controllers
 
             if (ModelState.IsValid)
             {
+                // Verificar si ya existe un producto con el mismo nombre
+                var productoExistente = await _context.Productos.FirstOrDefaultAsync(p => p.Nombre == producto.Nombre &&
+                p.ProductoId != id);
+
+                if (productoExistente != null)
+                {
+                    ModelState.AddModelError("Nombre", "Ya existe un producto con este nombre.");
+                    return View(producto);
+                }
+
                 try
                 {
                     _context.Update(producto);
@@ -236,15 +255,17 @@ namespace POS_BeautySalon.Controllers
             return _context.Productos.Any(e => e.ProductoId == id);
         }
 
-        public async Task<IActionResult> MarkAsOutOfStock(int id)
+        public async Task<IActionResult> ToggleAgotado(int id)
         {
             var producto = await _context.Productos.FindAsync(id);
+
             if(producto == null)
             {
                 return NotFound();
             }
 
-            producto.Estado = 0; // El producto se marca como agotado
+            producto.Estado = producto.Estado == 0 ? 1 : 0;
+
             _context.Update(producto);
             await _context.SaveChangesAsync();
 
