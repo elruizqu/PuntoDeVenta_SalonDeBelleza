@@ -269,12 +269,14 @@ namespace POS_BeautySalon.Controllers
 
                 var emailContent = $@"
                 <p>Hola {cliente.Nombre},</p>
+                <p>Código de reserva: {cita.CitaId}</p>
                 <p>Tu cita para el servicio {servicio.Nombre} ha sido agendada para el {cita.Fecha:dd/MM/yyyy} a las {cita.Hora:hh\\:mm}.</p>
                 <p>Notas: {cita.Notas}</p>
                 <p>Gracias por elegirnos!</p>";
 
                 var estilistaEmailContent = $@"
-                <p>Hola,</p>
+                <p>Hola Viviana,</p>
+                <p>Código de reserva: {cita.CitaId}</p>
                 <p>Se ha agendado una nueva cita para el servicio {servicio.Nombre} con {cliente.Nombre} el {cita.Fecha:dd/MM/yyyy} a las {cita.Hora:hh\\:mm}.</p>
                 <p>Notas: {cita.Notas}</p>";
 

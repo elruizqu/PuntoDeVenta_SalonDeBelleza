@@ -1,39 +1,6 @@
 ﻿@model IEnumerable<DAL.CarritoProvProducto>
 
-<h2>Productos en el Carrito</h2>
-
-@*
-<table class="table">
-    <thead>
-        <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Total</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Producto.Nombre</td>
-                <td>@item.Cantidad</td>
-                <td>@item.Producto.Precio</td>
-                <td>@(item.Producto.Precio * item.Cantidad)</td>
-                <td>
-                    <a asp-action="EditarCantidad" asp-route-id="@item.CarritoProvProductoId">Editar</a> |
-                    <a asp-action="EliminarDelCarrito" asp-route-id="@item.CarritoProvProductoId">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div>
-    <h3>Total: @ViewBag.Total</h3>
-</div>
-*@
+<h2></h2>
 
 
 <br />
@@ -46,7 +13,7 @@
     </div>
 }
 
-<h1 class="titulos_cat">CARRITO VIRTUAL</h1>
+<h1 class="titulos_cat">PRODUCTOS EN EL CARRITO</h1>
 
 <br />
 <br />
@@ -78,7 +45,7 @@
                     }
                 </td>
                 <td>@item.Cantidad</td>
-                <td>₡@item.Producto.Precio</td>
+                <td>₡@item.Producto.PrecioProveedor</td>
                 <td>
                     <form asp-controller="CarritoProveedores" asp-action="EditarCantidad" method="post">
                         <input type="hidden" name="CarritoProvProductoId" value="@item.CarritoProvProductoId" />

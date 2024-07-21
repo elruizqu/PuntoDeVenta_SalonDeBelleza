@@ -27,8 +27,8 @@ namespace DAL
         [Required]
         public int Precio { get; set; }
 
-        //[DisplayName("Precio de compra")]
-        //public int PrecioProveedor { get; set; }
+        [DisplayName("Precio de compra")]
+        public int PrecioProveedor { get; set; }
 
         [DefaultValue(1)]
         public int Estado { get; set; }

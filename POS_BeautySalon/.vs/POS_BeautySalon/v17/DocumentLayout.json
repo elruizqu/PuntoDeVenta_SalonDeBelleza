@@ -3,36 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\controllers\\carritoproveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\controllers\\carritoproveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\carritoproveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\carritoproveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\carrito\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\carrito\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\controllers\\carritocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\productos\\catalogoprod.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\productos\\catalogoprod.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\detalleproveedorfactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\detalleproveedorfactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\detallefactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\detallefactura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\carritoproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,38 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\carritoprovproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\carritoprovproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\carritoproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\carritoproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\facturaproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\facturaproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\pos_beautysalon\\controllers\\cierrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52DF6747-8E2F-495F-AE4C-BB1D7BD4113D}|POS_BeautySalon\\POS_BeautySalon.csproj|solutionrelative:pos_beautysalon\\controllers\\cierrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|c:\\users\\elena\\desktop\\universidad\\2024\\segundo cuatrimestre\\2. dise\u00F1o y desarrollo\\github\\puntodeventa_salondebelleza\\pos_beautysalon\\dal\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E60E765-E26C-432C-96D7-145C6DB77969}|DAL\\DAL.csproj|solutionrelative:dal\\factura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,33 +42,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\CarritoProveedores\\Index.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\CarritoProveedores\\Index.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\CarritoProveedores\\Index.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\CarritoProveedores\\Index.cshtml",
-              "ViewState": "AQIAAFgAAAAAAAAAAAAAAGcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-21T02:38:21.518Z",
+              "DocumentIndex": 0,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
+              "RelativeDocumentMoniker": "DAL\\Producto.cs",
+              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
+              "RelativeToolTip": "DAL\\Producto.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowBoAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T04:22:34.971Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CarritoProveedoresController.cs",
               "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CarritoProveedoresController.cs",
               "RelativeDocumentMoniker": "POS_BeautySalon\\Controllers\\CarritoProveedoresController.cs",
               "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CarritoProveedoresController.cs",
               "RelativeToolTip": "POS_BeautySalon\\Controllers\\CarritoProveedoresController.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAASwF8AAAAAAAAA",
+              "ViewState": "AQIAAGMAAAAAAAAAAAASwHEAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T05:04:34.23Z",
+              "WhenOpened": "2024-07-21T04:16:33.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "DetalleProveedorFactura.cs",
+              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleProveedorFactura.cs",
+              "RelativeDocumentMoniker": "DAL\\DetalleProveedorFactura.cs",
+              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleProveedorFactura.cs",
+              "RelativeToolTip": "DAL\\DetalleProveedorFactura.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T05:05:28.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CarritoProveedor.cs",
+              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProveedor.cs",
+              "RelativeDocumentMoniker": "DAL\\CarritoProveedor.cs",
+              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProveedor.cs",
+              "RelativeToolTip": "DAL\\CarritoProveedor.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAnwCAAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T04:26:17.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Shared\\_Layout.cshtml",
@@ -128,224 +102,7 @@
               "RelativeToolTip": "POS_BeautySalon\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAADYAAAAAAAAAAAAAAEQAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-20T05:22:25.703Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DetalleProveedorFactura.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleProveedorFactura.cs",
-              "RelativeDocumentMoniker": "DAL\\DetalleProveedorFactura.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleProveedorFactura.cs",
-              "RelativeToolTip": "DAL\\DetalleProveedorFactura.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T05:05:28.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\Index.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Productos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\Index.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\Productos\\Index.cshtml",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAowF4AAABmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-21T00:39:46.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CarritoProveedor.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProveedor.cs",
-              "RelativeDocumentMoniker": "DAL\\CarritoProveedor.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProveedor.cs",
-              "RelativeToolTip": "DAL\\CarritoProveedor.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAnwBoAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:26:17.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FacturaProveedor.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\FacturaProveedor.cs",
-              "RelativeDocumentMoniker": "DAL\\FacturaProveedor.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\FacturaProveedor.cs",
-              "RelativeToolTip": "DAL\\FacturaProveedor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T05:05:29.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CarritoProvProducto.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProvProducto.cs",
-              "RelativeDocumentMoniker": "DAL\\CarritoProvProducto.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProvProducto.cs",
-              "RelativeToolTip": "DAL\\CarritoProvProducto.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAYwBAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T05:05:22.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Proveedor.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
-              "RelativeDocumentMoniker": "DAL\\Proveedor.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Proveedor.cs",
-              "RelativeToolTip": "DAL\\Proveedor.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:11:25.077Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
-              "RelativeDocumentMoniker": "DAL\\Producto.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Producto.cs",
-              "RelativeToolTip": "DAL\\Producto.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAuwEEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:09:45.544Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "af775fb2-fa5c-4f01-9304-96785369050c",
-        "Display": 0,
-        "X": -488,
-        "Y": 186,
-        "Width": 1112,
-        "Height": 645,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 6,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DetalleFactura.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleFactura.cs",
-              "RelativeDocumentMoniker": "DAL\\DetalleFactura.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\DetalleFactura.cs",
-              "RelativeToolTip": "DAL\\DetalleFactura.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:09:43.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Carrito.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Carrito.cs",
-              "RelativeDocumentMoniker": "DAL\\Carrito.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Carrito.cs",
-              "RelativeToolTip": "DAL\\Carrito.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBMAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:09:38.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarritoController.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CarritoController.cs",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Controllers\\CarritoController.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CarritoController.cs",
-              "RelativeToolTip": "POS_BeautySalon\\Controllers\\CarritoController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAIwC4AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:46:33.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CatalogoProd.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\Productos\\CatalogoProd.cshtml",
-              "ViewState": "AQIAADQAAAAAAAAAAAAhwDUAAABXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-21T00:39:33.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Factura.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Factura.cs",
-              "RelativeDocumentMoniker": "DAL\\Factura.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\Factura.cs",
-              "RelativeToolTip": "DAL\\Factura.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:09:44.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CarritoProducto.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProducto.cs",
-              "RelativeDocumentMoniker": "DAL\\CarritoProducto.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\DAL\\CarritoProducto.cs",
-              "RelativeToolTip": "DAL\\CarritoProducto.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:09:41.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Carrito\\Index.cshtml",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Views\\Carrito\\Index.cshtml",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Views\\Carrito\\Index.cshtml",
-              "RelativeToolTip": "POS_BeautySalon\\Views\\Carrito\\Index.cshtml",
-              "ViewState": "AQIAAHoAAAAAAAAAAAAQwJwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-21T02:43:21.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CierreController.cs",
-              "DocumentMoniker": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CierreController.cs",
-              "RelativeDocumentMoniker": "POS_BeautySalon\\Controllers\\CierreController.cs",
-              "ToolTip": "C:\\Users\\elena\\Desktop\\Universidad\\2024\\Segundo cuatrimestre\\2. Dise\u00F1o y desarrollo\\Github\\PuntoDeVenta_SalonDeBelleza\\POS_BeautySalon\\POS_BeautySalon\\Controllers\\CierreController.cs",
-              "RelativeToolTip": "POS_BeautySalon\\Controllers\\CierreController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T04:46:54.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-20T05:22:25.703Z"
             }
           ]
         }

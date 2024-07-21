@@ -30,7 +30,7 @@ namespace DAL
 
             foreach (var carritoProvProducto in CarritoProvProductos)
             {
-                total += carritoProvProducto.Producto.Precio * carritoProvProducto.Cantidad;
+                total += carritoProvProducto.Producto.PrecioProveedor * carritoProvProducto.Cantidad;
             }
 
             return total;

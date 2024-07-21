@@ -69,8 +69,8 @@
                     <th>@Html.DisplayNameFor(model => model.Nombre)</th>
                     <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
                     <th>@Html.DisplayNameFor(model => model.ImagenProducto)</th>
-                    <th>@Html.DisplayNameFor(model => model.Precio)</th>
-                    <th>@Html.DisplayNameFor(model => model.Estado)</th>
+                    <th>Precio de venta</th>
+                    <th>@Html.DisplayNameFor(model => model.PrecioProveedor)</th>
                     <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
                     <th>@Html.DisplayNameFor(model => model.Categoria)</th>
                     <th>@Html.DisplayNameFor(model => model.Marca)</th>
@@ -96,7 +96,7 @@
                             }
                         </td>
                         <td>@Html.DisplayFor(modelItem => item.Precio)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrecioProveedor)</td>
                         <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
                         <td>@Html.DisplayFor(modelItem => item.Categoria.Descripcion)</td>
                         <td>@Html.DisplayFor(modelItem => item.Marca.Descripcion)</td>

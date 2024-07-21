@@ -126,7 +126,7 @@ namespace POS_BeautySalon.Controllers
                     FacturaProveedorId = facturaProveedor.FacturaProveedorId,
                     ProductoId = item.ProductoId,
                     Cantidad = item.Cantidad,
-                    PrecioUnitario = item.Producto.Precio
+                    PrecioUnitario = item.Producto.PrecioProveedor
                 };
 
                 _salonContext.DetalleProveedorFacturas.Add(detalleProveedorFactura);
