@@ -17,7 +17,7 @@ namespace DAL.Migrations.Salon
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.6")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -129,6 +129,53 @@ namespace DAL.Migrations.Salon
                     b.HasIndex("ProductoId");
 
                     b.ToTable("CarritoProductos");
+<<<<<<< Updated upstream
+=======
+                });
+
+            modelBuilder.Entity("DAL.CarritoProvProducto", b =>
+                {
+                    b.Property<int>("CarritoProvProductoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarritoProvProductoId"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarritoProveedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CarritoProvProductoId");
+
+                    b.HasIndex("CarritoProveedorId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("CarritoProvProductos");
+                });
+
+            modelBuilder.Entity("DAL.CarritoProveedor", b =>
+                {
+                    b.Property<int>("CarritoProveedorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarritoProveedorId"));
+
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CarritoProveedorId");
+
+                    b.HasIndex("ProveedorId");
+
+                    b.ToTable("CarritoProveedores");
+>>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("DAL.Categoria", b =>
@@ -239,6 +286,43 @@ namespace DAL.Migrations.Salon
                     b.HasIndex("ServicioId");
 
                     b.ToTable("DetalleFacturas");
+<<<<<<< Updated upstream
+=======
+                });
+
+            modelBuilder.Entity("DAL.DetalleProveedorFactura", b =>
+                {
+                    b.Property<int>("DetalleProveedorFacturaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DetalleProveedorFacturaId"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FacturaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FacturaProveedorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrecioUnitario")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DetalleProveedorFacturaId");
+
+                    b.HasIndex("FacturaId");
+
+                    b.HasIndex("FacturaProveedorId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("DetalleProveedorFacturas");
+>>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("DAL.Factura", b =>
@@ -273,6 +357,33 @@ namespace DAL.Migrations.Salon
                     b.HasIndex("ServicioId");
 
                     b.ToTable("Facturas");
+<<<<<<< Updated upstream
+=======
+                });
+
+            modelBuilder.Entity("DAL.FacturaProveedor", b =>
+                {
+                    b.Property<int>("FacturaProveedorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FacturaProveedorId"));
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PrecioTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FacturaProveedorId");
+
+                    b.HasIndex("ProveedorId");
+
+                    b.ToTable("FacturaProveedores");
+>>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("DAL.ListaDeseo", b =>
@@ -419,10 +530,10 @@ namespace DAL.Migrations.Salon
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProveedorId"));
 
-                    b.Property<int>("Calidad")
+                    b.Property<int?>("Calidad")
                         .HasColumnType("int");
 
-                    b.Property<int>("Calificacion")
+                    b.Property<int?>("Calificacion")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -433,7 +544,7 @@ namespace DAL.Migrations.Salon
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Puntualidad")
+                    b.Property<int?>("Puntualidad")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
@@ -503,6 +614,36 @@ namespace DAL.Migrations.Salon
                     b.Navigation("Producto");
                 });
 
+            modelBuilder.Entity("DAL.CarritoProvProducto", b =>
+                {
+                    b.HasOne("DAL.CarritoProveedor", "CarritoProveedor")
+                        .WithMany("CarritoProvProductos")
+                        .HasForeignKey("CarritoProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Producto", "Producto")
+                        .WithMany("CarritoProvProductos")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CarritoProveedor");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("DAL.CarritoProveedor", b =>
+                {
+                    b.HasOne("DAL.Proveedor", "Proveedor")
+                        .WithMany()
+                        .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proveedor");
+                });
+
             modelBuilder.Entity("DAL.Cita", b =>
                 {
                     b.HasOne("DAL.ApplicationUser", "Cliente")
@@ -543,6 +684,27 @@ namespace DAL.Migrations.Salon
                     b.Navigation("Servicio");
                 });
 
+            modelBuilder.Entity("DAL.DetalleProveedorFactura", b =>
+                {
+                    b.HasOne("DAL.Factura", "Factura")
+                        .WithMany()
+                        .HasForeignKey("FacturaId");
+
+                    b.HasOne("DAL.FacturaProveedor", null)
+                        .WithMany("DetalleProveedorFacturas")
+                        .HasForeignKey("FacturaProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Factura");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("DAL.Factura", b =>
                 {
                     b.HasOne("DAL.ApplicationUser", "Cliente")
@@ -558,6 +720,17 @@ namespace DAL.Migrations.Salon
                         .HasForeignKey("ServicioId");
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("DAL.FacturaProveedor", b =>
+                {
+                    b.HasOne("DAL.Proveedor", "Proveedor")
+                        .WithMany()
+                        .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proveedor");
                 });
 
             modelBuilder.Entity("DAL.ListaDeseo", b =>
@@ -640,6 +813,11 @@ namespace DAL.Migrations.Salon
                     b.Navigation("CarritoProductos");
                 });
 
+            modelBuilder.Entity("DAL.CarritoProveedor", b =>
+                {
+                    b.Navigation("CarritoProvProductos");
+                });
+
             modelBuilder.Entity("DAL.Categoria", b =>
                 {
                     b.Navigation("Productos");
@@ -650,6 +828,14 @@ namespace DAL.Migrations.Salon
                     b.Navigation("DetalleFacturas");
                 });
 
+<<<<<<< Updated upstream
+=======
+            modelBuilder.Entity("DAL.FacturaProveedor", b =>
+                {
+                    b.Navigation("DetalleProveedorFacturas");
+                });
+
+>>>>>>> Stashed changes
             modelBuilder.Entity("DAL.ListaDeseo", b =>
                 {
                     b.Navigation("ListaDeseoProductos");
@@ -663,6 +849,8 @@ namespace DAL.Migrations.Salon
             modelBuilder.Entity("DAL.Producto", b =>
                 {
                     b.Navigation("CarritoProductos");
+
+                    b.Navigation("CarritoProvProductos");
 
                     b.Navigation("Facturas");
 

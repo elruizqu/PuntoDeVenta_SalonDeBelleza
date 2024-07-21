@@ -184,50 +184,6 @@ namespace POS_BeautySalon.Controllers
         }
 
 
-        /*//Confirmar Compra, hace una sola factura pero no carga los datos del cierre
-
-        [HttpPost]
-         public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
-         {
-             if ((metodoPago == "Transferencia" || metodoPago == "Sinpe") && string.IsNullOrEmpty(consecutivo))
-             {
-                 return Json(new { success = false, message = "El número de consecutivo es requerido para el método de pago seleccionado." });
-             }
-
-             var carrito = ObtenerCarritoDelUsuarioActual();
-
-             var productosEnCarrito = _salonContext.CarritoProductos
-                 .Include(cp => cp.Producto)
-                 .Where(cp => cp.CarritoId == carrito.CarritoId)
-                 .ToList();
-
-             var total = carrito.CalcularTotal();
-
-             // Crear y guardar la factura
-             foreach (var item in productosEnCarrito)
-             {
-                 var factura = new Factura
-                 {
-                     ClienteId = carrito.ClienteId,
-                     PrecioTotal = item.Producto.Precio * item.Cantidad,
-                     Fecha = DateTime.Now,
-                    //ProductoId = item.ProductoId
-                 };
-
-                 _salonContext.Facturas.Add(factura);
-             }
-
-             await _salonContext.SaveChangesAsync();
-
-             // Limpiar el carrito
-             _salonContext.CarritoProductos.RemoveRange(productosEnCarrito);
-             await _salonContext.SaveChangesAsync();
-
-             return Json(new { success = true, message = "Compra confirmada con éxito." });
-         }*/
-
-
-
         [HttpPost]
         public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
         {

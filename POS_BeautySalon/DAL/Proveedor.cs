@@ -23,14 +23,14 @@ namespace DAL
         public string Email { get; set; }
 
         [DisplayName("Teléfono")]
-        public String Telefono { get; set; }
+        public string Telefono { get; set; }
 
        
-        public int Puntualidad { get; set; }
-        public int Calidad { get; set; }
+        public int? Puntualidad { get; set; }
+        public int? Calidad { get; set; }
 
         [DisplayName("Calificación")] //calificacion general promedio entre puntualidad y calidad para reportes
-        public int Calificacion { get; set; }
+        public int? Calificacion { get; set; }
 
 
         public ICollection<Producto> Productos { get; set; } = new List<Producto>();

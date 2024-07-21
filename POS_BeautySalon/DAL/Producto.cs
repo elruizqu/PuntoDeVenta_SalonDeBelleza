@@ -27,9 +27,14 @@ namespace DAL
         [Required]
         public int Precio { get; set; }
 
+        //[DisplayName("Precio de compra")]
+        //public int PrecioProveedor { get; set; }
+
         [DefaultValue(1)]
         public int Estado { get; set; }
 
+        [DisplayName("Stock")]
+        [DefaultValue(0)]
         public int Cantidad { get; set; }
 
         [ForeignKey("Categoria")]
@@ -59,5 +64,6 @@ namespace DAL
 
         public ICollection<ListaDeseoProducto> ListaDeseoProductos { get; set; } = new List<ListaDeseoProducto>();
 
+        public ICollection<CarritoProvProducto> CarritoProvProductos { get; set; } = new List<CarritoProvProducto>();
     }
 }

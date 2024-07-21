@@ -1,0 +1,37 @@
+﻿@model DAL.CarritoProvProducto
+
+@{
+    ViewData["Title"] = "Agregar Producto al Carrito";
+}
+
+<h1>Agregar Producto al Carrito</h1>
+
+<h4>Producto del Carrito</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AgregarProdProveedor">
+            <div class="form-group">
+                <label asp-for="ProductoId" class="control-label"></label>
+                <select asp-for="ProductoId" class="form-control" asp-items="ViewBag.ProductoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Details" asp-route-id="@Model.CarritoProveedorId">Back to Carrito</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

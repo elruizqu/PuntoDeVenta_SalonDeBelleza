@@ -38,5 +38,13 @@ namespace DAL
         public DbSet<Cierre> Cierres { get; set; }
 
         public DbSet<DetalleFactura> DetalleFacturas { get; set; }
+
+        public DbSet<CarritoProveedor> CarritoProveedores { get; set; }
+
+        public DbSet<CarritoProvProducto> CarritoProvProductos { get; set; }
+
+        public DbSet<FacturaProveedor> FacturaProveedores { get; set; }
+
+        public DbSet<DetalleProveedorFactura> DetalleProveedorFacturas { get; set; }
     }
 }
