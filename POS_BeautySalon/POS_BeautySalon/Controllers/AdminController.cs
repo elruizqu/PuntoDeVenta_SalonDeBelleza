@@ -158,6 +158,22 @@ namespace POS_BeautySalon.Controllers
                 return NotFound();
             }
 
+            // Eliminar las facturas asociadas al usuario
+            var facturas = await _salonContext.Facturas
+                .Where(f => f.ClienteId == id)
+                .ToListAsync();
+
+            if (facturas != null && facturas.Any())
+            {
+                // Eliminar los detalles de las facturas
+                var detallesFacturas = await _salonContext.DetalleFacturas
+                    .Where(d => facturas.Select(f => f.FacturaId).Contains(d.FacturaId))
+                    .ToListAsync();
+
+                _salonContext.DetalleFacturas.RemoveRange(detallesFacturas);
+                _salonContext.Facturas.RemoveRange(facturas);
+            }
+
             // Eliminar la lista de deseos del usuario
             var listaDeseo = await _salonContext.ListaDeseos
                 .Include(ld => ld.ListaDeseoProductos)

@@ -160,26 +160,30 @@ $(document).ready(function () {
 <a class="btn btn-dark" id="confirmarCompra">Confirmar Compra</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.cantidad').change(function () {
-            var nuevaCantidad = $(this).val();
-            var carritoProductoId = $(this).data('id');
 
-            $.ajax({
-                url: '/Carrito/EditarCantidad',
-                type: 'POST',
-                data: { carritoProductoId: carritoProductoId, nuevaCantidad: nuevaCantidad },
-                success: function (response) {
-                    // Actualizar la página
+<<script>
+$(document).ready(function () {
+    $('.cantidad').change(function () {
+        var nuevaCantidad = $(this).val();
+        var carritoProductoId = $(this).data('id');
+
+        $.ajax({
+            url: '/Carrito/EditarCantidad',
+            type: 'POST',
+            data: { carritoProductoId: carritoProductoId, nuevaCantidad: nuevaCantidad },
+            success: function (response) {
+                // Actualizar la página después de un retraso para evitar problemas de recarga rápida
+                setTimeout(function () {
                     location.reload();
-                },
-                error: function (response) {
-                    alert('Error al actualizar la cantidad.');
-                }
-            });
+                }, 1000);
+            },
+            error: function (response) {
+                alert('Error al actualizar la cantidad.');
+            }
         });
     });
+});
 </script>
+
 
 </html>

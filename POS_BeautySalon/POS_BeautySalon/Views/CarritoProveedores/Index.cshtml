@@ -69,22 +69,12 @@
 </table>
 
 <br />
+
+
+
 <br />
-<br />
 
 
-<br />
-
-<!-- Campo para el consecutivo de la transacción -->
-<div id="consecutivoContainer" style="display: none;">
-    <label for="consecutivo" style="background-color: rgb(245, 203, 215);width: 200px;">Número de consecutivo:</label>
-    <input type="text" id="consecutivo" name="consecutivo" class="form-control" style="width: 18rem;" required />
-</div>
-
-<!--Metodos de pago-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Div para mostrar mensajes de notificación -->
-<div id="notification" class="alert" role="alert" style="display:none;"></div>
 
 <script>
     $(document).ready(function () {
@@ -105,7 +95,7 @@
 
 
 
-<a class="btn btn-dark" id="confirmarCompra">Confirmar Compra</a>
+<a class="btn btn-dark" id="confirmarCompra">Confirmar Pedido</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -131,3 +121,37 @@
 </script>
 
 
+
+
+
+<!-- Botón para ver las facturas de proveedores -->
+<button id="verFacturasProveedores" class="btn btn-dark">Ver Facturas de Proveedores</button>
+
+
+
+
+<div id="facturasProveedoresContainer"></div>
+
+
+
+
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#verFacturasProveedores').click(function () {
+                $.ajax({
+                    url: '@Url.Action("VerFacturasProveedores", "CarritoProveedores")',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#facturasProveedoresContainer').html(data);
+                    },
+                    error: function () {
+                        alert('Error al cargar las facturas de proveedores.');
+                    }
+                });
+            });
+        });
+    </script>
+}

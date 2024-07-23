@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DAL.DetalleProveedorFactura>
+
+
+    <br>
+    <br>
+<table class="table">
+    <thead class ="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Precio Proveedor</th>
+            <th>Precio de Venta</th>
+            <th>Descripcion</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in Model)
+        {
+            <tr>
+                <td>@detalle.Producto.Nombre</td>
+                <td>
+                    @if (detalle.Producto.ImagenProducto != null)
+                    {
+                        <img src="data:image;base64,@Convert.ToBase64String(detalle.Producto.ImagenProducto)" alt="Imagen Producto" style="width:100px; height:auto;" />
+                    }
+                </td>
+                <td>@detalle.Producto.PrecioProveedor</td>
+                <td>@detalle.Producto.Precio</td>
+                <td>@detalle.Producto.Descripcion</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "CarritoProveedores")" class="btn btn-dark">Volver</a>

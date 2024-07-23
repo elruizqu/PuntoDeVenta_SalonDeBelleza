@@ -49,6 +49,63 @@ namespace POS_BeautySalon.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+
+        // Acción para mostrar las facturas de proveedores
+        public async Task<IActionResult> VerFacturasProveedores()
+        {
+            var facturasProveedores = await _salonContext.FacturaProveedores
+                .Include(f => f.Proveedor)
+                .Include(f => f.DetalleProveedorFacturas)
+                .ThenInclude(d => d.Producto)
+                .ToListAsync();
+
+            return PartialView("FacturasProveedores", facturasProveedores);
+        }
+
+
+        //Accion para ver Detalles de la factura 
+        public async Task<IActionResult> VerDetallesProveedorFactura(int facturaProveedorId)
+        {
+            var detallesFactura = await _salonContext.DetalleProveedorFacturas
+                .Include(d => d.Producto)
+                .ThenInclude(p => p.Marca)
+                .Include(d => d.Producto)
+                .ThenInclude(p => p.Categoria)
+                .Where(d => d.FacturaProveedorId == facturaProveedorId)
+                .ToListAsync();
+
+            ViewBag.FacturaProveedorId = facturaProveedorId; // Para pasar el ID a la vista, si es necesario
+            return View("DetallesProveedorFactura", detallesFactura);
+        }
+
+        //Eliminar Factura de proveedor, Vista FacturasProveedores
+        [HttpPost]
+        public async Task<IActionResult> EliminarFacturaProveedor(int facturaProveedorId)
+        {
+            var factura = await _salonContext.FacturaProveedores
+                .Include(f => f.DetalleProveedorFacturas)
+                .FirstOrDefaultAsync(f => f.FacturaProveedorId == facturaProveedorId);
+
+            if (factura == null)
+            {
+                return NotFound();
+            }
+
+            // Elimina los detalles relacionados
+            _salonContext.DetalleProveedorFacturas.RemoveRange(factura.DetalleProveedorFacturas);
+
+            // Elimina la factura
+            _salonContext.FacturaProveedores.Remove(factura);
+
+            await _salonContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
         // Método para editar cantidad de un producto del carrito
         public async Task<IActionResult> EditarCantidad(int carritoProvProductoId, int nuevaCantidad)
         {
@@ -81,7 +138,8 @@ namespace POS_BeautySalon.Controllers
         }
 
         // Método complementario para obtener el carrito del estilista
-        private CarritoProveedor ObtenerCarritoEstilista()
+
+        /*private CarritoProveedor ObtenerCarritoEstilista()
         {
             var carritoProveedor = _salonContext.CarritoProveedores.FirstOrDefault();
 
@@ -92,7 +150,34 @@ namespace POS_BeautySalon.Controllers
                 _salonContext.SaveChanges();
             }
             return carritoProveedor;
+        }*/
+
+        private CarritoProveedor ObtenerCarritoEstilista()
+        {
+            var carritoProveedor = _salonContext.CarritoProveedores.FirstOrDefault();
+
+            if (carritoProveedor == null)
+            {
+                // Asigna un ProveedorId válido
+                var proveedor = _salonContext.Proveedores.FirstOrDefault();
+                if (proveedor == null)
+                {
+                    throw new InvalidOperationException("No hay proveedores disponibles.");
+                }
+
+                carritoProveedor = new CarritoProveedor
+                {
+                    ProveedorId = proveedor.ProveedorId
+                };
+
+                _salonContext.CarritoProveedores.Add(carritoProveedor);
+                _salonContext.SaveChanges();
+            }
+
+            return carritoProveedor;
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> ConfirmarCompra()

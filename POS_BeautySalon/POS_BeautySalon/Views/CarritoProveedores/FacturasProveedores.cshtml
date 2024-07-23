@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DAL.FacturaProveedor>
+
+<br>
+<br>
+<br>
+<h1 class="titulos_cat">Facturas de Proveedores</h1>
+<br>
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Proveedor</th>
+            <th>Fecha</th>
+            <th>Precio Total</th>
+            <th>Detalles</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var factura in Model)
+        {
+            <tr>
+                <td>@factura.Proveedor.Nombre</td>
+                <td>@factura.Fecha.ToShortDateString()</td>
+                <td>@factura.PrecioTotal</td>
+                <td>
+                    <a href="@Url.Action("VerDetallesProveedorFactura", "CarritoProveedores", new { facturaProveedorId = factura.FacturaProveedorId })" class="w-5 btn btn-lg btn-dark"
+                       style="background-color:pink; color: black;">
+                        Ver Detalles
+                    </a>
+                </td>
+                <td>
+                    <form action="@Url.Action("EliminarFacturaProveedor", "CarritoProveedores", new { facturaProveedorId = factura.FacturaProveedorId })" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta factura?');">
+                        <button type="submit" class="w-5 btn btn-lg btn-dark"
+                                style="background-color:pink; color: black;">
+                            Eliminar
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
