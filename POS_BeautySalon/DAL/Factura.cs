@@ -28,5 +28,6 @@ namespace DAL
         //Navegacion
         public ApplicationUser? Cliente { get; set; }
         public ICollection<DetalleFactura> DetalleFacturas { get; set; } = new List<DetalleFactura>();
+        public ICollection<Cita> Citas { get; set; } = new List<Cita>();
     }
 }

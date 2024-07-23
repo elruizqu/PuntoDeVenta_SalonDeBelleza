@@ -32,9 +32,17 @@ namespace DAL
 
         public string? Notas { get; set; }
 
+        //Para vincular con la factura
+        [ForeignKey("Factura")]
+        [DisplayName("Factura")]
+        public int? FacturaId { get; set; }
+
         //Navegacion
         public ApplicationUser? Cliente { get; set; }
         public Servicio? Servicio { get; set; }
+
+        public Factura? Factura { get; set; }
+
 
     }
 }

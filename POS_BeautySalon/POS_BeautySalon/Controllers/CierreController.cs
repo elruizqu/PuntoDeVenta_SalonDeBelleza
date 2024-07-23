@@ -29,10 +29,7 @@ namespace POS_BeautySalon.Controllers
             // Mostrar las facturas del día actual
             var hoy = DateTime.Today;
             var facturasDeHoy = _salonContext.Facturas
-
-                .Include(f => f.Cliente)
-                //.Include(f => f.Producto)   
-                //.Include(f => f.Servicio)   
+                .Include(f => f.Cliente) 
                 .Where(f => f.Fecha >= hoy)
                 .ToList();
 
@@ -65,7 +62,7 @@ namespace POS_BeautySalon.Controllers
             var totalServicios = facturasDeHoy
                 .SelectMany(f => f.DetalleFacturas)
                 .Where(df => df.ServicioId != null)
-                .Sum(df => df.PrecioUnitario * df.Cantidad);
+                .Sum(df => df.PrecioUnitario);
 
             var totalCierre = totalProductos + totalServicios;
 

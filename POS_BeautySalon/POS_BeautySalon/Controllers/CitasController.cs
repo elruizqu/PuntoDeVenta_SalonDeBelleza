@@ -262,9 +262,43 @@ namespace POS_BeautySalon.Controllers
                 _context.Add(cita);
                 await _context.SaveChangesAsync();
 
+
+
+
+                // Crear la factura
+                var servicio = await _context.Servicios.FindAsync(cita.ServicioId);
+                var factura = new Factura
+                {
+                    ClienteId = cita.ClienteId,
+                    PrecioTotal = servicio.Precio,
+                    Fecha = DateTime.Now
+                };
+
+                _context.Add(factura);
+                await _context.SaveChangesAsync();
+
+                // Crear el detalle de la factura
+                var detalleFactura = new DetalleFactura
+                {
+                    FacturaId = factura.FacturaId,
+                    ServicioId = cita.ServicioId,
+                    PrecioUnitario = servicio.Precio 
+                };
+
+                _context.Add(detalleFactura);
+                await _context.SaveChangesAsync();
+
+                // Vincular la cita con la factura
+                cita.FacturaId = factura.FacturaId;
+                _context.Update(cita);
+                await _context.SaveChangesAsync();
+
+
+
+
                 // Enviar correo de confirmación al cliente y al estilista
                 var cliente = await _userManager.FindByIdAsync(cita.ClienteId);
-                var servicio = await _context.Servicios.FindAsync(cita.ServicioId);
+               // var servicio = await _context.Servicios.FindAsync(cita.ServicioId);
                 var estilistaEmail = _configuration["Estilista:Email"];
 
                 var emailContent = $@"
@@ -366,7 +400,7 @@ namespace POS_BeautySalon.Controllers
         }
 
         // POST: Citas/Delete/5
-        [HttpPost, ActionName("Delete")]
+        /*[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -383,6 +417,44 @@ namespace POS_BeautySalon.Controllers
         private bool CitaExists(int id)
         {
             return _context.Citas.Any(e => e.CitaId == id);
+        }*/
+
+        // POST: Citas/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var cita = await _context.Citas
+                .Include(c => c.Factura) // Incluir la factura asociada
+                .ThenInclude(f => f.DetalleFacturas) // Incluir los detalles de la factura
+                .FirstOrDefaultAsync(c => c.CitaId == id);
+
+            if (cita != null)
+            {
+                // Eliminar detalles de la factura
+                if (cita.Factura != null)
+                {
+                    var detallesFactura = cita.Factura.DetalleFacturas.ToList();
+                    _context.DetalleFacturas.RemoveRange(detallesFactura);
+
+                    // Eliminar la factura
+                    _context.Facturas.Remove(cita.Factura);
+                }
+
+                // Eliminar la cita
+                _context.Citas.Remove(cita);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
         }
+
+        private bool CitaExists(int id)
+        {
+            return _context.Citas.Any(e => e.CitaId == id);
+        }
+
+
     }
 }

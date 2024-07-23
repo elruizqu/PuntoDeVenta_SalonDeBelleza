@@ -58,8 +58,7 @@
         <thead>
             <tr>
                 <th>Servicio</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
+                <th>Descripción</th>   
                 <th>Precio Unitario</th>
                 <th>Subtotal</th>
             </tr>
@@ -70,9 +69,8 @@
                 <tr>
                     <td>@detalle.Servicio.Nombre</td>
                     <td>@detalle.Servicio.Descripcion</td>
-                    <td>@detalle.Cantidad</td>
                     <td>@detalle.PrecioUnitario</td>
-                    <td>@(detalle.Cantidad * detalle.PrecioUnitario)</td>
+                    <td>@detalle.PrecioUnitario</td>
                 </tr>
             }
         </tbody>
