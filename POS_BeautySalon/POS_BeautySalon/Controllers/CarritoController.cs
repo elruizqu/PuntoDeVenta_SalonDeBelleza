@@ -71,6 +71,9 @@ namespace POS_BeautySalon.Controllers
                 producto.Alerta = null;
             }
 
+            // Actualizar el estado del producto si se agota
+            producto.Estado = producto.Cantidad == 0 ? 0 : 1;
+
             _salonContext.Add(carritoProducto);
             _salonContext.Update(producto);
             await _salonContext.SaveChangesAsync();
@@ -102,6 +105,9 @@ namespace POS_BeautySalon.Controllers
             {
                 producto.Alerta = null;
             }
+
+            // Actualizar el estado del producto si se agota
+            producto.Estado = producto.Cantidad == 0 ? 0 : 1;
 
             carritoProducto.Cantidad = nuevaCantidad;
 

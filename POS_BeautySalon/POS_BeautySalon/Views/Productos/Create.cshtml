@@ -5,49 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .table {
-        color: #000000;
-        background-color: #FFFFFF;
-    }
 
-    .thead-dark {
-        background-color: #C8BCA1;
-    }
-
-    .btn-primary {
-        background-color: lightpink;
-    }
-
-    .btn-warning {
-        background-color: #FF69B4;
-    }
-
-    .btn-info {
-        background-color: #008b8b;
-    }
-
-    .btn-danger {
-        background-color: #ff0000;
-    }
-
-    .text-muted {
-        color: #800080;
-    }
-
-    .container {
-        background-color: rgba(245, 203, 215, 1);
-    }
-
-    body {
-        background-color: rgba(225, 213, 216, 0.91);
-    }
-</style>
-
-<div class="container">
-    <h1 class="my-4">Crear Producto</h1>
-    <div class="row">
-        <div class="col-md-8">
+<div class="row fondoTransparente">
+    <h1>Crear Producto</h1>
+    <hr />
+    <br />
+        <div class="col-md-7">
             <form asp-action="Create" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -66,14 +29,14 @@
                     <input type="file" accept="image/png" class="form-control" name="ImagenProducto" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Precio" class="form-label">Precio del Producto</label>
-                    <input asp-for="Precio" class="form-control" placeholder="Ingrese el precio del producto" />
+                    <label asp-for="Precio" class="form-label">Precio de Venta</label>
+                    <input asp-for="Precio" class="form-control" placeholder="Ingrese el precio de venta del producto" />
                     <span asp-validation-for="Precio" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Cantidad" class="form-label">Cantidad del Producto</label>
-                    <input asp-for="Cantidad" class="form-control" placeholder="Ingrese la cantidad del producto" />
-                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                    <label asp-for="PrecioProveedor" class="form-label">Precio de Compra</label>
+                    <input asp-for="PrecioProveedor" class="form-control" placeholder="Ingrese el precio de compra del producto" />
+                    <span asp-validation-for="PrecioProveedor" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="CategoriaId" class="form-label">Categoría del Producto</label>
@@ -87,15 +50,13 @@
                     <label asp-for="ProveedorId" class="form-label">Proveedor del Producto</label>
                     <select asp-for="ProveedorId" class="form-control" asp-items="ViewBag.ProveedorId"></select>
                 </div>
-                <div class="form-group mt-3">
-                    <input type="submit" value="Agregar Producto" class="btn btn-primary" />
+                <div class="text-center">
+                <input type="submit" style="background-color:pink; color: black;" value="Crear" class="w-50 btn btn-lg  btn-dark" />
+                <a asp-action="Index" class="w-100 btn btn-lg btn-dark">Volver a la lista</a>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="mt-3">
-        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
-    </div>
+ 
 </div>
 
 @section Scripts {

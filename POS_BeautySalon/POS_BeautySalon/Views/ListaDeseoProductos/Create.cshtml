@@ -5,27 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<br />
-<h1>Agregar producto a lista de deseos</h1>
 
 
-<hr />
-<div class="row">
+
+
+
+<div class="home">
+    <h1>Agregar producto a lista de deseos</h1>
+    <hr />
+    <br />
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ListaID" />
-            <!--<div class="form-group">
-                <label asp-for="ListaID" class="control-label"></label>
-                <select asp-for="ListaID" class ="form-control" asp-items="ViewBag.ListaID"></select>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="ListaID" class="control-label"></label>
-                <input type="text" class="form-control" asp-for="ListaID" disabled="disabled" />
-                <input type="hidden" asp-for="ListaID" />
-            </div>-->
-            
             <div class="form-group">
                 <label asp-for="ProductoId" class="control-label"></label>
                 <select asp-for="ProductoId" class="form-control" asp-items="ViewBag.ProductoId" disabled="disabled"></select>
@@ -33,14 +25,14 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Agregar" class="w-100 btn btn-lg  btn-dark" />
+                <br />
+                <br />
+                    <a class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-controller="Productos" asp-action="CatalogoProd">Regresar</a>
             </div>
         </form>
     </div>
 </div>
-<br />
-<div>
-    <a class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;"  asp-action="Index">Regresar</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

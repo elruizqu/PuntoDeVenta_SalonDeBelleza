@@ -7,16 +7,19 @@
 <br>
 
 
-<div>
+<div class="home">
     <h3>¿Estás seguro que quieres desbloquear a @Model.Email?</h3>
-    <br>
+    <hr />
+    <br />
     
 
     <form asp-action="UnlockConfirmed" method="post">
 
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-dark">Desbloquear</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="w-100 btn btn-lg  btn-dark">Desbloquear</button>
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Cancelar</a>
     </form>
 </div>
 <br>

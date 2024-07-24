@@ -5,13 +5,16 @@
 <br>
 <br>
 
-<div>
+<div class="home">
     <h3>¿Estás seguro que quieres bloquear a @Model.Email?</h3>
-    <br>
+    <hr />
+    <br />
     <form asp-action="LockedConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-dark">Bloquear</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="w-100 btn btn-lg  btn-dark">Bloquear</button>
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 <br>

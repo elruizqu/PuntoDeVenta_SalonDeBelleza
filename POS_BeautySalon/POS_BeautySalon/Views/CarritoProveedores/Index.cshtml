@@ -5,13 +5,6 @@
 
 <br />
 
-<!--Mensaje de error en caso de que se exceda la cantidad en inventario-->
-@if(TempData["Error"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["Error"]
-    </div>
-}
 
 <h1 class="titulos_cat">PRODUCTOS EN EL CARRITO</h1>
 
@@ -69,12 +62,22 @@
 </table>
 
 <br />
+<<<<<<< Updated upstream
 
 
 
 <br />
 
 
+=======
+<br />
+
+
+<!--Metodos de pago-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Div para mostrar mensajes de notificación -->
+<div id="notification" class="alert" role="alert" style="display:none;"></div>
+>>>>>>> Stashed changes
 
 <script>
     $(document).ready(function () {

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <br />
-
+<br />
 <!--Mensaje de error en caso de que se exceda la cantidad en inventario-->
 @if(TempData["Error"] != null)
 {
@@ -72,12 +72,11 @@
 <br />
 <br />
 <br />
-
-<h3 style="background-color: rgb(245, 203, 215); width: 220px;">Metodos de pago</h3>
+<div class="registration-section" style="margin: unset">
+<h3>Metodos de pago</h3>
 
 <a class="btn btn-dark" id="pagoSinpe">Sinpe</a>
 <a class="btn btn-dark" id="pagoTransferencia">Transferencia</a>
-<a class="btn btn-dark" id="pagoEfectivo">Efectivo</a>
 
 <div id="mensajePago"></div>
 
@@ -91,7 +90,7 @@
 
 <!-- Campo para el consecutivo de la transacción -->
 <div id="consecutivoContainer" style="display: none;">
-    <label for="consecutivo" style="background-color: rgb(245, 203, 215);width: 200px;">Número de consecutivo:</label>
+    <label for="consecutivo">Número de consecutivo:</label>
     <input type="text" id="consecutivo" name="consecutivo" class="form-control" style="width: 18rem;" required />
 </div>
 
@@ -112,12 +111,6 @@ $(document).ready(function () {
         $("#consecutivoContainer").hide();
     }
 
-    $("#pagoEfectivo").click(function () {
-        var total = '@ViewBag.Total';
-        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><p>Has seleccionado pago en efectivo. Deberás pagar en el salón un total de ₡" + total + ".</p>");
-        ocultarConsecutivo();
-        metodoPago = "Efectivo";
-    });
 
     $("#pagoTransferencia").click(function () {
         var numeroCuenta = '2365 9865 3214 1254'; 
@@ -131,7 +124,7 @@ $(document).ready(function () {
         var numeroTelefono = '8525 3219';
         var nombre = 'Viviana Ruiz';
         var consecutivo = '@ViewBag.Consecutivo';
-        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>SINPE Móvil</h6><p>Número de teléfono: " + numeroTelefono + "</p><p>Nombre: " + nombre + "</p><p>Número de consecutivo: " + consecutivo + "</p>");
+        $("#infoPago .card-body").html("<h5 class='card-title'>Información de pago</h5><h6 class='card-subtitle mb-2 text-body-secondary'>SINPE Móvil</h6><p>Número de teléfono: " + numeroTelefono + "</p><p>Nombre: " + nombre + "</p>");
         mostrarConsecutivo();
         metodoPago = "Sinpe";
     });
@@ -158,7 +151,7 @@ $(document).ready(function () {
 
 
 <a class="btn btn-dark" id="confirmarCompra">Confirmar Compra</a>
-
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <<script>

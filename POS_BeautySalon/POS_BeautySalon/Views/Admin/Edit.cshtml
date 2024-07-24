@@ -1,17 +1,10 @@
 ﻿@model DAL.ApplicationUser
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+
 <br>
 <br>
 
-<h2>Editar Cuentas de Usuario</h2>
+
 
 
 @*<form asp-action="Edit" method="post">
@@ -47,53 +40,50 @@
 </div>*@
 
 <body>
-    <div class="container">
-        <br>
-        <br>
-
-        
-
-        <div class="card">
-            <div class="card-body">
-                <form asp-action="Edit" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
-                    <div class="form-group">
-                        <label asp-for="Email"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Nombre"></label>
-                        <input asp-for="Nombre" class="form-control" />
-                        <span asp-validation-for="Nombre" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Apellido"></label>
-                        <input asp-for="Apellido" class="form-control" />
-                        <span asp-validation-for="Apellido" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Estado"></label>
-                        <select asp-for="Estado" class="form-control">
-                            <option value="1" selected="@Model.Estado == 1">Activa</option>
-                            <option value="0" selected="@Model.Estado == 0">Desactivada</option>
-                        </select>
-                        <span asp-validation-for="Estado" class="text-danger"></span>
-                    </div>
-                    <button type="submit" class="w-100 btn btn-lg  btn-dark" style="background-color:pink;
-    color: black;"> Guardar</button>
-                </form>
-                <br>
-                
-                <div>
-                    <a class="w-100 btn btn-lg  btn-dark" asp-action="Index">Volver a la lista</a>
-                </div>
+    <div class="row registration-section">
+        <h2>Editar Cuentas de Usuario</h2>
+        <br />
+        <br />
+        <hr />
+        <br />
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-        </div>
+            <div class="form-group">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado"></label>
+                <select asp-for="Estado" class="form-control">
+                    <option value="1" selected="@Model.Estado == 1">Activa</option>
+                    <option value="0" selected="@Model.Estado == 0">Desactivada</option>
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Guardar" class="w-50 btn btn-lg  btn-dark" />
+                <br />
+                <br />
+                <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
+            </di>
+
+        </form>
+        
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+

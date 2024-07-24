@@ -458,7 +458,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
     padding: 5px; /* Espacio interno */
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
     .busqueda input {
@@ -482,24 +482,17 @@ body {
     }
 
     .busqueda button {
-        background-color: #ff69b4; /* Fondo del botón */
         border: none;
-        color: black; /* Color del texto del botón */
         padding: 10px 15px;
-        cursor: pointer;
         border-radius: 10px;
-        transition: background-color 0.3s ease; /* Transición suave al hover */
         align-self: center;
         margin-top: 10px;
     }
 
-        .busqueda button:hover {
-            background-color: #ff1493; /* Fondo del botón al hacer hover */
-        }
 
 .contenedor-busq {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     margin: 20px 0; /* Margen arriba y abajo */
 }
 
@@ -520,6 +513,19 @@ body {
     color: black;
 }
 
+.contenedor-prod {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 20px;
+    font-weight: bold;
+    width: 1200px;
+    height: 200px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
 
 /*login*/
 

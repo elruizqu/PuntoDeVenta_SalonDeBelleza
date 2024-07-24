@@ -5,50 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .table {
-        color: #000000;
-        background-color: #FFFFFF;
-    }
 
-    .thead-dark {
-        background-color: #C8BCA1;
-    }
-
-    .btn-primary {
-        background-color: lightpink;
-    }
-
-    .btn-warning {
-        background-color: #FF69B4;
-    }
-
-    .btn-info {
-        background-color: #008b8b;
-    }
-
-    .btn-danger {
-        background-color: #ff0000;
-    }
-
-    .text-muted {
-        color: #800080;
-    }
-
-    .container {
-        background-color: rgba(245, 203, 215, 1);
-    }
-
-    body {
-        background-color: rgba(225, 213, 216, 0.91);
-    }
-</style>
-
-<div class="container">
-    <h1 class="my-4">Editar Producto</h1>
+<div class="row registration-section">
+    <h2>Editar Producto</h2>
     <div class="row">
-        <div class="col-md-8">
-            <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="ProductoId" />
                 <div class="form-group">
@@ -63,9 +24,8 @@
                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ImagenProducto" class="control-label"></label>
-                    <input asp-for="ImagenProducto" class="form-control" />
-                    <span asp-validation-for="ImagenProducto" class="text-danger"></span>
+                    <label for="ImagenProducto" class="form-label">Imagen del Producto</label>
+                    <input type="file" accept="image/png" class="form-control" name="ImagenProducto" />
                 </div>
                 <div class="form-group">
                     <label asp-for="Precio" class="control-label"></label>
@@ -73,9 +33,17 @@
                     <span asp-validation-for="Precio" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Estado" class="control-label"></label>
-                    <input asp-for="Estado" class="form-control" />
-                    <span asp-validation-for="Estado" class="text-danger"></span>
+                    <label asp-for="PrecioProveedor" class="control-label"></label>
+                    <input asp-for="PrecioProveedor" class="form-control" />
+                    <span asp-validation-for="PrecioProveedor" class="text-danger"></span>
+                </div>                
+                <div class="form-group">
+                        <label asp-for="Estado"></label>
+                        <select asp-for="Estado" class="form-control">
+                            <option value="1" selected="@Model.Estado == 1">Activo</option>
+                            <option value="0" selected="@Model.Estado == 0">Desactivado</option>
+                        </select>
+                        <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Cantidad" class="control-label"></label>
@@ -97,15 +65,16 @@
                     <select asp-for="ProveedorId" class="form-control" asp-items="ViewBag.ProveedorId"></select>
                     <span asp-validation-for="ProveedorId" class="text-danger"></span>
                 </div>
-                <div class="form-group mt-3">
-                    <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <br />
+                <div class="text-center">
+                <input type="submit" value="Guardar" class="w-50 btn btn-lg  btn-dark" />
+                <br />
+                <br />
+                <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
                 </div>
             </form>
-        </div>
     </div>
-    <div class="mt-3">
-        <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
-    </div>
+
 </div>
 
 @section Scripts {

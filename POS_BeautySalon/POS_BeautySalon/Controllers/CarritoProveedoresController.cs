@@ -110,15 +110,9 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> EditarCantidad(int carritoProvProductoId, int nuevaCantidad)
         {
             var carritoProvProducto = await _salonContext.CarritoProvProductos.FindAsync(carritoProvProductoId);
-            var producto = await _salonContext.Productos.SingleAsync(p => p.ProductoId == carritoProvProducto.ProductoId);
 
-            if (producto.Cantidad < nuevaCantidad)
-            {
-                TempData["Error"] = "La cantidad digitada excede la cantidad disponible de este producto.";
-                return RedirectToAction(nameof(Index));
-            }
-
-            carritoProvProducto.Cantidad = nuevaCantidad;
+           
+            carritoProvProducto.Cantidad = nuevaCantidad; // Actualizar la cantidad en el carrito
 
             _salonContext.Update(carritoProvProducto);
             await _salonContext.SaveChangesAsync();
@@ -215,6 +209,15 @@ namespace POS_BeautySalon.Controllers
                 };
 
                 _salonContext.DetalleProveedorFacturas.Add(detalleProveedorFactura);
+
+                // Actualizar el inventario de productos
+                var producto = await _salonContext.Productos.FindAsync(item.ProductoId);
+                producto.Cantidad += item.Cantidad; // Incrementar la cantidad de productos en el inventario
+
+                // Marcar producto como agotado si la cantidad es cero
+                producto.Estado = producto.Cantidad <= 0 ? 0 : 1;
+
+                _salonContext.Update(producto);
             }
 
             await _salonContext.SaveChangesAsync();

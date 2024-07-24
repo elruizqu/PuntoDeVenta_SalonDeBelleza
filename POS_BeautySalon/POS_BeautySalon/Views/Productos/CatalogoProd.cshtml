@@ -8,19 +8,21 @@
     <br />
     
 
-    <h1 class="titulos_cat">PRODUCTOS</h1>
-
-    <div class="contenedor-busq">
-        <div class="busqueda">
-            <form asp-controller="Productos" asp-action="CatalogoProd" method="get">
-                <input type="text" name="searchTerm" placeholder="Buscar..." value="@ViewData["searchTerm"]">
-                <select name="categoriaId" asp-items="ViewBag.Categorias">
-                    <option value="">Todas las categorías</option>
-                </select>
-                <button>Buscar</button>
-            </form>
+    <div class="contenedor-prod">
+        <h1 style="font-weight: bold">PRODUCTOS</h1>
+        <div class="contenedor-busq">
+            <div class="busqueda">
+                <form asp-controller="Productos" asp-action="CatalogoProd" method="get">
+                    <input type="text" name="searchTerm" placeholder="Buscar..." value="@ViewData["searchTerm"]">
+                    <select name="categoriaId" asp-items="ViewBag.Categorias">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                    <button class="w-70 btn btn-lg btn-dark">Buscar</button>
+                </form>
+            </div>
         </div>
     </div>
+
     <br />
     <div class='cards'>
         <div class="row row-cols-1 row-cols-md-3 g-4">

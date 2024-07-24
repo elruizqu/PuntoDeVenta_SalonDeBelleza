@@ -36,17 +36,38 @@ namespace POS_BeautySalon.Controllers
 
             if (userRoles.Contains("Cliente"))
             {
-                var salonContext = _context.Citas.Where(c => c.ClienteId == userId)
-                    .Include(c => c.Cliente).Include(c => c.Servicio);
-                return View(await salonContext.ToListAsync());
+                var salonContext = _context.Citas
+                    .Where(c => c.ClienteId == userId)
+                    .Include(c => c.Cliente)
+                    .Include(c => c.Servicio).ToList(); ;
+                //return View(await salonContext.ToListAsync());
+
+                var citasPasadas = salonContext.Where(c => c.Fecha < DateTime.Today).ToList();
+                var citasFuturas = salonContext.Where(c => c.Fecha > DateTime.Today).ToList();
+                var citasDelDia = salonContext.Where(c => c.Fecha == DateTime.Today).ToList();
+
+                ViewData["CitasPasadas"] = citasPasadas;
+                ViewData["CitasFuturas"] = citasFuturas;
+                ViewData["CitasDelDia"] = citasDelDia;
             }
             else
             {
-                var salonContext = _context.Citas.Include(c => c.Cliente).Include(c => c.Servicio);
-                return View(await salonContext.ToListAsync());
+                var salonContext = _context.Citas
+                    .Include(c => c.Cliente)
+                    .Include(c => c.Servicio).ToList(); ;
+                //return View(await salonContext.ToListAsync());
+
+                var citasPasadas = salonContext.Where(c => c.Fecha < DateTime.Today).ToList();
+                var citasFuturas = salonContext.Where(c => c.Fecha > DateTime.Today).ToList();
+                var citasDelDia = salonContext.Where(c => c.Fecha == DateTime.Today).ToList();
+
+                ViewData["CitasPasadas"] = citasPasadas;
+                ViewData["CitasFuturas"] = citasFuturas;
+                ViewData["CitasDelDia"] = citasDelDia;
             }
 
-            
+            return View();
+
         }
 
         // GET: Citas/Details/5
@@ -73,13 +94,13 @@ namespace POS_BeautySalon.Controllers
         public async Task<IActionResult> CreateAsync(int servicioId)
         {
             
-            if (User.IsInRole("Administrador"))
+            if (User.IsInRole("Administrador") || User.IsInRole("Estilista"))
             {
                 var usuariosCliente = await _userManager.GetUsersInRoleAsync("Cliente");
 
                 var clientesSelectList = usuariosCliente.Select(u => new SelectListItem
                 {
-                    Text = u.Nombre,
+                    Text = $"{u.Nombre} {u.Apellido}",
                     Value = u.Id
                 }).ToList();
 
@@ -118,112 +139,11 @@ namespace POS_BeautySalon.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CitaId,Estado,ClienteId,ServicioId,Fecha,Hora,Notas")] Cita cita)
         {
-            /*
+            
             var identidad = User.Identity as ClaimsIdentity;
             string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
-            ViewData["ClienteId"] = new List<SelectListItem>
-            {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-            };
-
-            if (!User.IsInRole("Administrador"))
-            {
-                cita.ClienteId = idUsuarioLogeado;
-            }
-
-            cita.Estado = 1;
-
-            if (ModelState.IsValid)
-            {
-                //validacion de cita antes del dia actual
-                if (cita.Fecha < DateTime.Today)
-                {
-                    ModelState.AddModelError("", "No se pueden programar citas en fechas anteriores a la fecha actual.");
-                    ViewData["ClienteId"] = new List<SelectListItem>
-            {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-            };
-                    ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
-                    return View(cita);
-                }
-                // Validar que la cita esté en el rango permitido (lunes a sábado, 7 am a 7 pm)
-                if (cita.Fecha.DayOfWeek == DayOfWeek.Sunday ||
-                    cita.Hora.TimeOfDay < new TimeSpan(7, 0, 0) ||
-                    cita.Hora.TimeOfDay >= new TimeSpan(19, 0, 0))
-                {
-                    ModelState.AddModelError("", "Las citas solo se pueden programar de lunes a sábado, entre las 7 am y las 7 pm.");
-                    ViewData["ClienteId"] = new List<SelectListItem>
-            {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-            };
-                    ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
-                    return View(cita);
-                }
-
-                // Duración de la cita
-                TimeSpan citaDuracion = new TimeSpan(2, 0, 0);
-                DateTime citaFin = cita.Hora.Add(citaDuracion);
-
-                // Obtener todas las citas del día
-                var citasDelDia = _context.Citas
-                    .Where(c => c.Fecha == cita.Fecha)
-                    .ToList();
-
-                // Validar que no haya otra cita en el intervalo de 2 horas antes y después de la nueva cita
-                var conflictingCitas = citasDelDia
-                    .Where(c => 
-                        (c.Hora < citaFin && c.Hora.Add(citaDuracion) > cita.Hora) ||  // Validar que las citas existentes no se solapen con la nueva cita
-                        (c.Hora < cita.Hora && c.Hora.Add(citaDuracion) > cita.Hora)) // Validar que las citas existentes no terminen durante la nueva cita)
-                    .ToList();
-
-                if (conflictingCitas.Any())
-                {
-                    ModelState.AddModelError("", "Ya existe una cita programada en el mismo horario o dentro del intervalo de 2 horas.");
-                    ViewData["ClienteId"] = new List<SelectListItem>
-            {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-            };
-                    ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre");
-                    return View(cita);
-                }
-
-                _context.Add(cita);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-
-
-            }
-            ViewData["ClienteId"] = new List<SelectListItem>
-            {
-            new SelectListItem
-            {
-                Text = User.Identity.Name,
-                Value = idUsuarioLogeado
-            }
-            };
-            ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre", cita.ServicioId);
-            return View(cita);*/
-            var identidad = User.Identity as ClaimsIdentity;
-            string idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-
-            if (!User.IsInRole("Administrador"))
+            if (!User.IsInRole("Administrador") || !User.IsInRole("Estilista"))
             {
                 cita.ClienteId = idUsuarioLogeado;
             }

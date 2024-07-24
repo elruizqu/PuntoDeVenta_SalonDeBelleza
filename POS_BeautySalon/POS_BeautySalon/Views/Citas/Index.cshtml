@@ -1,84 +1,224 @@
 ﻿@model IEnumerable<DAL.Cita>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Citas";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var citasPasadas = ViewData["CitasPasadas"] as List<DAL.Cita>;
+    var citasFuturas = ViewData["CitasFuturas"] as List<DAL.Cita>;
+    var citasDelDia = ViewData["CitasDelDia"] as List<DAL.Cita>;
 }
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <br>
-    <br>
-    
-    <link rel="stylesheet" href="styles.css">
-</head>
-
+<br />
+<br />
 <p>
     <a asp-action="Create" class="titulos_cat">AGENDAR CITA</a>
 </p>
-<body>
+<br />
+<div class="home" style="padding: 30px">
+    <h2>Citas del Día</h2>
     <br />
+    @if (citasDelDia != null && citasDelDia.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Número de reserva
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Servicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notas)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in citasDelDia)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CitaId)
+                        </td>
+                        <td>
+                            @item.Fecha.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Hora.ToString("hh\\:mm")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Servicio.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notas)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CitaId">Editar</a><br />
+                            <a asp-action="Details" asp-route-id="@item.CitaId">Detalles</a><br />
+                            <a asp-action="Delete" asp-route-id="@item.CitaId">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay citas programadas para hoy.</p>
+    }
+
+</div>
+
+<br />
+<div class="home" style="padding: 30px">
+    <h2>Citas Futuras</h2>
     <br />
-<section class="modulo">
-<table>
-    <thead>
-        <tr>
-            <th>
-                Número de reserva
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Servicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notas)
-            </th>
-            <th>
-                Acciones
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CitaId) 
-            </td>
-            <td>
-                @item.Fecha.ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @item.Hora.ToString("HH:mm")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Servicio.Nombre) 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notas)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CitaId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.CitaId">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.CitaId">Eliminar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-</section>
-</body>
-</html>
+    @if (citasFuturas != null && citasFuturas.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Número de reserva
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Servicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notas)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in citasFuturas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CitaId)
+                        </td>
+                        <td>
+                            @item.Fecha.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Hora.ToString("hh\\:mm")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Servicio.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notas)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CitaId">Editar</a><br />
+                            <a asp-action="Details" asp-route-id="@item.CitaId">Detalles</a><br />
+                            <a asp-action="Delete" asp-route-id="@item.CitaId">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay citas futuras.</p>
+    }
+</div>
+
+<br />
+<div class="home" style="padding: 30px">
+    <h2>Citas Pasadas</h2>
+    <br />
+    @if (citasPasadas != null && citasPasadas.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Número de reserva
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Servicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Notas)
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in citasPasadas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CitaId)
+                        </td>
+                        <td>
+                            @item.Fecha.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Hora.ToString("hh\\:mm")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Servicio.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notas)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CitaId">Editar</a><br />
+                            <a asp-action="Details" asp-route-id="@item.CitaId">Detalles</a><br />
+                            <a asp-action="Delete" asp-route-id="@item.CitaId">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay citas pasadas.</p>
+    }
+</div>

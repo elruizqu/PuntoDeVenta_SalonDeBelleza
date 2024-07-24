@@ -27,25 +27,7 @@ namespace POS_BeautySalon.Controllers
 
         public async Task<IActionResult> CatalogoProd(string searchTerm, int? categoriaId)
         {
-            /*var salonContext = _context.Productos
-                .Include(p => p.Categoria)
-                .Include(p => p.Marca)
-                .Include(p => p.Proveedor);
-            return View(await salonContext.ToListAsync());
-            var productos = _context.Productos
-        .Include(p => p.Categoria)
-        .Include(p => p.Marca)
-        .Include(p => p.Proveedor)
-        .AsQueryable();
-
-            if (!string.IsNullOrEmpty(searchTerm))
-            {
-                productos = productos.Where(p => p.Nombre.Contains(searchTerm) || p.Categoria.Descripcion.Contains(searchTerm));
-            }
-
-            ViewData["searchTerm"] = searchTerm;
-
-            return View(await productos.ToListAsync());*/
+            
             var productos = _context.Productos
         .Include(p => p.Categoria)
         .Include(p => p.Marca)
@@ -95,7 +77,7 @@ namespace POS_BeautySalon.Controllers
         {
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "Descripcion");
             ViewData["MarcaId"] = new SelectList(_context.Marcas, "MarcaId", "Descripcion");
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Email");
+            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Nombre");
             return View();
         }
 
@@ -104,7 +86,7 @@ namespace POS_BeautySalon.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductoId,Nombre,Descripcion,ImagenProducto,Precio,Estado,Cantidad,CategoriaId,MarcaId,ProveedorId")] Producto producto, IFormFile ImagenProducto)
+        public async Task<IActionResult> Create([Bind("ProductoId,Nombre,Descripcion,ImagenProducto,Precio,PrecioProveedor,Estado,Cantidad,CategoriaId,MarcaId,ProveedorId")] Producto producto, IFormFile ImagenProducto)
         {
             if (ModelState.IsValid)
             {
@@ -134,6 +116,7 @@ namespace POS_BeautySalon.Controllers
                     Descripcion = producto.Descripcion,
                     ImagenProducto = imagen,
                     Precio = producto.Precio,
+                    PrecioProveedor = producto.PrecioProveedor,
                     Estado = 1,
                     Cantidad = producto.Cantidad,
                     CategoriaId = producto.CategoriaId,
@@ -147,7 +130,7 @@ namespace POS_BeautySalon.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "Descripcion", producto.CategoriaId);
             ViewData["MarcaId"] = new SelectList(_context.Marcas, "MarcaId", "Descripcion", producto.MarcaId);
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Email", producto.ProveedorId);
+            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Nombre", producto.ProveedorId);
             return View(producto);
         }
 
@@ -166,7 +149,7 @@ namespace POS_BeautySalon.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "Descripcion", producto.CategoriaId);
             ViewData["MarcaId"] = new SelectList(_context.Marcas, "MarcaId", "Descripcion", producto.MarcaId);
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Email", producto.ProveedorId);
+            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Nombre", producto.ProveedorId);
             return View(producto);
         }
 
@@ -175,7 +158,7 @@ namespace POS_BeautySalon.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductoId,Nombre,Descripcion,ImagenProducto,Precio,Estado,Cantidad,CategoriaId,MarcaId,ProveedorId")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductoId,Nombre,Descripcion,Precio,PrecioProveedor,Estado,Cantidad,CategoriaId,MarcaId,ProveedorId")] Producto producto, IFormFile ImagenProducto)
         {
             if (id != producto.ProductoId)
             {
@@ -185,8 +168,8 @@ namespace POS_BeautySalon.Controllers
             if (ModelState.IsValid)
             {
                 // Verificar si ya existe un producto con el mismo nombre
-                var productoExistente = await _context.Productos.FirstOrDefaultAsync(p => p.Nombre == producto.Nombre &&
-                p.ProductoId != id);
+                var productoExistente = await _context.Productos
+                    .FirstOrDefaultAsync(p => p.Nombre == producto.Nombre && p.ProductoId != id);
 
                 if (productoExistente != null)
                 {
@@ -196,7 +179,37 @@ namespace POS_BeautySalon.Controllers
 
                 try
                 {
-                    _context.Update(producto);
+                    var productoDb = await _context.Productos.FindAsync(id);
+
+                    if (productoDb == null)
+                    {
+                        return NotFound();
+                    }
+
+                    // Si no se sube una nueva imagen, mantenemos la imagen existente
+                    if (ImagenProducto != null && ImagenProducto.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await ImagenProducto.CopyToAsync(memoryStream);
+                            productoDb.ImagenProducto = memoryStream.ToArray();
+                        }
+                    }
+
+                    // Actualizar otros campos del producto
+                    productoDb.Nombre = producto.Nombre;
+                    productoDb.Descripcion = producto.Descripcion;
+                    productoDb.Precio = producto.Precio;
+                    productoDb.PrecioProveedor = producto.PrecioProveedor;
+                    productoDb.Cantidad = producto.Cantidad;
+                    productoDb.CategoriaId = producto.CategoriaId;
+                    productoDb.MarcaId = producto.MarcaId;
+                    productoDb.ProveedorId = producto.ProveedorId;
+
+                    // Cambiar estado a "agotado" si cantidad es 0
+                    productoDb.Estado = producto.Cantidad <= 0 ? 0 : 1;
+
+                    _context.Update(productoDb);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -214,7 +227,7 @@ namespace POS_BeautySalon.Controllers
             }
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "Descripcion", producto.CategoriaId);
             ViewData["MarcaId"] = new SelectList(_context.Marcas, "MarcaId", "Descripcion", producto.MarcaId);
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Email", producto.ProveedorId);
+            ViewData["ProveedorId"] = new SelectList(_context.Proveedores, "ProveedorId", "Nombre", producto.ProveedorId);
             return View(producto);
         }
 
