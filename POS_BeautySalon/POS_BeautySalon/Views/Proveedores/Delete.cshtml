@@ -1,0 +1,40 @@
+﻿@model DAL.Proveedor
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="home">
+    <h3>¿Seguro que quieres eliminar este proveedor?</h3>
+    <hr />
+    <br />
+    <dl class="row">
+        <dt class = "col-sm-7">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProveedorId" />
+        <input type="submit" value="Eliminar" class="w-100 btn btn-lg  btn-dark" />
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

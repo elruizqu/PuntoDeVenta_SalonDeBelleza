@@ -1,0 +1,28 @@
+﻿@model DAL.Proveedor
+
+@{
+    ViewBag.Title = "Calificar Proveedor";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+<div class="registration-section">
+    <h2>Calificar</h2>
+    <form asp-action="Calificar" method="post">
+        <div class="form-group">
+            <label for="puntualidad">Puntualidad</label>
+            <input type="number" name="puntualidad" id="puntualidad" class="form-control" value="@Model.Puntualidad" min="1" max="5" required />
+        </div>
+        <div class="form-group">
+            <label for="calidad">Calidad</label>
+            <input type="number" name="calidad" id="calidad" class="form-control" value="@Model.Calidad" min="1" max="5" required />
+        </div>
+        <input type="hidden" name="proveedorId" value="@Model.ProveedorId" />
+        <button type="submit" class="w-50 btn btn-lg  btn-dark">Guardar Calificación</button>
+    </form>
+</div>
+

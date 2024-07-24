@@ -5,7 +5,6 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
     <div class="col-md-6">
@@ -13,24 +12,24 @@
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
-                <label asp-for="Username" class="form-label"></label>
+                <label asp-for="Username" class="form-label">Usuario</label>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Nombre" class="form-control" placeholder="Please enter your name." />
-                <label asp-for="Input.Nombre" class="form-label"></label>
+                <label asp-for="Input.Nombre" class="form-label">Nombre</label>
                 <span asp-validation-for="Input.Nombre" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Apellido" class="form-control" placeholder="Please enter your last name" />
-                <label asp-for="Input.Apellido" class="form-label"></label>
+                <label asp-for="Input.Apellido" class="form-label">Apellido</label>
                 <span asp-validation-for="Input.Apellido" class="text-danger"></span>
             </div>
-            <div class="form-floating mb-3">
+            @*@<div class="form-floating mb-3">
                 <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                <label asp-for="Input.PhoneNumber" class="form-label">Numero de telefono</label>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+            </div>*@
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Guardar</button>
         </form>
     </div>
 </div>

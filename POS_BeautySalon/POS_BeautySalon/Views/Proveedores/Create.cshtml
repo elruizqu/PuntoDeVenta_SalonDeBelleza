@@ -1,0 +1,51 @@
+﻿@model DAL.Proveedor
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row fondoTransparente">
+    <h1>Crear proveedor</h1>
+
+    <hr />
+    <br />
+    <div class="col-md-7">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Puntualidad" class="control-label"></label>
+                <input asp-for="Puntualidad" class="form-control" />
+                <span asp-validation-for="Puntualidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calidad" class="control-label"></label>
+                <input asp-for="Calidad" class="form-control" />
+                <span asp-validation-for="Calidad" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <input type="submit" style="background-color:pink; color: black;" value="Crear" class="w-50 btn btn-lg  btn-dark" />
+                <a class="w-100 btn btn-lg btn-dark" asp-action="Index">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

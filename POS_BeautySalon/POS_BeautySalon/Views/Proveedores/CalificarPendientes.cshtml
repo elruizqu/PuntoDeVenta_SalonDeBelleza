@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DAL.Proveedor>
+
+@{
+    ViewBag.Title = "Proveedores Pendientes de Calificación";
+}
+<br />
+<h1 class="titulos_cat">Proveedores pendientes de calificacion</h1>
+<br />
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var proveedor in Model)
+            {
+                <tr>
+                    <td>@proveedor.Nombre</td>
+                    <td>@proveedor.Email</td>
+                    <td>@proveedor.Telefono</td>
+                    <td>
+                        <a href="@Url.Action("Calificar", "Proveedores", new { proveedorId = proveedor.ProveedorId })" class="w-70 btn btn-lg  btn-dark">Calificar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

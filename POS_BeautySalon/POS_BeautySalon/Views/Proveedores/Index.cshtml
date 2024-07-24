@@ -1,0 +1,86 @@
+﻿@model IEnumerable<DAL.Proveedor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    // Verificar si hay proveedores pendientes de calificación
+    var proveedoresPendientes = Model.Where(p => !p.Puntualidad.HasValue || !p.Calidad.HasValue).ToList();
+
+}
+
+
+<br />
+<h1 class="titulos_cat">PROVEEDORES</h1>
+<br />
+@if (proveedoresPendientes.Any())
+{
+    <div class="alert alert-warning">
+        <strong>¡Atención!</strong> Hay proveedores pendientes de calificación.
+        <a href="@Url.Action("CalificarPendientes", "Proveedores")" style="color:red">Calificar Ahora</a>
+    </div>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntualidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calificacion)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntualidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calificacion)
+            </td>
+            <td>
+                <a href="@Url.Action("Calificar", "Proveedores", new { proveedorId = item.ProveedorId })" style="color:green">Calificar</a> |
+                <a asp-action="Edit" asp-route-id="@item.ProveedorId">Edit</a> |
+                    <!--<a asp-action="Details" asp-route-id="@item.ProveedorId">Details</a>-->
+                <a asp-action="Delete" asp-route-id="@item.ProveedorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br />
+<p>
+    <a asp-action="Create" class="w-70 btn btn-lg  btn-dark"
+       style="background-color:pink; color: black;">Agregar proveedor</a>
+</p>
