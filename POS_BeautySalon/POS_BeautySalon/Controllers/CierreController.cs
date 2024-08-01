@@ -84,9 +84,6 @@ namespace POS_BeautySalon.Controllers
 
 
 
-
-
-
         public IActionResult VerCierre()
         {
             var cierres = _salonContext.Cierres.ToList();
@@ -114,6 +111,13 @@ namespace POS_BeautySalon.Controllers
 
             return View(factura);
         }
+
+
+
+
+
+
+
     }
 }
     

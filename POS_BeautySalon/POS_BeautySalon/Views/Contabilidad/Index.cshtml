@@ -1,0 +1,94 @@
+﻿@{
+    var resumenVentas = ViewBag.ResumenVentas;
+    var reporteBalances = ViewBag.ReporteBalances;
+}
+
+
+
+<style>
+    h2 {
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    p {
+        font-family: Arial, sans-serif;
+        color: #555;
+    }
+
+    canvas {
+        margin: 20px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+@model dynamic
+<br />
+<h1 class="titulos_cat">Contabilidad</h1>
+<br />
+
+<div class="row fondoTransparente">
+<h3>Resumen de Ventas</h3>
+    <br />
+<p>Total de Ventas: @ViewBag.ResumenVentas.TotalVentas</p>
+<p>Ganancia total en venta de Productos: @ViewBag.ResumenVentas.TotalProductos</p>
+<p>Ganancia total en venta de  Servicios: @ViewBag.ResumenVentas.TotalServicios</p>
+    <br />
+<h3>Reporte de Balances Generales</h3>
+    <br />
+<p>Inversión de productos actualmente en stock: @ViewBag.ReporteBalances.TotalStockValorado</p>
+<p>Ganacia total den venta de productos y servicios: @ViewBag.ReporteBalances.TotalIngresos</p>
+<p>Costo total (proveedor) en productos vendidos: @ViewBag.ReporteBalances.TotalCostos</p>
+
+<div/>
+
+<!-- Contenedor para el gráfico -->
+<canvas id="ventasChart" width="400" height="200"></canvas>
+<canvas id="balancesChart" width="400" height="200"></canvas>
+
+<script>
+    // Datos para el gráfico de ventas
+    var ctxVentas = document.getElementById('ventasChart').getContext('2d');
+    var ventasChart = new Chart(ctxVentas, {
+        type: 'bar',
+        data: {
+            labels: ['Total Productos', 'Total Servicios'],
+            datasets: [{
+                label: 'Ventas',
+                data: [@ViewBag.ResumenVentas.TotalProductos, @ViewBag.ResumenVentas.TotalServicios],
+                backgroundColor: ['#FF5733', '#33FF57']
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Datos para el gráfico de balances
+    var ctxBalances = document.getElementById('balancesChart').getContext('2d');
+    var balancesChart = new Chart(ctxBalances, {
+        type: 'bar',
+        data: {
+            labels: ['Total Stock Valor', 'Total Ingresos', 'Total Costos'],
+            datasets: [{
+                label: 'Balances Generales',
+                data: [@ViewBag.ReporteBalances.TotalStockValorado, @ViewBag.ReporteBalances.TotalIngresos, @ViewBag.ReporteBalances.TotalCostos],
+                backgroundColor: ['#FFC300', '#DAF7A6', '#FF5733']
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
