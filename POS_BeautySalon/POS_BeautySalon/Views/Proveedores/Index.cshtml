@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<DAL.Proveedor>
-
+@using System.Text.Json
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -84,3 +84,96 @@
     <a asp-action="Create" class="w-70 btn btn-lg  btn-dark"
        style="background-color:pink; color: black;">Agregar proveedor</a>
 </p>
+
+
+
+<br>
+<br>
+
+
+
+    
+
+
+
+    <div class="row fondoTransparente">
+        <h2>Reporte de Rendimiento de Proveedores</h2>
+        <br>
+        <br>
+        <canvas id="proveedorChart" width="400" height="200"></canvas>
+        <button class="w-100 btn btn-lg btn-dark" onclick="downloadPDF()">Descargar en PDF</button>
+        <button class="w-100 btn btn-lg btn-dark" onclick="downloadExcel()">Descargar en Excel</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script>
+        var ctx = document.getElementById('proveedorChart').getContext('2d');
+        var proveedorChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Nombre))),
+                datasets: [{
+                    label: 'Puntualidad',
+                    data: @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Puntualidad))),
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Calidad',
+                    data: @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Calidad))),
+                    backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Calificación',
+                    data: @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Calificacion))),
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function downloadPDF() {
+            html2canvas(document.getElementById('proveedorChart'), {
+                useCORS: true,
+                scale: 2 // Mejora la calidad de la imagen capturada
+            }).then(function (canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                var pdf = new jsPDF('landscape');
+                pdf.addImage(imgData, 'PNG', 10, 10, 280, 150); // Ajustar tamaño y posición
+                pdf.save('reporte_proveedores.pdf');
+            });
+        }
+
+        function downloadExcel() {
+            var labels = @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Nombre)));
+            var puntualidadData = @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Puntualidad)));
+            var calidadData = @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Calidad)));
+            var calificacionData = @Html.Raw(JsonSerializer.Serialize(Model.Select(p => p.Calificacion)));
+
+            var wb = XLSX.utils.book_new();
+            var ws_data = [['Proveedor', 'Puntualidad', 'Calidad', 'Calificación']];
+
+            for (var i = 0; i < labels.length; i++) {
+                ws_data.push([labels[i], puntualidadData[i], calidadData[i], calificacionData[i]]);
+            }
+
+            var ws = XLSX.utils.aoa_to_sheet(ws_data);
+            XLSX.utils.book_append_sheet(wb, ws, 'Reporte');
+            XLSX.writeFile(wb, 'reporte_proveedores.xlsx');
+        }
+    </script>

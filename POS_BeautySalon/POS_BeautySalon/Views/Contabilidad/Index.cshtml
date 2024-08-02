@@ -1,6 +1,7 @@
 ﻿@{
-    var resumenVentas = ViewBag.ResumenVentas;
-    var reporteBalances = ViewBag.ReporteBalances;
+    var resumenVentas = ViewBag.ResumenVentas; //Ventas
+    var reporteBalances = ViewBag.ReporteBalances;// Reporte
+    var facturasDelDia = ViewBag.FacturasDelDia; // Lista de facturas del día
 }
 
 
@@ -30,8 +31,74 @@
 <h1 class="titulos_cat">Contabilidad</h1>
 <br />
 
+
 <div class="row fondoTransparente">
-<h3>Resumen de Ventas</h3>
+    <h3>Ventas del día </h3>
+    <br />
+    <section class="modulo">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Factura ID</th>
+                    <th>Cliente</th>
+                    <th>Pago Realizado</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var factura in facturasDelDia)
+                {
+                    <tr>
+                        <td>@factura.FacturaId</td>
+                        <td>@factura.Cliente.UserName</td>
+                        <td>@factura.PrecioTotal</td>
+                        <td>@factura.Fecha.ToShortDateString()</td>
+                        <td>
+                            <a href="@Url.Action("VerDetalle", "Cierre", new { facturaId = factura.FacturaId })" class="w-40 btn btn-lg btn-dark" style="background-color:pink; color: black;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+    <br />
+    <br />
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Fila para el resumen de ventas -->
+        <div class="row">
+            <!-- Tarjeta para el resumen de ventas -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Resumen de Ventas</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Total de Ventas:</strong> <span class="text-primary">@resumenVentas.TotalVentas</span></p>
+                        <p><strong>Ganancia total en venta de Productos:</strong> <span class="text-primary">@resumenVentas.TotalProductos</span></p>
+                        <p><strong>Ganancia total en venta de Servicios:</strong> <span class="text-primary">@resumenVentas.TotalServicios</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta para el reporte de balances generales -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Reporte de Balances Generales</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Inversión de productos actualmente en stock:</strong> <span class="text-primary">@reporteBalances.TotalStockValorado</span></p>
+                        <p><strong>Ganancia total en venta de productos y servicios:</strong> <span class="text-primary">@reporteBalances.TotalIngresos</span></p>
+                        <p><strong>Costo total (proveedor) en productos vendidos:</strong> <span class="text-primary">@reporteBalances.TotalCostos</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*<h3>Resumen de Ventas</h3>
     <br />
 <p>Total de Ventas: @ViewBag.ResumenVentas.TotalVentas</p>
 <p>Ganancia total en venta de Productos: @ViewBag.ResumenVentas.TotalProductos</p>
@@ -40,14 +107,18 @@
 <h3>Reporte de Balances Generales</h3>
     <br />
 <p>Inversión de productos actualmente en stock: @ViewBag.ReporteBalances.TotalStockValorado</p>
-<p>Ganacia total den venta de productos y servicios: @ViewBag.ReporteBalances.TotalIngresos</p>
-<p>Costo total (proveedor) en productos vendidos: @ViewBag.ReporteBalances.TotalCostos</p>
+<p>Ganacia total de venta de productos y servicios: @ViewBag.ReporteBalances.TotalIngresos</p>
+<p>Costo total (proveedor) en productos vendidos: @ViewBag.ReporteBalances.TotalCostos</p>*@
 
-<div/>
+   
+<br>
+<br>
+
 
 <!-- Contenedor para el gráfico -->
 <canvas id="ventasChart" width="400" height="200"></canvas>
 <canvas id="balancesChart" width="400" height="200"></canvas>
+
 
 <script>
     // Datos para el gráfico de ventas
@@ -92,3 +163,8 @@
         }
     });
 </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -239,5 +239,16 @@ namespace POS_BeautySalon.Controllers
         {
             return _context.Proveedores.Any(e => e.ProveedorId == id);
         }
+
+
+
+        //Para consultar el reporte
+        public ActionResult Reporte()
+        {
+            var proveedores = _context.Proveedores.ToList();
+            return View(proveedores);
+        }
+
+
     }
 }

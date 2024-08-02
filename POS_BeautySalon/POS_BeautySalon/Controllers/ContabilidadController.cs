@@ -20,11 +20,23 @@ namespace POS_BeautySalon.Controllers
         {
             var resumenVentas = ObtenerResumenVentas();
             var reporteBalances = ObtenerReporteBalances();
+            var facturasDelDia = ObtenerFacturasDelDia(); // Obtener facturas del día
 
+            // Pasar todos los datos a la vista usando ViewBag
             ViewBag.ResumenVentas = resumenVentas;
             ViewBag.ReporteBalances = reporteBalances;
+            ViewBag.FacturasDelDia = facturasDelDia;
 
             return View();
+        }
+
+        private IEnumerable<Factura> ObtenerFacturasDelDia()
+        {
+            var hoy = DateTime.Today;
+            return _salonContext.Facturas
+                .Include(f => f.Cliente) // Incluye los clientes para mostrar sus nombres
+                .Where(f => f.Fecha >= hoy && f.Fecha < hoy.AddDays(1))
+                .ToList();
         }
 
         private dynamic ObtenerResumenVentas()
