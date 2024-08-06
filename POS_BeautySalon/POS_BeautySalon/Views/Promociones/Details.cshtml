@@ -1,0 +1,47 @@
+﻿@model DAL.Promocion
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="home">
+    <h2>Promoción</h2>
+    <hr />
+    <br />
+    <dl class="row" style="font-size: 20px; padding-left: 85px">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.ImagenPromocion)
+        </dt>
+        <dd class="col-sm-7">
+            @if (Model.ImagenPromocion != null && Model.ImagenPromocion.Length > 0)
+            {
+                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImagenPromocion))" width="150" />
+            }
+            else
+            {
+                <span>No se cargo una imagen</span>
+            }
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Servicio)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Servicio.Nombre)
+        </dd>
+    </dl>
+    <div>
+        <a class="w-100 btn btn-lg  btn-dark" asp-action="Edit" asp-route-id="@Model?.PromocionId">Editar</a>
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
+    </div>
+</div>
+

@@ -31,9 +31,9 @@ namespace DAL
         [DisplayName("Producto")]
         public int? ProductoId { get; set; }
 
+        public Servicio? Servicio { get; set; }
 
-       
-        
+
 
 
     }
