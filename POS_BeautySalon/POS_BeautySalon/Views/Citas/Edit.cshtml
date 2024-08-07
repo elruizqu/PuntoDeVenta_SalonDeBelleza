@@ -10,9 +10,11 @@
 <div class="row registration-section">
     <h2>Editar Cita</h2>
     <hr />
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CitaId" />
+            <input type="hidden" asp-for="ClienteId" />
+            <input type="hidden" asp-for="Estado" />
             <div class="form-group">
                 <label asp-for="ServicioId" class="control-label"></label>
                 <select asp-for="ServicioId" class="form-control" asp-items="ViewBag.ServicioId"></select>
@@ -38,6 +40,14 @@
             <input type="submit" value="Guardar" class="w-50 btn btn-lg  btn-dark" />
             <br />
             <br />
+            @if (User.IsInRole("Estilista"))
+            {
+                <button type="submit" formaction="@Url.Action("Finalizar", "Citas", new { id = Model.CitaId })" class="w-50 btn btn-lg btn-success">
+                    Confirmar cita finalizada
+                </button>
+            }
+            <br />
+            <br />
             <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
             </div>
         </form>
@@ -46,4 +56,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function finalizarCita() {
+            if (confirm("¿Estás seguro de que deseas finalizar esta cita?")) {
+                document.getElementById("Estado").value = 0;
+                document.forms[0].submit();
+            }
+        }
+    </script>
 }

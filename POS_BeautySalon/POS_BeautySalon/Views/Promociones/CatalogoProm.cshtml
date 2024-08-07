@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DAL.Promocion>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<body>
+    <br />
+    <br />
+    <h1 class="titulos_cat">PROMOCIONES ACTIVAS</h1>
+    <br>
+
+    <div class="container">
+        <div class="jumbotron">
+            
+            <div class="promotions-container">
+                <ul class="promotion-list">
+                    @foreach(var item in Model)
+                    {
+                        <li class="promotion-item text-center">
+                            <h3>@Html.DisplayFor(modelItem => item.Servicio.Nombre)</h3>
+                            @if (item.ImagenPromocion != null && item.ImagenPromocion.Length > 0)
+                            {
+                                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenPromocion))" width="250" height="250"/>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No se cargó una imagen</span>
+                            }
+                            <br />
+                            <br />
+                            <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                        </li>
+                    }
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<br />

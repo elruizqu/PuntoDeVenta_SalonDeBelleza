@@ -297,13 +297,16 @@ tbody tr:hover {
 }
 
 .promotion-item {
+    height: 400px;
     margin-bottom: 30px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    background-color: #ffe5f0;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 20px;
+    font-weight: bold
 }
 
     .promotion-item:hover {
@@ -313,6 +316,7 @@ tbody tr:hover {
     .promotion-item h3 {
         font-size: 24px;
         margin-bottom: 15px;
+        margin-top: 30px;
         color: #333;
     }
 
