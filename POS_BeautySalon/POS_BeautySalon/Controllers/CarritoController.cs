@@ -189,7 +189,7 @@ namespace POS_BeautySalon.Controllers
             return builder.ToString();
         }
 
-
+        //Compra de productos en carrito
         [HttpPost]
         public async Task<IActionResult> ConfirmarCompra(string metodoPago, string consecutivo)
         {
@@ -234,9 +234,34 @@ namespace POS_BeautySalon.Controllers
 
             await _salonContext.SaveChangesAsync();
 
+
             // Limpiar el carrito
             _salonContext.CarritoProductos.RemoveRange(productosEnCarrito);
             await _salonContext.SaveChangesAsync();
+
+           
+
+            // Actualizar los puntos del programa lealtad al cliente
+            var cliente = await _userManager.FindByIdAsync(carrito.ClienteId);
+            if (cliente != null)
+            {
+                // Contar el número de facturas del cliente para saber si ya puede hacer uso del programa lealtad
+                var numFacturas = _salonContext.Facturas.Count(f => f.ClienteId == carrito.ClienteId);
+
+                if (numFacturas % 2 == 0) //Cuando tenga dos compras realizadas
+                {
+                    cliente.PuntosProgramaLealtad += 10; // Sumar 10 puntos
+                    var updateResult = await _userManager.UpdateAsync(cliente);
+                    if (!updateResult.Succeeded)
+                    {
+                        return Json(new { success = false, message = "Error al actualizar los puntos del cliente." });
+                    }
+
+                    return Json(new { success = true, message = "Compra confirmada con éxito. Has acumulado 10 puntos y ya puedes hacer uso del programa de lealtad." });
+                   
+                }
+                await Task.Delay(5000); // Esperar 5 segundos
+            }
 
             return Json(new { success = true, message = "Compra confirmada con éxito." });
         }

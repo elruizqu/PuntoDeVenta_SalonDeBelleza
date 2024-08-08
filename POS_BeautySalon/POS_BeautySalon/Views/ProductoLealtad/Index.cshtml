@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DAL.ProductoLealtad>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="titulos_cat">PRODUCTOS DEL PROGRAMA LEALTAD</h1>
+
+<br>
+
+<p>
+    <a class="w-40 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Create">Agregar un nuevo producto</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenProductolealtad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioPuntos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+                <td>
+                    @if (item.ImagenProductolealtad != null && item.ImagenProductolealtad.Length > 0)
+                    {
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProductolealtad))" width="100" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">No se cargó una imagen</span>
+                    }
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioPuntos)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductoLealtadId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductoLealtadId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductoLealtadId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

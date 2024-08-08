@@ -73,6 +73,9 @@ namespace DAL.Migrations.Salon
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int>("PuntosProgramaLealtad")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -514,6 +517,37 @@ namespace DAL.Migrations.Salon
                     b.ToTable("Productos");
                 });
 
+            modelBuilder.Entity("DAL.ProductoLealtad", b =>
+                {
+                    b.Property<int>("ProductoLealtadId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductoLealtadId"));
+
+                    b.Property<string>("ClienteId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ImagenProductolealtad")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PrecioPuntos")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductoLealtadId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("ProductosLealtad");
+                });
+
             modelBuilder.Entity("DAL.Promocion", b =>
                 {
                     b.Property<int>("PromocionId")
@@ -822,6 +856,15 @@ namespace DAL.Migrations.Salon
                     b.Navigation("Marca");
 
                     b.Navigation("Proveedor");
+                });
+
+            modelBuilder.Entity("DAL.ProductoLealtad", b =>
+                {
+                    b.HasOne("DAL.ApplicationUser", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId");
+
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("DAL.Promocion", b =>

@@ -24,5 +24,8 @@ namespace DAL
         [Required]
         [DefaultValue(1)]
         public int Estado { get; set; }
+
+        [DefaultValue(0)]
+        public int PuntosProgramaLealtad { get; set; } 
     }
 }
