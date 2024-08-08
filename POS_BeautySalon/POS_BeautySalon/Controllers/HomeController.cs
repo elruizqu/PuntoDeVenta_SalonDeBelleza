@@ -1,6 +1,7 @@
 using DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using POS_BeautySalon.Models;
 using System.Diagnostics;
 
@@ -21,7 +22,7 @@ namespace POS_BeautySalon.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             if (User.Identity.IsAuthenticated && User.IsInRole("Estilista"))
             {
@@ -30,10 +31,36 @@ namespace POS_BeautySalon.Controllers
             }
             else
             {
-                return View();
+                var comentarios = await _context.Comentarios.Include(c => c.Cliente).ToListAsync();
+                return View(comentarios);
 
             }
             
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateComment([Bind("Detalle")] Comentario comentario)
+        {
+            if (ModelState.IsValid)
+            {
+                var clienteId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+                if (clienteId == null)
+                {
+                    return BadRequest("Cliente no identificado.");
+                }
+
+                comentario.ClienteId = clienteId;
+
+                _context.Add(comentario);
+                await _context.SaveChangesAsync();
+
+                var comentarios = await _context.Comentarios.Include(c => c.Cliente).ToListAsync();
+
+                return PartialView("_CommentsPartial", comentarios);
+            }
+
+            return BadRequest("Hubo un error al procesar tu solicitud.");
         }
 
         public IActionResult Privacy()

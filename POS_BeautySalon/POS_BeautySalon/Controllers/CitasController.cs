@@ -243,75 +243,7 @@ namespace POS_BeautySalon.Controllers
             return View(cita);
 
         }
-        /*
-        // GET: Citas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var cita = await _context.Citas.FindAsync(id);
-            if (cita == null)
-            {
-                return NotFound();
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre", cita.ClienteId);
-            ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre", cita.ServicioId);
-            return View(cita);
-        }
-
-        // POST: Citas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CitaId,Estado,ClienteId,ServicioId,Fecha,Hora,Notas,FacturaId")] Cita cita)
-        {
-            if (id != cita.CitaId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var citaDb = await _context.Citas.FindAsync(id);
-                    if (citaDb == null)
-                    {
-                        return NotFound();
-                    }
-
-                    citaDb.ClienteId = cita.ClienteId;
-                    citaDb.Estado = cita.Estado;
-                    citaDb.Servicio = cita.Servicio;
-                    citaDb.Fecha = cita.Fecha;
-                    citaDb.Hora = cita.Hora;
-                    citaDb.Notas = cita.Notas;
-
-                    _context.Update(citaDb);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CitaExists(cita.CitaId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Nombre", cita.ClienteId);
-            ViewData["ServicioId"] = new SelectList(_context.Servicios, "ServicioId", "Nombre", cita.ServicioId);
-            return View(cita);
-        }*/
+        
 
         // GET: Citas/Edit/5
         public async Task<IActionResult> Edit(int? id)

@@ -46,5 +46,6 @@ namespace DAL
         public DbSet<FacturaProveedor> FacturaProveedores { get; set; }
 
         public DbSet<DetalleProveedorFactura> DetalleProveedorFacturas { get; set; }
+        public DbSet<Comentario> Comentarios { get; set; }
     }
 }

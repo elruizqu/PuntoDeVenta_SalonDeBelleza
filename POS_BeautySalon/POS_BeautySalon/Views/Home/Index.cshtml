@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<DAL.Comentario>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Salon</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <br />
@@ -32,9 +34,56 @@
         }
     </div>
 
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Formulario para crear un nuevo comentario -->
+    <div class="comment-form">
+        <h5>Agregar un comentario:</h5>
+        <form id="create-comment-form">
+            <textarea id="Detalle" name="Detalle" rows="2" cols="50" placeholder="Escribe tu comentario aquí..." required></textarea>
+            <br />
+            <input type="hidden" id="ClienteId" name="ClienteId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
+            <br />
+            <button class="w-45 btn btn-lg  btn-dark" type="submit">Enviar</button>
+        </form>
+    
 
-    <br />
-    <br />
+    
+        <br />
+        <br />
+    <!-- Parte para mostrar los comentarios -->
+    <div id="comments-container">
+        <partial name="_CommentsPartial" model="Model" />
+    </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#create-comment-form').on('submit', function (e) {
+                e.preventDefault();
+
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CreateComment", "Home")',
+                    data: formData,
+                    success: function (data) {
+                        $('#comments-container').html(data);
+                        $('#Detalle').val(''); // Limpiar el campo del formulario
+                    },
+                    error: function () {
+                        alert('Hubo un error al enviar tu comentario. Por favor, inténtalo de nuevo.');
+                    }
+                });
+            });
+        });
+    </script>
     <!-- Footer -->
     <!-- Footer -->
 </body>

@@ -331,7 +331,43 @@ tbody tr:hover {
         font-weight: bold;
     }
 
+.comment-form {
+    margin-top: 180px;
+    padding: 30px;
+    background-color: rgba(245, 203, 215, 0.6);
+}
 
+#comments-container {
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilitar scroll vertical */
+    padding: 15px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo */
+    margin: 0 auto; /* Centramos el contenedor */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para un efecto visual */
+}
+
+.comment {
+    margin-bottom: 20px; /* Espaciado entre comentarios */
+    padding: 10px; /* Espaciado interno del comentario */
+    background-color: rgba(245, 203, 215, 0.6); /* Color de fondo de cada comentario */
+    border-radius: 4px; /* Bordes redondeados de cada comentario */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra para los comentarios */
+}
+
+    .comment h5 {
+        margin: 0; /* Margen del título del comentario */
+        font-size: 16px; /* Tamaño de fuente del título */
+        color: #333; /* Color del texto del título */
+    }
+
+    .comment p {
+        margin: 5px 0 0; /* Margen del contenido del comentario */
+        font-size: 14px; /* Tamaño de fuente del contenido */
+        color: #666; /* Color del texto del contenido */
+    }
 
 
 /*Opiniones*/
@@ -341,7 +377,7 @@ tbody tr:hover {
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: rgba(245, 203, 215, 0.6);
 }
 
 .opinion-form h3,

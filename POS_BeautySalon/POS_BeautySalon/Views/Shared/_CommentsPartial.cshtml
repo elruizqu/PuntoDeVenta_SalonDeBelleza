@@ -1,0 +1,20 @@
+﻿@model IEnumerable<DAL.Comentario>
+
+<div>
+    <h3>Comentarios</h3>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <hr />
+            <div class="comment">
+                <h5>@Html.DisplayFor(modelItem => item.Cliente.Nombre) @Html.DisplayFor(modelItem => item.Cliente.Apellido)</h5>
+                <p>@Html.DisplayFor(modelItem => item.Detalle)</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No hay comentarios disponibles.</p>
+    }
+</div>
