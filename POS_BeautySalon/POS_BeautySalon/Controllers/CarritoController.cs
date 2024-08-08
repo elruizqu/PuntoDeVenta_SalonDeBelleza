@@ -256,21 +256,15 @@ namespace POS_BeautySalon.Controllers
                     {
                         return Json(new { success = false, message = "Error al actualizar los puntos del cliente." });
                     }
-
+                    await Task.Delay(5000); // Esperar 5 segundos
                     return Json(new { success = true, message = "Compra confirmada con éxito. Has acumulado 10 puntos y ya puedes hacer uso del programa de lealtad." });
-                   
                 }
-                await Task.Delay(5000); // Esperar 5 segundos
             }
 
             return Json(new { success = true, message = "Compra confirmada con éxito." });
         }
 
     }
-
-
-
-
 
 }
 

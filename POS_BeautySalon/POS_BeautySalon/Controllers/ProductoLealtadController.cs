@@ -92,6 +92,41 @@ namespace POS_BeautySalon.Controllers
             return View(productoLealtad);
         }
 
+        // POST: ProductoLealtad/CanjearProducto
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CanjearProducto(int productoLealtadId)
+        {
+            var userId = _userManager.GetUserId(User);
+            var cliente = await _userManager.FindByIdAsync(userId);
+            if (cliente == null)
+            {
+                TempData["ErrorMessage"] = "Usuario no encontrado.";
+                return RedirectToAction(nameof(CatalogoProdLealtad));
+            }
+
+            var producto = await _salonContext.ProductosLealtad.FindAsync(productoLealtadId);
+            if (producto == null)
+            {
+                TempData["ErrorMessage"] = "Producto no encontrado.";
+                return RedirectToAction(nameof(CatalogoProdLealtad));
+            }
+
+            if (cliente.PuntosProgramaLealtad < producto.PrecioPuntos)
+            {
+                TempData["ErrorMessage"] = "No tienes suficientes puntos para canjear este producto.";
+                return RedirectToAction(nameof(CatalogoProdLealtad));
+            }
+
+            // Restar puntos del usuario
+            cliente.PuntosProgramaLealtad -= producto.PrecioPuntos;
+            _salonContext.Update(cliente);
+            await _salonContext.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = $"Has canjeado {producto.Nombre}. Puedes retirar el producto en el salón de belleza con tu correo electronico.";
+            return RedirectToAction(nameof(CatalogoProdLealtad));
+        }
+
         // GET: ProductoLealtad/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

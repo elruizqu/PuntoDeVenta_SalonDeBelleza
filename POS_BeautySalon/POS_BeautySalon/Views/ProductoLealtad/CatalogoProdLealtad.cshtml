@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<DAL.ProductoLealtad>
 
-
-    <br>
-    <br>
+<br>
+<br>
 
 <h1 class="titulos_cat"> Programa de Lealtad</h1>
 <br>
@@ -11,7 +10,6 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <div class="alert alert-info custom-alert" role="alert">
-                
                 <h5>🌟 Reglas del Programa de Lealtad 🌟</h5>
                 <ul class="custom-list">
                     <li>✨ Por cada compra acumulas 10 puntos.</li>
@@ -50,8 +48,19 @@
         }
 </style>
 
-    
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
 
 <div class='cards'>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -61,7 +70,7 @@
                 <div class="card h-100">
                     @if (item.ImagenProductolealtad != null && item.ImagenProductolealtad.Length > 0)
                     {
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProductolealtad))" class="card-img-top" width="100" height="370"/>
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenProductolealtad))" class="card-img-top" width="100" height="370" />
                     }
                     else
                     {
@@ -75,11 +84,23 @@
                         </p>
                     </div>
                     <div class="text-center">
-                        <form>
+                        <form asp-action="CanjearProducto" method="post">
                             <input type="hidden" name="productoLealtadId" value="@item.ProductoLealtadId" />
-                            <button type="submit" class="w-70 btn btn-lg btn-dark" style="background-color:pink; color: black;">
-                                Canjear con puntos
-                            </button>
+                            @if (item.PrecioPuntos <= ViewBag.PuntosCliente)
+                            {
+                                <form asp-action="CanjearProducto" method="post">
+                                    <input type="hidden" name="productoLealtadId" value="@item.ProductoLealtadId" />
+                                    <button type="submit" class="w-70 btn btn-lg btn-dark" style="background-color:pink; color: black;">
+                                        Canjear con puntos
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <button class="w-70 btn btn-lg btn-dark" style="background-color:grey; color: white;" disabled>
+                                    No tienes suficientes puntos
+                                </button>
+                            }
                         </form>
                     </div>
                     <br />
