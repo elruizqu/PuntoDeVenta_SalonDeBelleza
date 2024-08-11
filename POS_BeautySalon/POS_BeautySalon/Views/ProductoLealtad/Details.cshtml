@@ -5,39 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>ProductoLealtad</h4>
+<div class="home">
+    <h2>Productos del Programa Lealtad</h2>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <br />
+    <dl class="row" style="font-size: 20px; padding-left: 85px">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.ImagenProductolealtad)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagenProductolealtad)
+        <dd class="col-sm-7">
+            @if (Model.ImagenProductolealtad != null && Model.ImagenProductolealtad.Length > 0)
+            {
+                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImagenProductolealtad))" width="150" />
+            }
+            else
+            {
+                <span>No se cargo una imagen</span>
+            }
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.PrecioPuntos)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-7">
             @Html.DisplayFor(model => model.PrecioPuntos)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductoLealtadId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div>
+        <a class="w-100 btn btn-lg  btn-dark" asp-action="Edit" asp-route-id="@Model?.ProductoLealtadId">Editar</a>
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
+    </div>
 </div>

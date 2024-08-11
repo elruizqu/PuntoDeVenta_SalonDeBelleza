@@ -146,7 +146,7 @@ namespace POS_BeautySalon.Controllers
         // POST: ProductoLealtad/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductoLealtadId,Nombre,Descripcion,ImagenProductolealtad,PrecioPuntos")] ProductoLealtad productoLealtad)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductoLealtadId,Nombre,Descripcion,ImagenProductolealtad,PrecioPuntos")] ProductoLealtad productoLealtad, IFormFile ImagenProductolealtad)
         {
             if (id != productoLealtad.ProductoLealtadId)
             {
@@ -157,7 +157,28 @@ namespace POS_BeautySalon.Controllers
             {
                 try
                 {
-                    _salonContext.Update(productoLealtad);
+                    var productoLealtadDb = await _salonContext.ProductosLealtad.FindAsync(id);
+
+                    if (productoLealtadDb == null)
+                    {
+                        return NotFound();
+                    }
+                    // Si no se sube una nueva imagen, mantenemos la imagen existente
+                    if (ImagenProductolealtad != null && ImagenProductolealtad.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await ImagenProductolealtad.CopyToAsync(memoryStream);
+                            productoLealtadDb.ImagenProductolealtad = memoryStream.ToArray();
+                        }
+                    }
+
+                    // Actualizar otros campos del producto
+                    productoLealtadDb.Nombre = productoLealtad.Nombre;
+                    productoLealtadDb.Descripcion = productoLealtad.Descripcion;
+                    productoLealtadDb.PrecioPuntos = productoLealtad.PrecioPuntos;
+
+                    _salonContext.Update(productoLealtadDb);
                     await _salonContext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

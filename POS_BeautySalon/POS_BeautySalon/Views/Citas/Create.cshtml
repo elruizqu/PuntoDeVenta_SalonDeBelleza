@@ -6,6 +6,10 @@
     var isAdmin = User.IsInRole("Administrador");
     var isCliente = User.IsInRole("Cliente");
     var isEstilista = User.IsInRole("Estilista");
+
+    // Obtener la fecha y hora actual
+    var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+    var currentTime = DateTime.Now.ToString("HH:mm");
 }
 
 
@@ -37,12 +41,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" type="date" class="form-control" />
+                <input asp-for="Fecha" type="date" class="form-control" value="@currentDate" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Hora" class="control-label"></label>
-                <input asp-for="Hora" type="time" class="form-control" />
+                <input asp-for="Hora" type="time" class="form-control" value="@currentTime" />
                 <span asp-validation-for="Hora" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
+
 <h1 class="titulos_cat">PRODUCTOS DEL PROGRAMA LEALTAD</h1>
 
 <br>
@@ -53,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.PrecioPuntos)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductoLealtadId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductoLealtadId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductoLealtadId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProductoLealtadId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductoLealtadId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductoLealtadId">Eliminar</a>
             </td>
         </tr>
 }

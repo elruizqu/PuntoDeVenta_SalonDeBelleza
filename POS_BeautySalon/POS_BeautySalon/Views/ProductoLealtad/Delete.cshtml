@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ProductoLealtad</h4>
+<div class="home">
+    <h3>¿Seguro que quieres eliminar este producto?</h3>
     <hr />
-    <dl class="row">
+    <br />
+    <dl class="row" style="font-size: 20px; padding-left: 85px">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -27,8 +26,15 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ImagenProductolealtad)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagenProductolealtad)
+        <dd class="col-sm-10">
+            @if (Model.ImagenProductolealtad != null && Model.ImagenProductolealtad.Length > 0)
+            {
+                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.ImagenProductolealtad))" width="150" />
+            }
+            else
+            {
+                <span>No se cargo una imagen</span>
+            }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PrecioPuntos)
@@ -37,10 +43,13 @@
             @Html.DisplayFor(model => model.PrecioPuntos)
         </dd>
     </dl>
-    
+    <br />
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProductoLealtadId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="w-100 btn btn-lg  btn-dark" />
+        <br />
+        <br />
+        <a class="w-100 btn btn-lg  btn-dark" style="background-color:pink; color: black;" asp-action="Index">Volver a la lista</a>
     </form>
+    
 </div>
