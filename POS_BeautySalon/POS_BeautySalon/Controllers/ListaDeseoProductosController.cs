@@ -74,8 +74,19 @@ namespace POS_BeautySalon.Controllers
 
             if (listaDeseo == null)
             {
-                // Si el usuario no tiene una lista de deseos, redirigir o manejar de alguna manera
+                // Si el usuario no tiene una lista de deseos, redirigir
                 // Enviar parametros de usuairo y nombre cuando se esta creando la cuenta en register para la creacion de lista de deseos desde el register
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Verifica si el producto ya está en la lista de deseos del cliente
+            var productoExistente = _context.ListaDeseoProductos
+                .FirstOrDefault(ldp => ldp.ListaID == listaDeseo.ListaID && ldp.ProductoId == productoId);
+
+            if (productoExistente != null)
+            {
+                // Opcional: mostrar un mensaje de advertencia de que el producto ya está en la lista de deseos
+                TempData["Warning"] = "El producto ya está en tu lista de deseos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -85,7 +96,6 @@ namespace POS_BeautySalon.Controllers
                 ListaID = listaDeseo.ListaID
             };
 
-            //ViewData["ListaID"] = new SelectList(_context.ListaDeseos, "ListaID", "ListaID");
             ViewData["ProductoId"] = new SelectList(_context.Productos, "ProductoId", "Nombre");
             return View(listaDeseoProducto);
         }

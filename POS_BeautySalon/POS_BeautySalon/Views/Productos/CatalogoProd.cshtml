@@ -40,9 +40,14 @@
                         {
                             <span>No se cargo una imagen</span>
                         }
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+<<<<<<< Updated upstream
                             <h6>₡@Html.DisplayFor(modelItem => item.Precio)</h6>
+=======
+                            <h6>Precio: ₡@Html.DisplayFor(modelItem => item.Precio)</h6>
+
+>>>>>>> Stashed changes
                             <p class="card-text">
                                 @Html.DisplayFor(modelItem => item.Descripcion)
                             </p>
@@ -72,5 +77,9 @@
     </div>
 </body>
 
-@* <a class="w-100 btn btn-lg  btn-dark" asp-controller="Carrito" asp-action="AgregarAlCarrito" 
-asp-route-productoId="@item.ProductoId" style="background-color:pink; color: black;">Agregar al carrito</a> *@
+@if (TempData["Warning"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["Warning"]
+    </div>
+}

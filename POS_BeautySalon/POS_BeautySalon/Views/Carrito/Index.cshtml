@@ -2,6 +2,8 @@
 @model List<CarritoProducto>
 
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <br />
 <br />
@@ -129,7 +131,7 @@ $(document).ready(function () {
         metodoPago = "Sinpe";
     });
 
-    $("#confirmarCompra").click(function () {
+    @*$("#confirmarCompra").click(function () {
         if ((metodoPago === 'Transferencia' || metodoPago === 'Sinpe') && $("#consecutivo").val() === '') {
             $("#notification").removeClass("alert-success").addClass("alert-danger").text("Por favor ingrese el número de consecutivo.").show();
         } else {
@@ -145,7 +147,42 @@ $(document).ready(function () {
                 }
             });
         }
-    });
+    });*@
+
+                $("#confirmarCompra").click(function () {
+                    if ((metodoPago === 'Transferencia' || metodoPago === 'Sinpe') && $("#consecutivo").val() === '') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Por favor ingrese el número de consecutivo.',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    } else {
+                        var consecutivo = $("#consecutivo").val();
+                        $.post('@Url.Action("ConfirmarCompra", "Carrito")', { metodoPago: metodoPago, consecutivo: consecutivo }, function (response) {
+                            if (response.success) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Compra Confirmada',
+                                    text: response.message,
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        location.reload(); // Limpiar el carrito recargando la página después de confirmar
+                                    }
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: response.message,
+                                    confirmButtonText: 'Aceptar'
+                                });
+                            }
+                        });
+                    }
+                });
+
 });
 </script>
 

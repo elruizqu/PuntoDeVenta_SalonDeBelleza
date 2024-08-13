@@ -20,8 +20,12 @@
             <td>₡@item.Producto.Precio</td>
         </tr>
     }
+    
+    
+    <tr>
+        <td colspan="7" style="font-size: 20px; font-weight: bold;">Total: ₡@ViewBag.Total</td>
+    </tr>
 </table>
-
-<p>Total: ₡@ViewBag.Total</p>
-
+<br>
+<br>
 <a onclick="window.print()" class="btn btn-dark" asp-controller="Carrito" asp-action="ImprimirFactura">Imprimir factura</a>

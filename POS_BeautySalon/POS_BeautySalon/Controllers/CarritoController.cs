@@ -167,7 +167,7 @@ namespace POS_BeautySalon.Controllers
             var total = carrito.CalcularTotal();
             var consecutivo = GenerarConsecutivo();
 
-            //Pasar los detalles de la factura a la vista
+            // Pasar los detalles de la factura a la vista
             ViewBag.ProductosEnCarrito = productosEnCarrito;
             ViewBag.Total = total;
             ViewBag.Consecutivo = consecutivo;
@@ -175,19 +175,22 @@ namespace POS_BeautySalon.Controllers
             return View("ImprimirFactura");
         }
 
-        //Método para generar un número de consecutivo aleatorio
-        private string GenerarConsecutivo()
+       
+
+
+        private int GenerarConsecutivo()
         {
-            var rng = new Random();
-            var builder = new StringBuilder();
+            // Obtener el último ID de factura en la base de datos
+            var ultimoIdFactura = _salonContext.Facturas
+                                  .OrderByDescending(f => f.FacturaId)
+                                  .Select(f => f.FacturaId)
+                                  .FirstOrDefault();
 
-            for(int i = 0; i< 25; i++)
-            {
-                builder.Append(rng.Next(0,10));
-            }
-
-            return builder.ToString();
+            // Sumarle 1 para generar el nuevo consecutivo
+            return ultimoIdFactura + 1;
         }
+
+
 
         //Compra de productos en carrito
         [HttpPost]

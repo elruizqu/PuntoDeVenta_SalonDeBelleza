@@ -3,6 +3,8 @@
 @{
     ViewData["Cierre"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
 
 <head>
@@ -64,9 +66,19 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert(data.message);
+                        Swal.fire({
+                            icon: 'success',
+                            title: '¡Cierre Registrado!',
+                            text: data.message,
+                            confirmButtonText: 'Aceptar'
+                        });
                     } else {
-                        alert("Error al registrar el cierre.");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Hubo un problema al registrar el cierre. Por favor, inténtalo de nuevo.',
+                            confirmButtonText: 'Aceptar'
+                        });
                     }
                 });
         });

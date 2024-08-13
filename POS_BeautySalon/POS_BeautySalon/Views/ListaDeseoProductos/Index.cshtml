@@ -47,3 +47,11 @@
 </section>
 </body>
 </html>
+<br>
+<br>
+@if (TempData["Warning"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["Warning"]
+    </div>
+}

@@ -77,19 +77,19 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
         {
 
             [Required(ErrorMessage = "El campo de nombre es requerido")]
-            [MaxLength(20, ErrorMessage = "El largo maximo es de 20")]
+            [MaxLength(20, ErrorMessage = "El largo maximo del nombre son 20 letras")]
             public string Nombre { get; set; }
 
             [Required(ErrorMessage = "El campo de apellido es requerido")]
-            [MaxLength(100)]
+            [MaxLength(30, ErrorMessage = "El largo maximo del apellido son 20 letras")]
             public string Apellido { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "El campo de correo es requerido")]
+            [EmailAddress(ErrorMessage = "El campo de correo no es una dirección de correo válida.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -97,10 +97,10 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "La contraseña es requerida")]
+            [StringLength(10, ErrorMessage = "La contraseña debe tener al menos 6 caracteres y un caracter especial.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
             /// <summary>
@@ -108,8 +108,8 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmar contraseña")]
+            [Compare("Password", ErrorMessage = "Las contraseñas ingresadas no coinciden.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -166,7 +166,7 @@ namespace POS_BeautySalon.Areas.Identity.Pages.Account
                  }
              }
 
-             // If we got this far, something failed, redisplay form
+             
              return Page();
          }
 
