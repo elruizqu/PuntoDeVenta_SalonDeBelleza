@@ -20,7 +20,7 @@
                     @foreach(var item in Model)
                     {
                         <li class="promotion-item text-center">
-                            <h3>@Html.DisplayFor(modelItem => item.Servicio.Nombre)</h3>
+                            <h3 style="font-weight:bold; text-transform: uppercase;">@Html.DisplayFor(modelItem => item.Servicio.Nombre)</h3>
                             @if (item.ImagenPromocion != null && item.ImagenPromocion.Length > 0)
                             {
                                 <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.ImagenPromocion))" width="250" height="250"/>

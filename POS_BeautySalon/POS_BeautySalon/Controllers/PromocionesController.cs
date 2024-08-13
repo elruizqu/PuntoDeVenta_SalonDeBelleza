@@ -40,6 +40,7 @@ namespace POS_BeautySalon.Controllers
 
         public async Task<IActionResult> CatalogoProm()
         {
+            var promociones = await _context.Promociones.Include(p => p.Servicio).ToListAsync();
             return View(await _context.Promociones.ToListAsync());
         }
 

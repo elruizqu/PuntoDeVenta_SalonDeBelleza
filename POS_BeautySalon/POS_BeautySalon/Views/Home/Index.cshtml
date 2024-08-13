@@ -42,23 +42,23 @@
     <br />
     <!-- Formulario para crear un nuevo comentario -->
     <div class="comment-form">
-        <h5>Agregar un comentario:</h5>
+        
+    <!-- Parte para mostrar los comentarios -->
+        <div id="comments-container">
+        <partial name="_CommentsPartial" model="Model" />
+        </div>
+
         <form id="create-comment-form">
             <textarea id="Detalle" name="Detalle" rows="2" cols="50" placeholder="Escribe tu comentario aquí..." required></textarea>
             <br />
             <input type="hidden" id="ClienteId" name="ClienteId" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
-            <br />
+
             <button class="w-45 btn btn-lg  btn-dark" type="submit">Enviar</button>
         </form>
-    
 
-    
-        <br />
-        <br />
-    <!-- Parte para mostrar los comentarios -->
-    <div id="comments-container">
-        <partial name="_CommentsPartial" model="Model" />
-    </div>
+        <div class="error-message" id="error-message">
+            Hubo un error al enviar tu comentario. Por favor, valida si estás logueado.
+        </div>
     </div>
 
 
@@ -76,9 +76,10 @@
                     success: function (data) {
                         $('#comments-container').html(data);
                         $('#Detalle').val(''); // Limpiar el campo del formulario
+                        $('#error-message').hide(); // Ocultar el mensaje de error si el envío fue exitoso
                     },
                     error: function () {
-                        alert('Hubo un error al enviar tu comentario. Por favor, inténtalo de nuevo.');
+                        $('#error-message').show(); // Mostrar el mensaje de error en el div
                     }
                 });
             });

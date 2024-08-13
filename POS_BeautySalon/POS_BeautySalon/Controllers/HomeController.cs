@@ -60,7 +60,7 @@ namespace POS_BeautySalon.Controllers
                 return PartialView("_CommentsPartial", comentarios);
             }
 
-            return BadRequest("Hubo un error al procesar tu solicitud.");
+            return BadRequest("Hubo un error al procesar tu solicitud, valida si estas logueado.");
         }
 
         public IActionResult Privacy()

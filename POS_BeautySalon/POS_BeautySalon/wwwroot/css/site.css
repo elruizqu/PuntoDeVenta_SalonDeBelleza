@@ -301,12 +301,10 @@ tbody tr:hover {
     margin-bottom: 30px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     background-color: rgba(245, 203, 215, 0.6);
     font-size: 20px;
-    font-weight: bold
 }
 
     .promotion-item:hover {
@@ -334,18 +332,19 @@ tbody tr:hover {
 .comment-form {
     margin-top: 180px;
     padding: 30px;
+    width: 100%;
     background-color: rgba(245, 203, 215, 0.6);
 }
 
 #comments-container {
-    max-height: 200px; /* Altura máxima del contenedor */
+    max-height: 300px; /* Altura máxima del contenedor */
     overflow-y: auto; /* Habilitar scroll vertical */
     padding: 15px; /* Espaciado interno */
     border: 1px solid #ccc; /* Borde del contenedor */
     border-radius: 5px; /* Bordes redondeados */
     background-color: #f9f9f9; /* Color de fondo */
     margin: 0 auto; /* Centramos el contenedor */
-    max-width: 1000px; /* Ancho máximo del contenedor */
+    max-width: 100%; /* Ancho máximo del contenedor */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para un efecto visual */
 }
 
@@ -675,9 +674,17 @@ input[type="password"] {
 .error-message {
     color: red;
     margin-top: 10px;
+    display: none;
+    text-align: center;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 20px;
+    margin-left: 300px;
+
 }
 
-
+  
 /*agregar producto*/
 .body-ap {
     font-family: Arial, sans-serif;
