@@ -1,0 +1,777 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/027/803/748/non_2x/light-cream-beige-wood-grain-background-texture-free-photo.jpg);
+    background-size: cover;
+    background-position-y: top;
+}
+
+.navbar {
+    background-color: rgb(245, 203, 215);
+    color: rgb(13, 26, 38);
+    padding-top: 5px;
+    padding-bottom: 0.5px;
+}
+
+.logo {
+    padding-top: 15px;
+}
+
+.logo1 {
+    padding-top: 15px;
+    width: 150px;
+}
+
+.logoimg {
+    width: 150px;
+}
+
+.navbar-nav .nav-link {
+    color: rgb(13, 26, 38);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    margin: 0 20px;
+    padding: 0 4px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+
+    /* Animated Bottom Line */
+    .navbar-nav .nav-link:before,
+    .navbar-nav .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        bottom: -1px;
+        background: rgb(13, 26, 38);
+    }
+
+    .navbar-nav .nav-link:before {
+        left: 0;
+        transition: 0.5s;
+    }
+
+    .navbar-nav .nav-link:after {
+        background: rgb(13, 26, 38);
+        right: 0;
+    }
+
+    .navbar-nav .nav-link:hover:before {
+        background: rgb(13, 26, 38);
+        width: 100%;
+        transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+    }
+
+    .navbar-nav .nav-link:hover:after {
+        background: transparent;
+        width: 100%;
+    }
+
+
+
+.desc {
+    font-weight: lighter;
+    text-align: center;
+
+}
+
+.home {
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
+    margin: 15px;
+    padding: 70px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.home hr {
+    width: 100%; /* Asegurar que el título y la línea horizontal ocupen el ancho completo */
+    text-align: center;
+}
+
+.fondoTransparente {
+    flex-direction: column; /* Alinear elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    text-align: center; /* Alinear texto al centro */
+    width: 800px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .fondoTransparente form {
+        width: 100%; /* Asegurar que el formulario tome el 100% del contenedor */
+        max-width: 600px; /* Limitar el ancho máximo del formulario */
+    }
+
+    .fondoTransparente .form-group {
+        text-align: left; /* Alinear los textos de los labels a la izquierda */
+        width: 100%;
+        margin-bottom: 20px; /* Añadir espacio entre los grupos de formulario */
+    }
+
+    .fondoTransparente .form-control {
+        padding: 15px; /* Incrementar el padding para agrandar los campos de texto */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        width: 100%; /* Asegurar que los campos de texto tomen el 100% del contenedor */
+        border-radius: 10px; /* Bordes redondeados */
+    }
+
+    .fondoTransparente .btn {
+        width: 100%; /* Hacer que los botones ocupen el ancho completo */
+        padding: 15px; /* Incrementar el padding para agrandar los botones */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        margin-top: 10px;
+    }
+
+    .fondoTransparente h2, .fondoTransparente hr {
+        width: 100%; /* Asegurar que el título y la línea horizontal ocupen el ancho completo */
+        text-align: center;
+    }
+
+    .fondoTransparente a.btn {
+        display: block; /* Hacer que el enlace sea un bloque para centrarlo */
+        width: 100%; /* Hacer que el enlace ocupe el ancho completo */
+        padding: 15px; /* Incrementar el padding para agrandar el enlace */
+        font-size: 18px; /* Incrementar el tamaño de la fuente */
+        margin-top: 10px;
+    }
+
+#footer {
+    
+    width: 100%;
+}
+
+.footercolor {
+    padding: 10px;
+    background-color: rgb(225, 255, 255, 0.7);
+}
+
+
+/*Productos (Catalogo)*/
+
+.cards {
+    padding: 20px;
+}
+
+.card-text {
+    padding: 40px;
+}
+
+
+/*Evaluacion proveedores*/
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+    .rating input {
+        display: none;
+    }
+
+    .rating label {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2L9.38 8.345 2 9.557l5.72 4.617L5.5 21l6.5-4.893L18.5 21l-2.22-6.826L22 9.557l-7.38-1.212L12 2zm0 2.12L14.38 9H21l-5.02 4.01L17.5 20l-3.48-10.99L8.52 20 11 13.01 6 9h6.62L12 4.12z"/></svg>');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .rating input:checked ~ label {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2L9.38 8.345 2 9.557l5.72 4.617L5.5 21l6.5-4.893L18.5 21l-2.22-6.826L22 9.557l-7.38-1.212L12 2zm0 2.12L14.38 9H21l-5.02 4.01L17.5 20l-3.48-10.99L8.52 20 11 13.01 6 9h6.62L12 4.12z" fill="%23FFD700"/></svg>');
+    }
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin: 20px;
+    max-width: 400px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+.card-footer {
+    color: purple;
+    font-weight: bold;
+    text-align: end;
+}
+
+/*Contabilidad*/
+.sales-section {
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.sales-table {
+    overflow-x: auto;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #000;
+    color: #fff;
+}
+
+
+tbody tr:hover {
+    background-color: #e9e9e9;
+}
+
+/*Promociones*/
+.promotions-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.promotion-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.promotion-item {
+    height: 400px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 20px;
+}
+
+    .promotion-item:hover {
+        transform: scale(1.05);
+    }
+
+    .promotion-item h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        margin-top: 30px;
+        color: #333;
+    }
+
+.original-price,
+.discount-price {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+    .discount-price span {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+.comment-form {
+    margin-top: 180px;
+    padding: 30px;
+    width: 100%;
+    background-color: rgba(245, 203, 215, 0.6);
+}
+
+#comments-container {
+    max-height: 300px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilitar scroll vertical */
+    padding: 15px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo */
+    margin: 0 auto; /* Centramos el contenedor */
+    max-width: 100%; /* Ancho máximo del contenedor */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para un efecto visual */
+}
+
+.comment {
+    margin-bottom: 20px; /* Espaciado entre comentarios */
+    padding: 10px; /* Espaciado interno del comentario */
+    background-color: rgba(245, 203, 215, 0.6); /* Color de fondo de cada comentario */
+    border-radius: 4px; /* Bordes redondeados de cada comentario */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra para los comentarios */
+}
+
+    .comment h5 {
+        margin: 0; /* Margen del título del comentario */
+        font-size: 16px; /* Tamaño de fuente del título */
+        color: #333; /* Color del texto del título */
+    }
+
+    .comment p {
+        margin: 5px 0 0; /* Margen del contenido del comentario */
+        font-size: 14px; /* Tamaño de fuente del contenido */
+        color: #666; /* Color del texto del contenido */
+    }
+
+
+/*Opiniones*/
+.opinions-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: rgba(245, 203, 215, 0.6);
+}
+
+.opinion-form h3,
+.opinions-list h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.opinions-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.opinions-list li {
+    position: relative;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+    .opinions-list li::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-top-color: #007bff;
+        border-bottom: 0;
+        margin-left: -10px;
+        margin-top: -1px;
+    }
+
+    .opinions-list li strong {
+        font-weight: bold;
+    }
+
+/*Programa lealtad*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.carta {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .carta h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    .carta p, .carta ul {
+        margin-bottom: 20px;
+    }
+
+    .carta ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .carta li {
+        margin-bottom: 10px;
+    }
+
+.busqueda {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    padding: 5px; /* Espacio interno */
+    flex-wrap: wrap;
+}
+
+    .busqueda input {
+        flex: 1 1 100%;
+        border: none;
+        padding: 10px;
+        margin-right: 5px; /* Espacio entre el input y el botón */
+        border-radius: 20px;
+        outline: none; /* Quitar borde al enfocar */
+        background-color: #fff; /* Fondo del input */
+    }
+
+    .busqueda select {
+        flex: 1 1 100%;
+        border: none;
+        padding: 10px;
+        margin-right: 5px; /* Espacio entre el select y el botón */
+        border-radius: 10px;
+        outline: none; /* Quitar borde al enfocar */
+        background-color: #fff; /* Fondo del select */
+    }
+
+    .busqueda button {
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        align-self: center;
+        margin-top: 10px;
+    }
+
+
+.contenedor-busq {
+    display: flex;
+    justify-content: start;
+    margin: 20px 0; /* Margen arriba y abajo */
+}
+
+
+/*catalogo titulos*/
+
+.titulos_cat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 35px;
+    font-weight: bold;
+    width: 1200px;
+    height: 90px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor-prod {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(245, 203, 215, 0.6);
+    font-size: 20px;
+    font-weight: bold;
+    width: 1200px;
+    height: 200px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+/*login*/
+
+.contenedor-log {
+    width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: rgba(245, 203, 215, 0.6);
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h2-log {
+    text-align: center;
+    color: #333;
+}
+
+.form-log {
+    margin-top: 20px;
+}
+
+.label-log {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.button-log {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.recuperar-contrasena {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+    .recuperar-contrasena:hover {
+        text-decoration: underline;
+    }
+
+
+/*Registro / login*/
+
+.registration-section {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 25px;
+    background-color: rgba(245, 203, 215, 0.6);
+}
+
+.registration-section h2 {
+    color: #333;
+    text-align: center;
+}
+
+.registration-section form-group {
+    margin-bottom: 15px;
+}
+
+.registration-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+
+
+    button.green {
+        background-color: #28a745; /* Color verde */
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+    background-color: white;
+    width: 500px;
+    height: 60px;
+    border-radius: 20px;
+    margin-left: 300px;
+
+}
+
+  
+/*agregar producto*/
+.body-ap {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.formulario-ap {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h2-ap {
+    text-align: center;
+    color: #333;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.label-ap {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+textarea,
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Para incluir el padding y el borde en el ancho total */
+}
+
+textarea {
+    resize: none; /* Para evitar que el usuario cambie el tamaño del área de texto */
+}
+
+.button-ap {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+select,
+textarea,
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Para incluir el padding y el borde en el ancho total */
+}
+
+
+
+
+.boton-izquierda {
+    float: right; /* Alinea el botón a la izquierda */
+}
+
+.titulos_rep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 203, 215);
+    font-size: 25px;
+    font-weight: bold;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+}

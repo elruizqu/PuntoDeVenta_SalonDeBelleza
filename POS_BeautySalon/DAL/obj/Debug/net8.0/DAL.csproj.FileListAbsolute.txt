@@ -42,18 +42,3 @@ C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarr
 C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.pdb
 C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
 C:\Users\elena\Desktop\Universidad\2024\Segundo cuatrimestre\2. Diseño y desarrollo\Github\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\ref\DAL.dll
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.deps.json
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.dll
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\bin\Debug\net8.0\DAL.pdb
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.sourcelink.json
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.dll
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\refint\DAL.dll
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.pdb
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
-C:\Users\owenm\OneDrive\Desktop\PuntoDeVenta_SalonDeBelleza\POS_BeautySalon\DAL\obj\Debug\net8.0\ref\DAL.dll
