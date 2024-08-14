@@ -98,17 +98,6 @@
         </div>
     </div>
 
-@*<h3>Resumen de Ventas</h3>
-    <br />
-<p>Total de Ventas: @ViewBag.ResumenVentas.TotalVentas</p>
-<p>Ganancia total en venta de Productos: @ViewBag.ResumenVentas.TotalProductos</p>
-<p>Ganancia total en venta de  Servicios: @ViewBag.ResumenVentas.TotalServicios</p>
-    <br />
-<h3>Reporte de Balances Generales</h3>
-    <br />
-<p>Inversión de productos actualmente en stock: @ViewBag.ReporteBalances.TotalStockValorado</p>
-<p>Ganacia total de venta de productos y servicios: @ViewBag.ReporteBalances.TotalIngresos</p>
-<p>Costo total (proveedor) en productos vendidos: @ViewBag.ReporteBalances.TotalCostos</p>*@
 
    
 <br>
@@ -130,7 +119,7 @@
             datasets: [{
                 label: 'Ventas',
                 data: [@ViewBag.ResumenVentas.TotalProductos, @ViewBag.ResumenVentas.TotalServicios],
-                backgroundColor: ['#FF5733', '#33FF57']
+                    backgroundColor: ['#40c5d7', '#da3f67']
             }]
         },
         options: {
@@ -151,7 +140,7 @@
             datasets: [{
                 label: 'Balances Generales',
                 data: [@ViewBag.ReporteBalances.TotalStockValorado, @ViewBag.ReporteBalances.TotalIngresos, @ViewBag.ReporteBalances.TotalCostos],
-                backgroundColor: ['#FFC300', '#DAF7A6', '#FF5733']
+                    backgroundColor: ['#FFC300', '#dcdfa4', '#bc959f']
             }]
         },
         options: {

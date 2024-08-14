@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POS_BeautySalon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2167a81970b75cb43e32aa4ee159d49edaa049d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f986621cf7f134a6d4784b8ab6a8afd97e3395c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("POS_BeautySalon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POS_BeautySalon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

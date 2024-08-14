@@ -186,12 +186,18 @@ namespace POS_BeautySalon.Controllers
 
             var total = carritoProveedor.CalcularTotal();
 
+
+            //CAMBIO DE ZONA HORARIA DE UTC A MST AGREGADO
+            var mountainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time");
+            var fechaMST = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, mountainTimeZone);
+
             // Crear una única factura
             var facturaProveedor = new FacturaProveedor
             {
                 ProveedorId = carritoProveedor.ProveedorId,
                 PrecioTotal = total,
-                Fecha = DateTime.Now,
+                //Fecha = DateTime.Now, Asi estaba antes
+                Fecha = fechaMST,
             };
 
             _salonContext.FacturaProveedores.Add(facturaProveedor);

@@ -26,13 +26,27 @@ namespace POS_BeautySalon.Controllers
 
         public IActionResult Index()
         {
+            // Obtener la zona horaria Mountain Standard Time (MST)
+            var mountainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time");
+
+            // Convertir la fecha y hora actual UTC a MST y obtener solo la fecha
+            var hoy = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, mountainTimeZone).Date;
+
+
             // Mostrar las facturas del día actual
-            var hoy = DateTime.Today;
+            //var hoy = DateTime.Today; ASI ESTABA ANTES
             var facturasDeHoy = _salonContext.Facturas
                 .Include(f => f.Cliente) 
                 .Where(f => f.Fecha >= hoy)
                 .ToList();
 
+            // Formatear la hora en 12 horas para cada factura
+            foreach (var factura in facturasDeHoy)
+            {
+                
+                var fechaLocal = TimeZoneInfo.ConvertTimeFromUtc(factura.Fecha, mountainTimeZone);
+                factura.Fecha = DateTime.Parse(fechaLocal.ToString("MM/dd/yyyy hh:mm tt"));
+            }
             return View(facturasDeHoy);
         }
 
@@ -43,7 +57,11 @@ namespace POS_BeautySalon.Controllers
         [HttpPost]
         public async Task<IActionResult> RegistrarCierre()
         {
-            var hoy = DateTime.Today;
+            // Obtener la zona horaria Mountain Standard Time (MST)
+            var mountainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time");
+
+            // Convertir la fecha y hora actual UTC a MST y obtener solo la fecha
+            var hoy = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, mountainTimeZone).Date;
 
             // Obtener todas las facturas generadas hoy junto con sus detalles
             var facturasDeHoy = await _salonContext.Facturas
@@ -66,9 +84,13 @@ namespace POS_BeautySalon.Controllers
 
             var totalCierre = totalProductos + totalServicios;
 
+            // Convertir la fecha y hora actual UTC a MST con formato de 12 horas (AM/PM)
+            var fechaCierreMST = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, mountainTimeZone);
+            var fechaCierreMST12Horas = DateTime.Parse(fechaCierreMST.ToString("MM/dd/yyyy hh:mm tt"));
+
             var cierre = new Cierre
             {
-                FechaCierre = DateTime.Now,
+                FechaCierre = fechaCierreMST12Horas,
                 TotalProductos = totalProductos,
                 TotalServicios = totalServicios,
                 TotalCierre = totalCierre
@@ -79,6 +101,8 @@ namespace POS_BeautySalon.Controllers
 
             return Json(new { success = true, message = "Cierre registrado con éxito." });
         }
+
+
 
 
 
