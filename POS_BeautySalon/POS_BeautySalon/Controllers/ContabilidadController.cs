@@ -32,10 +32,24 @@ namespace POS_BeautySalon.Controllers
 
         private IEnumerable<Factura> ObtenerFacturasDelDia()
         {
-            var hoy = DateTime.Today;
+            /*var hoy = DateTime.Today;
             return _salonContext.Facturas
                 .Include(f => f.Cliente) // Incluye los clientes para mostrar sus nombres
                 .Where(f => f.Fecha >= hoy && f.Fecha < hoy.AddDays(1))
+                .ToList();*/
+
+            // Obtener la zona horaria MST
+            var mountainTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time");
+
+            // Calcular el rango de tiempo de hoy en MST, convertido a UTC
+            var hoyMST = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, mountainTimeZone).Date;
+            var inicioDelDiaUTC = TimeZoneInfo.ConvertTimeToUtc(hoyMST, mountainTimeZone);
+            var finDelDiaUTC = TimeZoneInfo.ConvertTimeToUtc(hoyMST.AddDays(1), mountainTimeZone);
+
+            // Filtrar las facturas dentro del rango de tiempo en UTC
+            return _salonContext.Facturas
+                .Include(f => f.Cliente) // Incluye los clientes para mostrar sus nombres
+                .Where(f => f.Fecha >= inicioDelDiaUTC && f.Fecha < finDelDiaUTC)
                 .ToList();
         }
 
@@ -64,15 +78,21 @@ namespace POS_BeautySalon.Controllers
         {
             var productos = _salonContext.Productos.ToList();
 
-            var totalStockValorado = productos.Sum(p => p.Cantidad * p.PrecioProveedor); //Costo de los productos en Stock actual, precio provedor * la cantidad que hay en stock
+            var totalProductosStock = productos.Sum(p => p.Cantidad * p.PrecioProveedor); //Costo de los productos en Stock actual, precio provedor * la cantidad que hay en stock
+                                                                                          // var totalFacturasProveedor = productos.;
             var totalIngresos = _salonContext.Cierres.Sum(c => c.TotalCierre); //Suma el total de los cierres que tenemos para sacar la ganancia que llevamos
-            var totalCostos = _salonContext.Facturas.SelectMany(f => f.DetalleFacturas).Where(df => df.ProductoId != null).Sum(df => df.Producto.PrecioProveedor * df.Cantidad);//Suma de los costos de los productos vendidos, calculados como PrecioProveedor * Cantidad para cada producto vendido.
+            var totalFacturas = _salonContext.Facturas.SelectMany(f => f.DetalleFacturas).Where(df => df.ProductoId != null).Sum(df => df.Producto.PrecioProveedor * df.Cantidad);//Suma de los costos de los productos vendidos, calculados como PrecioProveedor * Cantidad para cada producto vendido.
+
+            var totalCostos = totalProductosStock + totalFacturas;
+
+            var totalGanancia = totalIngresos - totalCostos;
 
             return new
             {
-                TotalStockValorado = totalStockValorado,
+                TotalStockValorado = totalProductosStock,
                 TotalIngresos = totalIngresos,
-                TotalCostos = totalCostos
+                TotalCostos = totalCostos,
+                TotalGanancia = totalGanancia
             };
         }
     }
